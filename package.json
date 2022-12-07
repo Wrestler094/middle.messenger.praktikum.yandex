@@ -4,7 +4,7 @@
   "description": "middle.messenger.praktikum.yandex",
   "scripts": {
     "dev": "parcel src/pages/*.hbs --no-cache",
-    "build": "parcel build src/pages/*.hbs && node ./server.js"
+    "build": "parcel build src/pages/*.hbs"
   },
   "repository": {
     "type": "git",
