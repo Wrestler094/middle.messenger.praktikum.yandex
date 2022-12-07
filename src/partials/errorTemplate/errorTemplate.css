@@ -1,0 +1,27 @@
+.error-template {
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+.error-template__header {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.error-template__subheader {
+    margin-bottom: 60px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.error-template__link {
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 500;
+    color: var(--color-accent);
+}

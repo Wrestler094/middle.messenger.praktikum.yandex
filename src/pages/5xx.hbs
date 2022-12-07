@@ -4,6 +4,7 @@ title: Ошибка 5xx
 
 {{#extend "general"}}
     {{#content "main"}}
-        <h2>Ошибка 5хх</h2>
+        {{#> 'errorTemplate/errorTemplate' errorType='500' errorText='Мы уже фиксим'}}
+        {{/'errorTemplate/errorTemplate'}}
     {{/content}}
 {{/extend}}
