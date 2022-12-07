@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-primary: #1E1E1E;
+  --color-secondary: #999999;
+  --color-accent: #615EF0;
+  --color-error: #FF2F2F;
+}
+
+* {
+  all: unset;
+  display: revert;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+body {
+  min-height: 100%;
+  min-width: 340px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-white);
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-black);
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
