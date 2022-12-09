@@ -9,6 +9,7 @@
 @import "./partials/auth/auth.css";
 @import "./partials/reg/reg.css";
 @import "partials/error/error.css";
+@import "partials/settings/settings.css";
 
 
 :root {

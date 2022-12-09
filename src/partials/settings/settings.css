@@ -1,0 +1,15 @@
+.settings {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+}
+
+.settings__link-back {
+    display: grid;
+    height: 100vh;
+}
+
+.settings__profile {
+    width: 510px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
