@@ -1,0 +1,13 @@
+.error-template__header {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.error-template__subheader {
+    margin-bottom: 46px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}

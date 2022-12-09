@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-@import "./partials/errorTemplate/errorTemplate.css";
+@import "./partials/centeredWrapper/centeredWrapper.css";
+
+@import "./partials/button/button.css";
+@import "./partials/input/input.css";
+@import "./partials/link/link.css";
+
+@import "./partials/form/form.css";
+@import "./partials/auth/auth.css";
+@import "./partials/reg/reg.css";
+@import "partials/error/error.css";
+
 
 :root {
   --color-black: #000000;
@@ -29,7 +39,7 @@ img {
   height: auto;
 }
 
-a {
+a, button {
   &:hover {
     opacity: 0.8;
     cursor: pointer;

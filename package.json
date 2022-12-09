@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "middle.messenger.praktikum.yandex",
   "scripts": {
-    "dev": "parcel src/pages/*.hbs --no-cache",
+    "dev": "parcel src/pages/*.hbs --no-cache --open",
     "build": "parcel build src/pages/*.hbs"
   },
   "repository": {
