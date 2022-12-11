@@ -1,3 +1,4 @@
-.auth_password-input {
+.auth__fields {
+    display: grid;
     margin-bottom: 159px;
 }

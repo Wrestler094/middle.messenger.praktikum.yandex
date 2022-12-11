@@ -1,9 +1,11 @@
 {{#> 'form/form' header='Регистрация' btnText='Зарегистрироваться' linkText='Войти'}}
-    {{> 'input/input' id='email' type='email' label='Почта'}}
-    {{> 'input/input' id='login' type='text' label='Логин'}}
-    {{> 'input/input' id='name' type='text' label='Имя'}}
-    {{> 'input/input' id='lastname' type='text' label='Фамилия'}}
-    {{> 'input/input' id='phone' type='tel' label='Телефон'}}
-    {{> 'input/input' id='password' type='password' label='Пароль'}}
-    {{> 'input/input' id='repassword' type='password' label='Пароль (ещё раз)' inputStyles='reg__repass-input'}}
+    <div class="reg__fields">
+        {{> 'input/input' id='email' type='email' label='Почта'}}
+        {{> 'input/input' id='login' type='text' label='Логин'}}
+        {{> 'input/input' id='name' type='text' label='Имя'}}
+        {{> 'input/input' id='lastname' type='text' label='Фамилия'}}
+        {{> 'input/input' id='phone' type='tel' label='Телефон'}}
+        {{> 'input/input' id='password' type='password' label='Пароль'}}
+        {{> 'input/input' id='repassword' type='password' label='Пароль (ещё раз)'}}
+    </div>
 {{/ 'form/form'}}

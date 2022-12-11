@@ -13,4 +13,8 @@
     font-size: 13px;
     line-height: 13px;
     border-bottom: 1px solid var(--color-accent);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
