@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 @import "./partials/centeredWrapper/centeredWrapper.css";
+@import "./partials/chatWrapper/chatWrapper.css";
 
 @import "./partials/button/button.css";
 @import "./partials/input/input.css";
 @import "./partials/link/link.css";
+@import "./partials/search/search.css";
 
+@import "./partials/messageBox/messageBox.css";
+@import "./partials/chatContent/chatContent.css";
+@import "./partials/chats/chats.css";
+@import "partials/chatsHeader/chatsHeader.css";
+@import "partials/chatHeader/chatHeader.css";
+@import "./partials/mainChat/mainChat.css";
+@import "./partials/chat/chat.css";
 @import "./partials/form/form.css";
 @import "./partials/auth/auth.css";
 @import "./partials/reg/reg.css";
