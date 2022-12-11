@@ -4,11 +4,10 @@
 
 @import "./partials/button/button.css";
 @import "./partials/input/input.css";
-@import "./partials/link/link.css";
 @import "./partials/profileEditInput/profileEditInput.css";
+@import "./partials/link/link.css";
 @import "./partials/search/search.css";
 @import "./partials/modal/modal.css";
-
 @import "./partials/control/control.css";
 @import "./partials/userInfo/userInfo.css";
 @import "./partials/messageBox/messageBox.css";
