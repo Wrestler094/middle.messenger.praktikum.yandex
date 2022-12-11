@@ -5,20 +5,23 @@
 @import "./partials/button/button.css";
 @import "./partials/input/input.css";
 @import "./partials/link/link.css";
+@import "./partials/profileEditInput/profileEditInput.css";
 @import "./partials/search/search.css";
 
+@import "./partials/control/control.css";
+@import "./partials/userInfo/userInfo.css";
 @import "./partials/messageBox/messageBox.css";
 @import "./partials/chatContent/chatContent.css";
 @import "./partials/chats/chats.css";
-@import "partials/chatsHeader/chatsHeader.css";
-@import "partials/chatHeader/chatHeader.css";
+@import "./partials/chatsHeader/chatsHeader.css";
+@import "./partials/chatHeader/chatHeader.css";
 @import "./partials/mainChat/mainChat.css";
 @import "./partials/chat/chat.css";
 @import "./partials/form/form.css";
 @import "./partials/auth/auth.css";
 @import "./partials/reg/reg.css";
-@import "partials/error/error.css";
-@import "partials/settings/settings.css";
+@import "./partials/error/error.css";
+@import "./partials/profile/profile.css";
 
 
 :root {

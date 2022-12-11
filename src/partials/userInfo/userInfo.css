@@ -1,0 +1,33 @@
+.profile-name {
+    margin-bottom: 60px;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.user-info {
+    margin-bottom: 60px;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+}
+
+.user-info__item {
+    display: flex;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EAEAEA;
+    list-style-type: none;
+
+    &:last-child {
+         margin-bottom: 0;
+         padding-bottom: 0;
+         border-bottom: none;
+    }
+}
+
+.user-info__item-data {
+    margin-left: auto;
+    color: var(--color-secondary);
+}

@@ -1,11 +1,9 @@
-/* Settings */
-
-.settings {
+.profile {
     display: grid;
     grid-template-columns: 64px 1fr;
 }
 
-.settings__link-back {
+.profile__link-back {
     height: 100vh;
     display: grid;
     align-items: center;
@@ -14,16 +12,10 @@
     border-right: 1px solid #EAEAEA;
 }
 
-.settings__profile {
+.profile__data {
     width: 510px;
     margin: 0 auto;
     padding-top: 60px;
-}
-
-/* Profile */
-
-.profile {
-
 }
 
 .profile__avatar-wrapper {
@@ -56,72 +48,18 @@
     border-radius: 50%;
 }
 
-.profile__name {
-    margin-bottom: 60px;
-    font-size: 16px;
-    line-height: 16px;
-    font-weight: 600;
-    text-align: center;
-}
-
-.profile__user-info {
+.profile__edit-data {
+    margin-top: 97px;
     margin-bottom: 60px;
 }
 
-/* User info */
-
-.user-info-list {
-
+.profile__edit-pass {
+    margin-top: 91px;
+    margin-bottom: 162px;
 }
 
-.user-info-list__item {
-    display: flex;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #EAEAEA;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-    list-style-type: none;
-
-    &:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-    }
-}
-
-.user-info-list__item-data {
-    margin-left: auto;
-    color: var(--color-secondary);
-}
-
-/* Control */
-
-.control-list {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-}
-
-.control-list__item {
-    display: grid;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #EAEAEA;
-
-    &:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-    }
-}
-
-.control-list__link {
-    color: var(--color-accent);
-}
-
-.control-list__link--error {
-    color: #FF0000;
+.profile__save-button {
+    margin: 0 auto;
 }
 
 /* Modal */
