@@ -1,0 +1,54 @@
+.main-chat__content {
+    padding: 24px;
+}
+
+.companion-messages {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-column-gap: 16px;
+    margin-bottom: 32px;
+}
+
+.companion-messages__avatar {
+
+}
+
+.companion-messages__message {
+    grid-column: 2/3;
+    width: max-content;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background: #F1F1F1;
+    border-radius: 12px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.my-messages {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-column-gap: 16px;
+    justify-items: end;
+    margin-bottom: 32px;
+}
+
+.my-messages__avatar {
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.my-messages__message {
+    grid-column: 1/2;
+    width: max-content;
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    border-radius: 12px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

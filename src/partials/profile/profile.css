@@ -1,0 +1,63 @@
+.profile {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+}
+
+.profile__link-back {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #FBFBFB;
+    border-right: 1px solid #EAEAEA;
+}
+
+.profile__data {
+    width: 510px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.profile__avatar-wrapper {
+    position: relative;
+    height: 130px;
+    width: 130px;
+    margin: 0 auto 21px auto;
+
+    &:hover:after {
+        content: 'Поменять аватар';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 130px;
+        width: 130px;
+        padding: 51px 33px;
+        font-size: 13px;
+        line-height: 14px;
+        font-weight: 500;
+        text-align: center;
+        color: var(--color-white);
+        background-color: var(--color-black);
+        border-radius: 50%;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+}
+
+.profile__avatar {
+    border-radius: 50%;
+}
+
+.profile__edit-data {
+    margin-top: 97px;
+    margin-bottom: 60px;
+}
+
+.profile__edit-pass {
+    margin-top: 91px;
+    margin-bottom: 162px;
+}
+
+.profile__save-button {
+    margin: 0 auto;
+}

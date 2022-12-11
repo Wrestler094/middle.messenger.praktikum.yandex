@@ -4,6 +4,9 @@ title: Чат
 
 {{#extend "general"}}
     {{#content "main"}}
-        <h2>Чат</h2>
+        {{#> 'chatWrapper/chatWrapper'}}
+            {{> 'chats/chats'}}
+            {{> 'mainChat/mainChat'}}
+        {{/ 'chatWrapper/chatWrapper'}}
     {{/content}}
 {{/extend}}

@@ -1,0 +1,25 @@
+.profile-edit-input {
+  display: flex;
+  margin-bottom: 10px;
+  padding-bottom: 7.5px;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid #EAEAEA;
+  list-style-type: none;
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.profile-edit-input__field {
+  margin-left: auto;
+  text-align: right;
+
+  &::placeholder {
+    color: var(--color-secondary);
+  }
+}

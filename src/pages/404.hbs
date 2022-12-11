@@ -4,6 +4,8 @@ title: Ошибка 404
 
 {{#extend "general"}}
     {{#content "main"}}
-        <h2>Ошибка 404</h2>
+        {{#> 'centeredWrapper/centeredWrapper'}}
+            {{> 'error/error' errorType='404' errorText='Не туда попали'}}
+        {{/ 'centeredWrapper/centeredWrapper'}}
     {{/content}}
 {{/extend}}
