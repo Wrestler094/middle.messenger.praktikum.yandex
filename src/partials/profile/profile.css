@@ -61,27 +61,3 @@
 .profile__save-button {
     margin: 0 auto;
 }
-
-/* Modal */
-
-.modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.modal__content {
-    width: 340px;
-    padding: 40px 30px;
-    background: var(--color-white);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
-    border-radius: 12px;
-}
-
-
