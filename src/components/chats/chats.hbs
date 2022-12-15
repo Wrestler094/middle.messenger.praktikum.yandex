@@ -1,0 +1,13 @@
+<aside class="chats">
+    {{> 'chatsHeader/chatsHeader' styles='chats__header'}}
+    <div class="chats__search">
+        {{> 'search/search'}}
+    </div>
+    <ul class="chats__chat-list">
+        {{> 'chat/chat' name='Elmer Laverty' time='12m'}}
+        {{> 'chat/chat' name='Florencio Dorrance' time='1h'}}
+        {{> 'chat/chat' active=true name='Geoffrey Mott' time='24m'}}
+        {{> 'chat/chat' name='Lavern Laboy' time='1m'}}
+        {{> 'chat/chat' name='Titus Kitamura' time='2d'}}
+    </ul>
+</aside>

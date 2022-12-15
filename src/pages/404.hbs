@@ -1,0 +1,11 @@
+---
+title: Ошибка 404
+---
+
+{{#extend "general"}}
+    {{#content "main"}}
+        {{#> 'centeredWrapper/centeredWrapper'}}
+            {{> 'error/error' errorType='404' errorText='Не туда попали'}}
+        {{/ 'centeredWrapper/centeredWrapper'}}
+    {{/content}}
+{{/extend}}

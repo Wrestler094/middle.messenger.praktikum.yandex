@@ -1,0 +1,34 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "middle.messenger.praktikum.yandex",
+  "scripts": {
+    "dev": "parcel src/pages/*.hbs --no-cache --open",
+    "build": "parcel build src/pages/*.hbs",
+    "start": "parcel build src/pages/*.hbs && node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "Mikhail Kovalev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex#readme",
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "parcel": "2.8.0",
+    "postcss-import": "15.0.1",
+    "postcss-nested": "6.0.0"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "postcss": "8.4.19"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  }
+}

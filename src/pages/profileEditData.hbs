@@ -1,0 +1,49 @@
+---
+title: Редактирование профиля
+---
+
+{{#extend "general"}}
+    {{#content "main"}}
+        {{#> 'profile/profile'}}
+            <ul class="profile__edit-data">
+                {{> 'profileEditInput/profileEditInput'
+                    label='Почта'
+                    placeholder='pochta@yandex.ru'
+                    type='email'
+                    name='email'
+                }}
+                {{> 'profileEditInput/profileEditInput'
+                    label='Логин'
+                    placeholder='ivanivanov'
+                    type='text'
+                    name='login'
+                }}
+                {{> 'profileEditInput/profileEditInput'
+                    label='Имя'
+                    placeholder='Иван'
+                    type='text'
+                    name='first_name'
+                }}
+                {{> 'profileEditInput/profileEditInput'
+                    label='Фамилия'
+                    placeholder='Иванов'
+                    type='text'
+                    name='second_name'
+                }}
+                {{> 'profileEditInput/profileEditInput'
+                    label='Имя в чате'
+                    placeholder='Иван'
+                    type='text'
+                    name='display_name'
+                }}
+                {{> 'profileEditInput/profileEditInput'
+                    label='Телефон'
+                    placeholder='+7 (909) 967 30 30'
+                    type='tel'
+                    name='phone'
+                }}
+            </ul>
+            {{> 'button/button' text='Сохранить' styles='profile__save-button' }}
+        {{/ 'profile/profile'}}
+    {{/content}}
+{{/extend}}
