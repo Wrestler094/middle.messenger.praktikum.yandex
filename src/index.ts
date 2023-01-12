@@ -1,3 +1,3 @@
-const ts: string = "TS test text";
+const ts: string = 'TS test text'
 
-console.log(ts);
+console.log(ts)

@@ -1,89 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-@import "components/centeredWrapper/centeredWrapper.css";
-@import "components/chatWrapper/chatWrapper.css";
-
-@import "components/button/button.css";
-@import "components/input/input.css";
-@import "components/profileEditInput/profileEditInput.css";
-@import "components/link/link.css";
-@import "components/search/search.css";
-@import "components/modal/modal.css";
-@import "components/control/control.css";
-@import "components/userInfo/userInfo.css";
-@import "components/messageBox/messageBox.css";
-@import "components/chatContent/chatContent.css";
-@import "components/chats/chats.css";
-@import "components/chatsHeader/chatsHeader.css";
-@import "components/chatHeader/chatHeader.css";
-@import "components/mainChat/mainChat.css";
-@import "components/chat/chat.css";
-@import "components/form/form.css";
-@import "components/auth/auth.css";
-@import "components/reg/reg.css";
-@import "components/error/error.css";
-@import "components/profile/profile.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("components/centeredWrapper/centeredWrapper.css");
+@import url("components/chatWrapper/chatWrapper.css");
+@import url("components/button/button.css");
+@import url("components/input/input.css");
+@import url("components/profileEditInput/profileEditInput.css");
+@import url("components/link/link.css");
+@import url("components/search/search.css");
+@import url("components/modal/modal.css");
+@import url("components/control/control.css");
+@import url("components/userInfo/userInfo.css");
+@import url("components/messageBox/messageBox.css");
+@import url("components/chatContent/chatContent.css");
+@import url("components/chats/chats.css");
+@import url("components/chatsHeader/chatsHeader.css");
+@import url("components/chatHeader/chatHeader.css");
+@import url("components/mainChat/mainChat.css");
+@import url("components/chat/chat.css");
+@import url("components/form/form.css");
+@import url("components/auth/auth.css");
+@import url("components/reg/reg.css");
+@import url("components/error/error.css");
+@import url("components/profile/profile.css");
 
 :root {
-  --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-primary: #1E1E1E;
-  --color-secondary: #999999;
-  --color-accent: #615EF0;
-  --color-error: #FF2F2F;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-primary: #1e1e1e;
+    --color-secondary: #999;
+    --color-accent: #615ef0;
+    --color-error: #ff2f2f;
 }
 
 * {
-  all: unset;
-  display: revert;
+    all: unset;
+    display: revert;
 }
 
 html {
-  height: 100%;
-  box-sizing: border-box;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
-a, button {
-  &:hover {
-    opacity: 0.8;
-    cursor: pointer;
-  }
+a,
+button {
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 
-  &:active {
-    opacity: 0.6;
-  }
+    &:active {
+        opacity: 0.6;
+    }
 }
 
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 body {
-  min-height: 100%;
-  min-width: 340px;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--color-white);
-  font-size: 14px;
-  line-height: 150%;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--color-primary);
+    min-height: 100%;
+    min-width: 340px;
+    font-family: Inter, sans-serif;
+    background-color: var(--color-white);
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-primary);
 }

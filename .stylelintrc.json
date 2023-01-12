@@ -1,16 +1,16 @@
 {
-  "extends": "stylelint-config-standard",
-  "plugins": [
-    "stylelint-scss"
+  "extends": [
+    "stylelint-config-standard",
+    "./node_modules/prettier-stylelint/config.js"
   ],
   "rules": {
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
-    "color-hex-case": "lower",
-    "selector-class-pattern": "[\\s\\S]*"
+    "indentation": 4,
+    "string-quotes": "double"
   },
   "ignoreFiles": [
     "dist/*",
-    "node_modules/*"
+    "node_modules/*",
+    ".parcel-cache/*",
+    ".github/*"
   ]
 }
