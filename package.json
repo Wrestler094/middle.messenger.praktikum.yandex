@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "middle.messenger.praktikum.yandex",
   "scripts": {
-    "dev": "parcel src/pages/*.hbs --no-cache --open",
+    "dev": "parcel src/index.html --no-cache --open",
     "build": "parcel build src/pages/*.hbs",
     "start": "parcel build src/pages/*.hbs && node ./server.js",
     "eslint": "eslint ./src/ --ext .ts",
     "eslint-fix": "eslint --fix ./src/ --ext .ts",
     "stylelint": "stylelint **/*.css",
     "stylelint-fix": "stylelint --fix **/*.css"
+  },
+  "alias": {
+    "core": "./src/core",
+    "components": "./src/components",
+    "helpers": "./src/helpers",
+    "pages": "./src/pages",
+    "static": "./static"
   },
   "repository": {
     "type": "git",
@@ -23,16 +30,16 @@
   },
   "homepage": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars": "1.0.9",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "eslint": "8.31.0",
     "eslint-config-standard-with-typescript": "27.0.1",
     "eslint-plugin-import": "2.27.4",
     "eslint-plugin-n": "15.6.1",
     "eslint-plugin-promise": "6.1.1",
+    "handlebars": "4.7.7",
     "parcel": "2.8.0",
-    "postcss-import": "15.0.1",
-    "postcss-nested": "6.0.0",
+    "postcss": "8.4.21",
+    "postcss-import": "15.1.0",
     "prettier": "2.8.2",
     "prettier-stylelint": "0.4.2",
     "stylelint": "14.16.1",
@@ -41,7 +48,7 @@
   },
   "dependencies": {
     "express": "4.18.2",
-    "postcss": "8.4.19"
+    "nanoid": "4.0.0"
   },
   "engines": {
     "node": ">=14.17.0"

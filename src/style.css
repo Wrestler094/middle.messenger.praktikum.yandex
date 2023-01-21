@@ -1,26 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-@import url("components/centeredWrapper/centeredWrapper.css");
-@import url("components/chatWrapper/chatWrapper.css");
-@import url("components/button/button.css");
-@import url("components/input/input.css");
-@import url("components/profileEditInput/profileEditInput.css");
-@import url("components/link/link.css");
-@import url("components/search/search.css");
-@import url("components/modal/modal.css");
-@import url("components/control/control.css");
-@import url("components/userInfo/userInfo.css");
-@import url("components/messageBox/messageBox.css");
-@import url("components/chatContent/chatContent.css");
-@import url("components/chats/chats.css");
-@import url("components/chatsHeader/chatsHeader.css");
-@import url("components/chatHeader/chatHeader.css");
-@import url("components/mainChat/mainChat.css");
-@import url("components/chat/chat.css");
-@import url("components/form/form.css");
-@import url("components/auth/auth.css");
-@import url("components/reg/reg.css");
-@import url("components/error/error.css");
-@import url("components/profile/profile.css");
+
+/* Variables */
 
 :root {
     --color-black: #000;
@@ -30,6 +10,8 @@
     --color-accent: #615ef0;
     --color-error: #ff2f2f;
 }
+
+/* General */
 
 * {
     all: unset;
@@ -52,16 +34,15 @@ img {
     height: auto;
 }
 
-a,
-button {
-    &:hover {
-        opacity: 0.8;
-        cursor: pointer;
-    }
+a:hover,
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
 
-    &:active {
-        opacity: 0.6;
-    }
+a:active,
+button:active {
+    opacity: 0.6;
 }
 
 .visually-hidden {
@@ -87,4 +68,29 @@ body {
     font-weight: 400;
     font-style: normal;
     color: var(--color-primary);
+}
+
+/* Wrapper */
+
+.centered-wrapper {
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+/* Error pages (404, 5xx) */
+
+.error-template__header {
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 500;
+}
+
+.error-template__subheader {
+    margin-bottom: 46px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
 }
