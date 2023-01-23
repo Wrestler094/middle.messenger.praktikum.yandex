@@ -1,5 +1,5 @@
 import Block from 'core/Block'
-import './inputLabel.css'
+import './input__label.css'
 
 interface InputLabelProps {
   id?: string

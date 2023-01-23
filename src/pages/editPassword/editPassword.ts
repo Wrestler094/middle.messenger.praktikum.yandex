@@ -20,8 +20,8 @@ export class EditPasswordPage extends Block {
     // language=hbs
     return `
       <main class="profile">
-        <h1 class="visually-hidden">Настройки профиля</h1>
-        <a class="profile__link-back" href="/">
+        <h1 class="visually-hidden">Смена пароля</h1>
+        <a class="link-back" href="/">
           <img src="${backArrow}" alt="Назад к чатам">
         </a>
         <div class="profile__data">
@@ -29,26 +29,26 @@ export class EditPasswordPage extends Block {
             <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">
           </div>
           <ul class="profile__edit-pass">
-              {{{InlineInput
-                      label='Старый пароль'
-                      placeholder='•••••••••'
-                      type='password'
-                      id='oldPassword'
-              }}}
-              {{{InlineInput
-                      label='Новый пароль'
-                      placeholder='•••••••••'
-                      type='password'
-                      id='newPassword'
-              }}}
-              {{{InlineInput
-                      label='Повторите новый пароль'
-                      placeholder='•••••••••'
-                      type='password'
-                      id='rePassword'
-              }}}
+            {{{InlineInput
+              label='Старый пароль'
+              placeholder='•••••••••'
+              type='password'
+              id='oldPassword'
+            }}}
+            {{{InlineInput
+              label='Новый пароль'
+              placeholder='•••••••••'
+              type='password'
+              id='newPassword'
+            }}}
+            {{{InlineInput
+              label='Повторите новый пароль'
+              placeholder='•••••••••'
+              type='password'
+              id='rePassword'
+            }}}
           </ul>
-          <div style="width: 280px; margin: 0 auto">
+          <div class="profile__button">
             {{{Button text="Сохранить" onClick=onSubmit}}}
           </div>
         </div>

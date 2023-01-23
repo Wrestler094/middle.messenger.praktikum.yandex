@@ -1,6 +1,6 @@
 import Block from 'core/Block'
 
-import './inputField.css'
+import './input__field.css'
 
 interface InputFieldProps {
   onInput?: () => void

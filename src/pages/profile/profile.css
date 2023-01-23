@@ -3,15 +3,6 @@
     grid-template-columns: 64px 1fr;
 }
 
-.profile__link-back {
-    height: 100vh;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    background-color: #fbfbfb;
-    border-right: 1px solid #eaeaea;
-}
-
 .profile__data {
     width: 510px;
     margin: 0 auto;

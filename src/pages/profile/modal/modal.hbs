@@ -6,3 +6,13 @@
         {{> 'button/button' text='Поменять'}}
     </div>
 </div>
+
+{{#extend "general"}}
+    {{#content "main"}}
+        {{#> 'profile/profile'}}
+            {{> 'userInfo/userInfo'}}
+            {{> 'control/control'}}
+            {{> 'modal/modal'}}
+        {{/ 'profile/profile'}}
+    {{/content}}
+{{/extend}}

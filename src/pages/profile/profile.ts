@@ -1,17 +1,27 @@
 import Block from 'core/Block'
 import defaultAvatar from 'static/default-avatar.png'
-import backArrow from 'static/back-arrow.png'
 import './profile.css'
 
 export class ProfilePage extends Block {
+  constructor () {
+    super()
+
+    this.setProps({
+      email: 'pochta@yandex.ru',
+      login: 'ivanivanov',
+      first_name: 'Иван',
+      second_name: 'Иванов',
+      chat_name: 'Иван',
+      phone: '+7 (909) 967 30 30'
+    })
+  }
+
   render (): string {
     // language=hbs
     return `
       <main class="profile">
-        <h1 class="visually-hidden">Настройки профиля</h1>
-        <a class="profile__link-back" href="/">
-          <img src="${backArrow}" alt="Назад к чатам">
-        </a>
+        <h1 class="visually-hidden">Страница профиля</h1>
+        {{{LinkBack text="fdasdf" to="/chat"}}}
         <div class="profile__data">
           <div class="profile__avatar-wrapper">
             <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">
@@ -20,27 +30,27 @@ export class ProfilePage extends Block {
           <ul class="user-info">
             <li class="user-info__item">
               <p>Почта</p>
-              <p class="user-info__item-data">pochta@yandex.ru</p>
+              <p class="user-info__item-data">{{{email}}}</p>
             </li>
             <li class="user-info__item">
               <p>Логин</p>
-              <p class="user-info__item-data">ivanivanov</p>
+              <p class="user-info__item-data">{{{login}}}</p>
             </li>
             <li class="user-info__item">
               <p>Имя</p>
-              <p class="user-info__item-data">Иван</p>
+              <p class="user-info__item-data">{{{first_name}}}</p>
             </li>
             <li class="user-info__item">
               <p>Фамилия</p>
-              <p class="user-info__item-data">Иванов</p>
+              <p class="user-info__item-data">{{{second_name}}}</p>
             </li>
             <li class="user-info__item">
               <p>Имя в чате</p>
-              <p class="user-info__item-data">Иван</p>
+              <p class="user-info__item-data">{{{chat_name}}}</p>
             </li>
             <li class="user-info__item">
               <p>Телефон</p>
-              <p class="user-info__item-data">+7 (909) 967 30 30</p>
+              <p class="user-info__item-data">{{{phone}}}</p>
             </li>
           </ul>
           <ul class="control">

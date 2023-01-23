@@ -1,5 +1,5 @@
 import Block from 'core/Block'
-import './inputError.css'
+import './input__error.css'
 
 interface InputErrorProps {
   text?: string

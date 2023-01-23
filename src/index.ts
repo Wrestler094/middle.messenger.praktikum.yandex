@@ -16,10 +16,11 @@ import './style.css'
 /* Import components */
 import Button from './components/button'
 import Link from './components/link'
+import LinkBack from './components/linkBack'
 import Input from './components/input'
-import InputLabel from './components/input/inputLabel'
-import InputField from './components/input/inputField'
-import InputError from './components/input/inputError'
+import InputLabel from './components/input/__label'
+import InputField from './components/input/__field'
+import InputError from './components/input/__error'
 import InlineInput from './components/inlineInput'
 
 /* Import modules */
@@ -37,6 +38,7 @@ import MainWindowMessageBox from './modules/chatMainWindow/__messageBox'
 /* Register components */
 registerComponent(Button)
 registerComponent(Link)
+registerComponent(LinkBack)
 registerComponent(Input)
 registerComponent(InputLabel)
 registerComponent(InputField)
