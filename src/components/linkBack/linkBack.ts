@@ -3,7 +3,6 @@ import backArrow from 'static/back-arrow.png'
 import './linkBack.css'
 
 interface LinkBackProps {
-  text: string
   to: string
 }
 

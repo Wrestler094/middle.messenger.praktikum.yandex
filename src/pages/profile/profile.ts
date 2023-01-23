@@ -21,7 +21,7 @@ export class ProfilePage extends Block {
     return `
       <main class="profile">
         <h1 class="visually-hidden">Страница профиля</h1>
-        {{{LinkBack text="fdasdf" to="/chat"}}}
+        {{{LinkBack to="/chat"}}}
         <div class="profile__data">
           <div class="profile__avatar-wrapper">
             <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">

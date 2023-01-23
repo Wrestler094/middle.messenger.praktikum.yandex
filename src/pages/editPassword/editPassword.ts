@@ -1,6 +1,5 @@
 import Block from 'core/Block'
 import defaultAvatar from 'static/default-avatar.png'
-import backArrow from 'static/back-arrow.png'
 import './editPassword.css'
 
 export class EditPasswordPage extends Block {
@@ -21,9 +20,7 @@ export class EditPasswordPage extends Block {
     return `
       <main class="profile">
         <h1 class="visually-hidden">Смена пароля</h1>
-        <a class="link-back" href="/">
-          <img src="${backArrow}" alt="Назад к чатам">
-        </a>
+        {{{LinkBack to="/chat"}}}
         <div class="profile__data">
           <div class="profile__avatar-wrapper">
             <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">
