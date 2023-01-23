@@ -1,24 +1,26 @@
-import Block from 'core/Block'
-import defaultAvatar from 'static/default-avatar.png'
-import backArrow from 'static/back-arrow.png'
-import './editProfile.css'
+import Block from "core/Block";
+import defaultAvatar from "static/default-avatar.png";
+import backArrow from "static/back-arrow.png";
+import "./editProfile.css";
 
 export class EditProfilePage extends Block {
-  constructor () {
-    super()
+    constructor() {
+        super();
 
-    this.setProps({
-      onSubmit: () => { this.onSubmit() }
-    })
-  }
+        this.setProps({
+            onSubmit: () => {
+                this.onSubmit();
+            },
+        });
+    }
 
-  onSubmit (): void {
-    console.log('btn clicked')
-  }
+    onSubmit(): void {
+        console.log("btn clicked");
+    }
 
-  render (): string {
-    // language=hbs
-    return `
+    render(): string {
+        // language=hbs
+        return `
       <main class="profile">
         <h1 class="visually-hidden">Настройки профиля</h1>
         <a class="profile__link-back" href="/">
@@ -71,6 +73,6 @@ export class EditProfilePage extends Block {
           </div>
         </div>
       </main>
-    `
-  }
+    `;
+    }
 }

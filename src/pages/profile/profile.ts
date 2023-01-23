@@ -45,10 +45,10 @@ export class ProfilePage extends Block {
           </ul>
           <ul class="control">
             <li class="control__item">
-              <a class="control__link" href="/">Изменить данные</a>
+              <a class="control__link" href="/edit-profile">Изменить данные</a>
             </li>
             <li class="control__item">
-              <a class="control__link" href="/">Изменить пароль</a>
+              <a class="control__link" href="/edit-password">Изменить пароль</a>
             </li>
             <li class="control__item">
               <a class="control__link control__link--error" href="/auth">Выйти</a>
