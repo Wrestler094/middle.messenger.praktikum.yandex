@@ -14,6 +14,7 @@ import NotFoundPage from './pages/404'
 import './style.css'
 
 /* Import components */
+import Avatar from './components/avatar'
 import Button from './components/button'
 import Link from './components/link'
 import LinkBack from './components/linkBack'
@@ -36,6 +37,7 @@ import MainWindowContent from './modules/chatMainWindow/__content'
 import MainWindowMessageBox from './modules/chatMainWindow/__messageBox'
 
 /* Register components */
+registerComponent(Avatar)
 registerComponent(Button)
 registerComponent(Link)
 registerComponent(LinkBack)

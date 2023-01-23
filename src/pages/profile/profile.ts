@@ -1,5 +1,4 @@
 import Block from 'core/Block'
-import defaultAvatar from 'static/default-avatar.png'
 import './profile.css'
 
 export class ProfilePage extends Block {
@@ -23,9 +22,7 @@ export class ProfilePage extends Block {
         <h1 class="visually-hidden">Страница профиля</h1>
         {{{LinkBack to="/chat"}}}
         <div class="profile__data">
-          <div class="profile__avatar-wrapper">
-            <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">
-          </div>
+          {{{Avatar}}}
           <h2 class="profile-name">Иван</h2>
           <ul class="user-info">
             <li class="user-info__item">

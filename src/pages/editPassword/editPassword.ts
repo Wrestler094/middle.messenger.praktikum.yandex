@@ -1,5 +1,4 @@
 import Block from 'core/Block'
-import defaultAvatar from 'static/default-avatar.png'
 import './editPassword.css'
 
 export class EditPasswordPage extends Block {
@@ -22,9 +21,7 @@ export class EditPasswordPage extends Block {
         <h1 class="visually-hidden">Смена пароля</h1>
         {{{LinkBack to="/chat"}}}
         <div class="profile__data">
-          <div class="profile__avatar-wrapper">
-            <img class="profile__avatar" src="${defaultAvatar}" alt="Аватар пользователя">
-          </div>
+          {{{Avatar}}}
           <ul class="profile__edit-pass">
             {{{InlineInput
               label='Старый пароль'
