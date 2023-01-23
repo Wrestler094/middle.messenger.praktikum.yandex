@@ -1,5 +1,6 @@
 import Block from 'core/Block'
 import './editProfile.css'
+import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
 
 export class EditProfilePage extends Block {
   constructor () {
@@ -13,7 +14,70 @@ export class EditProfilePage extends Block {
   }
 
   onSubmit (): void {
-    console.log('btn clicked')
+    const emailElement = this._element?.querySelector('input[name="email"]') as HTMLInputElement
+    const loginElement = this._element?.querySelector('input[name="login"]') as HTMLInputElement
+    const firstNameElement = this._element?.querySelector('input[name="first_name"]') as HTMLInputElement
+    const secondNameElement = this._element?.querySelector('input[name="second_name"]') as HTMLInputElement
+    const displayNameElement = this._element?.querySelector('input[name="display_name"]') as HTMLInputElement
+    const phoneElement = this._element?.querySelector('input[name="phone"]') as HTMLInputElement
+
+    let isFormValid = true
+    const [
+      emailError,
+      loginError,
+      firstNameError,
+      secondNameError,
+      displayNameError,
+      phoneError
+    ] = validateForm([
+      { type: ValidateRuleType.Email, value: emailElement.value },
+      { type: ValidateRuleType.Login, value: loginElement.value },
+      { type: ValidateRuleType.FirstName, value: firstNameElement.value },
+      { type: ValidateRuleType.SecondName, value: secondNameElement.value },
+      { type: ValidateRuleType.DisplayName, value: displayNameElement.value },
+      { type: ValidateRuleType.Phone, value: phoneElement.value }
+    ])
+
+    if (emailError !== '') {
+      this.refs.emailInputRef.setProps({ error: emailError })
+      isFormValid = false
+    }
+
+    if (loginError !== '') {
+      this.refs.loginInputRef.setProps({ error: loginError })
+      isFormValid = false
+    }
+
+    if (firstNameError !== '') {
+      this.refs.firstNameInputRef.setProps({ error: firstNameError })
+      isFormValid = false
+    }
+
+    if (secondNameError !== '') {
+      this.refs.secondNameInputRef.setProps({ error: secondNameError })
+      isFormValid = false
+    }
+
+    if (displayNameError !== '') {
+      this.refs.displayNameInputRef.setProps({ error: displayNameError })
+      isFormValid = false
+    }
+
+    if (phoneError !== '') {
+      this.refs.phoneInputRef.setProps({ error: phoneError })
+      isFormValid = false
+    }
+
+    if (isFormValid) {
+      console.log({
+        email: emailElement.value,
+        login: loginElement.value,
+        firstName: firstNameElement.value,
+        secondName: secondNameElement.value,
+        displayName: displayNameElement.value,
+        phone: phoneElement.value
+      })
+    }
   }
 
   render (): string {
@@ -30,36 +94,42 @@ export class EditProfilePage extends Block {
               placeholder='pochta@yandex.ru'
               type='email'
               id='email'
+              ref='emailInputRef'
             }}}
             {{{InlineInput
               label='Логин'
               placeholder='ivanivanov'
               type='text'
               id='login'
+              ref='loginInputRef'
             }}}
             {{{InlineInput
               label='Имя'
               placeholder='Иван'
               type='text'
               id='first_name'
+              ref='firstNameInputRef'
             }}}
             {{{InlineInput
               label='Фамилия'
               placeholder='Иванов'
               type='text'
               id='second_name'
+              ref='secondNameInputRef'
             }}}
             {{{InlineInput
               label='Имя в чате'
               placeholder='Иван'
               type='text'
               id='display_name'
+              ref='displayNameInputRef'
             }}}
             {{{InlineInput
               label='Телефон'
               placeholder='+7 (909) 967 30 30'
               type='tel'
               id='phone'
+              ref='phoneInputRef'
             }}}
           </ul>
           <div class="profile__button">

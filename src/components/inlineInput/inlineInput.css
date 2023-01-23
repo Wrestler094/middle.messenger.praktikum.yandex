@@ -1,12 +1,23 @@
 .profile-edit-input {
     display: flex;
-    margin-bottom: 10px;
-    padding-bottom: 7.5px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3.5px;
+    padding-bottom: 9px;
     font-size: 13px;
     line-height: 13px;
     font-weight: 500;
     border-bottom: 1px solid #eaeaea;
     list-style-type: none;
+}
+
+.profile-edit-input__error {
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    text-align: right;
+    font-size: 8px;
+    color: var(--color-error);
 }
 
 .profile-edit-input:last-child {

@@ -1,6 +1,7 @@
 export enum ValidateRuleType {
   FirstName = 'first_name',
   SecondName = 'second_name',
+  DisplayName = 'display_name',
   Login = 'login',
   Email = 'email',
   Password = 'password',
@@ -69,7 +70,7 @@ export function validateForm (rules: ValidateRule[]): string[] {
       } else {
         errorMessage[i] = ''
       }
-    } else if (type === ValidateRuleType.FirstName || type === ValidateRuleType.SecondName) {
+    } else if (type === ValidateRuleType.FirstName || type === ValidateRuleType.SecondName || type === ValidateRuleType.DisplayName) {
       if (value.length === 0) {
         errorMessage[i] = 'Поле обязательно для заполнения'
       } else if (/[a-zA-Z]+/.test(value) && /[а-яА-Я]+/.test(value)) {
