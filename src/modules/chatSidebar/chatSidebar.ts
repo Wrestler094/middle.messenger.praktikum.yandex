@@ -11,27 +11,13 @@ export class ChatSidebar extends Block {
           {{{SidebarSearch}}}
         </div>
         <ul class="chat-sidebar__chat-list">
-          {{{SidebarChat}}}
-          {{{SidebarChat}}}
-          {{{SidebarChat}}}
-          {{{SidebarChat}}}
+          {{{SidebarChat name='Elmer Laverty' time='12m' unreadMessages=1}}}
+          {{{SidebarChat active=true name='Florencio Dorrance' time='1h'}}}
+          {{{SidebarChat name='Geoffrey Mott' time='24m' unreadMessages=4}}}
+          {{{SidebarChat name='Lavern Laboy' time='1m' unreadMessages=14}}}
+          {{{SidebarChat name='Titus Kitamura' time='2d'}}}
         </ul>
       </div>
     `
   }
 }
-
-//     {{> 'chats/chats'}}
-//          <div class="chats">
-//              {{> 'chatsHeader/chatsHeader' styles='chats__header'}}
-//              <div class="chats__search">
-//                  {{> 'search/search'}}
-//              </div>
-//              <ul class="chats__chat-list">
-//                  {{> 'chat/chat' name='Elmer Laverty' time='12m'}}
-//                  {{> 'chat/chat' name='Florencio Dorrance' time='1h'}}
-//                  {{> 'chat/chat' active=true name='Geoffrey Mott' time='24m'}}
-//                  {{> 'chat/chat' name='Lavern Laboy' time='1m'}}
-//                  {{> 'chat/chat' name='Titus Kitamura' time='2d'}}
-//              </ul>
-//          </div>

@@ -37,7 +37,12 @@ import SidebarChat from './modules/chatSidebar/__chat'
 import ChatMainWindow from './modules/chatMainWindow'
 import MainWindowHeader from './modules/chatMainWindow/__header'
 import MainWindowContent from './modules/chatMainWindow/__content'
-import MainWindowMessageBox from './modules/chatMainWindow/__messageBox'
+import MainWindowMessage from './modules/chatMainWindow/__message'
+// MessageBox
+import MessageBox from './modules/messageBox'
+import MessageBoxError from './modules/messageBox/__error'
+import MessageBoxField from './modules/messageBox/__field'
+import MessageBoxButton from './modules/messageBox/__sendButton'
 
 /* Register components */
 registerComponent(Avatar)
@@ -63,7 +68,12 @@ registerComponent(SidebarChat)
 registerComponent(ChatMainWindow)
 registerComponent(MainWindowHeader)
 registerComponent(MainWindowContent)
-registerComponent(MainWindowMessageBox)
+registerComponent(MainWindowMessage)
+// MessageBox
+registerComponent(MessageBox)
+registerComponent(MessageBoxError)
+registerComponent(MessageBoxField)
+registerComponent(MessageBoxButton)
 
 document.addEventListener('DOMContentLoaded', () => {
   switch (window.location.pathname) {

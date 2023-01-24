@@ -9,10 +9,14 @@
     font-weight: 600;
 }
 
+.chat-header__link {
+    margin-left: auto;
+    line-height: 0;
+}
+
 .chats-header__settings {
     height: 24px;
     width: 24px;
-    margin-left: auto;
 }
 
 .chats-header__settings:hover {

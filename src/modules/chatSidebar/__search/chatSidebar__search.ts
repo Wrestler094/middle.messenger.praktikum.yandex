@@ -2,6 +2,19 @@ import Block from 'core/Block'
 import './chatSidebar__search.css'
 
 export class SidebarSearch extends Block {
+  constructor () {
+    super({
+      events: {
+        keypress: (evt: KeyboardEvent) => {
+          if (evt.key === 'Enter') {
+            const evtTarget = evt.target as HTMLInputElement
+            console.log(evtTarget.value)
+          }
+        }
+      }
+    })
+  }
+
   render (): string {
     // language=hbs
     return `

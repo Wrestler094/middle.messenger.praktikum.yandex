@@ -8,7 +8,7 @@ export class ChatMainWindow extends Block {
       <div class="main-chat">
         {{{MainWindowHeader}}}
         {{{MainWindowContent}}}
-        {{{MainWindowMessageBox}}}
+        {{{MessageBox}}}
       </div>
     `
   }

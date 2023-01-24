@@ -21,12 +21,10 @@ export class AuthPage extends Block {
     ])
 
     if (loginError !== '') {
-      // @ts-expect-error
       this.refs.loginInputRef.refs.inputErrorRef.setProps({ text: loginError })
     }
 
     if (passwordError !== '') {
-      // @ts-expect-error
       this.refs.passwordInputRef.refs.inputErrorRef.setProps({ text: passwordError })
     }
 

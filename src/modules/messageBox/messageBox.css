@@ -1,5 +1,6 @@
 .message-box {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     padding: 24px;
 }
@@ -20,7 +21,7 @@
     display: flex;
     align-items: center;
     height: 48px;
-    width: 100%;
+    width: calc(100% - 48px);
     margin-left: 24px;
     padding: 10px 20px;
     border: 2px solid #e2e8f0;
@@ -30,30 +31,4 @@
 .message-box__field-label {
     width: 100%;
     margin-right: 20px;
-}
-
-.message-box__field {
-    width: 100%;
-    font-size: 14px;
-    line-height: 150%;
-    font-weight: 500;
-    color: rgba(30, 30, 30, 0.8);
-}
-
-.message-box__field::placeholder {
-    font-weight: 400;
-    color: rgba(30, 30, 30, 0.4);
-}
-
-.message-box__send-image {
-    margin-left: auto;
-}
-
-.message-box__send-image:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.message-box__send-image:active {
-    opacity: 0.6;
 }

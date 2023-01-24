@@ -8,7 +8,9 @@ export class SidebarHeader extends Block {
     return `
       <header class="chat-sidebar__header chats-header">
         <h2 class="chat-header__title">Чаты</h2>
-        <img class="chats-header__settings" src="${settings}" alt="Настройки">
+        <a class="chat-header__link" href="/profile">
+          <img class="chats-header__settings" src="${settings}" alt="Настройки">
+        </a>
       </header>
     `
   }
