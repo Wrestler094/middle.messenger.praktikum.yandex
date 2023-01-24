@@ -1,7 +1,7 @@
 import Block from 'core/Block'
-import './input__field.css'
+import './inlineInput__field.css'
 
-interface InputFieldProps {
+interface InlineInputFieldProps {
   onInput?: () => void
   onFocus?: () => void
   onBlur?: () => void
@@ -10,8 +10,8 @@ interface InputFieldProps {
   placeholder?: string
 }
 
-export class InputField extends Block {
-  constructor ({ onInput, onFocus, onBlur, type, id, placeholder }: InputFieldProps) {
+export class InlineInputField extends Block {
+  constructor ({ onInput, onFocus, onBlur, type, id, placeholder }: InlineInputFieldProps) {
     super({
       type,
       id,
@@ -27,14 +27,14 @@ export class InputField extends Block {
   protected render (): string {
     // language=hbs
     return `
-      <input 
-        class="input__field" 
-        id="{{id}}" 
-        name="{{id}}" 
-        type="{{type}}" 
+      <input
+        class="profile-edit-input__field"
+        type="{{type}}"
         placeholder="{{placeholder}}"
+        name="{{id}}"
+        id="{{id}}"
         required
-      >
+      />
     `
   }
 }

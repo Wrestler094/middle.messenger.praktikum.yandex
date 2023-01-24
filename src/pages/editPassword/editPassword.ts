@@ -12,27 +12,43 @@ export class EditPasswordPage extends Block {
   }
 
   onSubmit (): void {
-    console.log('btn clicked')
-
     const oldPasswordElement = this._element?.querySelector('input[name="oldPassword"]') as HTMLInputElement
     const newPasswordElement = this._element?.querySelector('input[name="newPassword"]') as HTMLInputElement
-    const repasswordElement = this._element?.querySelector('input[name="rePassword"]') as HTMLInputElement
+    const repasswordElement = this._element?.querySelector('input[name="repassword"]') as HTMLInputElement
 
-    const isFormValid = true
+    let isFormValid = true
     const [
       oldPasswordError,
       newPasswordError,
       repasswordError
     ] = validateForm([
-      { type: ValidateRuleType.Password, value: newPasswordElement.value },
-      { type: ValidateRuleType.Password, value: oldPasswordElement.value },
-      { type: ValidateRuleType.Repassword, value: repasswordElement.value, value2: oldPasswordElement.value }
+      { type: ValidateRuleType.OldPassword, value: oldPasswordElement.value },
+      { type: ValidateRuleType.NewPassword, value: newPasswordElement.value },
+      { type: ValidateRuleType.Repassword, value: repasswordElement.value, value2: newPasswordElement.value }
     ])
 
-    console.log(isFormValid)
-    console.log(oldPasswordError)
-    console.log(newPasswordError)
-    console.log(repasswordError)
+    if (oldPasswordError !== '') {
+      this.refs.oldPasswordInputRef.refs.inlineInputErrorRef.setProps({ error: oldPasswordError })
+      isFormValid = false
+    }
+
+    if (newPasswordError !== '') {
+      this.refs.newPasswordInputRef.refs.inlineInputErrorRef.setProps({ error: newPasswordError })
+      isFormValid = false
+    }
+
+    if (repasswordError !== '') {
+      this.refs.repasswordInputRef.refs.inlineInputErrorRef.setProps({ error: repasswordError })
+      isFormValid = false
+    }
+
+    if (isFormValid) {
+      console.log({
+        oldPassword: oldPasswordElement.value,
+        newPassword: newPasswordElement.value,
+        repassword: repasswordElement.value
+      })
+    }
   }
 
   render (): string {
@@ -62,7 +78,7 @@ export class EditPasswordPage extends Block {
               label='Повторите новый пароль'
               placeholder='•••••••••'
               type='password'
-              id='rePassword'
+              id='repassword'
               ref='repasswordInputRef'
             }}}
           </ul>

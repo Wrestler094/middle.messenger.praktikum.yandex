@@ -1,0 +1,8 @@
+.profile-edit-input__field {
+    margin-left: auto;
+    text-align: right;
+}
+
+.profile-edit-input__field::placeholder {
+    color: var(--color-secondary);
+}

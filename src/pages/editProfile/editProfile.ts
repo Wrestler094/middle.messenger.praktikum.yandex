@@ -1,6 +1,6 @@
 import Block from 'core/Block'
-import './editProfile.css'
 import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
+import './editProfile.css'
 
 export class EditProfilePage extends Block {
   constructor () {
@@ -39,32 +39,32 @@ export class EditProfilePage extends Block {
     ])
 
     if (emailError !== '') {
-      this.refs.emailInputRef.setProps({ error: emailError })
+      this.refs.emailInputRef.refs.inlineInputErrorRef.setProps({ error: emailError })
       isFormValid = false
     }
 
     if (loginError !== '') {
-      this.refs.loginInputRef.setProps({ error: loginError })
+      this.refs.loginInputRef.refs.inlineInputErrorRef.setProps({ error: loginError })
       isFormValid = false
     }
 
     if (firstNameError !== '') {
-      this.refs.firstNameInputRef.setProps({ error: firstNameError })
+      this.refs.firstNameInputRef.refs.inlineInputErrorRef.setProps({ error: firstNameError })
       isFormValid = false
     }
 
     if (secondNameError !== '') {
-      this.refs.secondNameInputRef.setProps({ error: secondNameError })
+      this.refs.secondNameInputRef.refs.inlineInputErrorRef.setProps({ error: secondNameError })
       isFormValid = false
     }
 
     if (displayNameError !== '') {
-      this.refs.displayNameInputRef.setProps({ error: displayNameError })
+      this.refs.displayNameInputRef.refs.inlineInputErrorRef.setProps({ error: displayNameError })
       isFormValid = false
     }
 
     if (phoneError !== '') {
-      this.refs.phoneInputRef.setProps({ error: phoneError })
+      this.refs.phoneInputRef.refs.inlineInputErrorRef.setProps({ error: phoneError })
       isFormValid = false
     }
 

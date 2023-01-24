@@ -40,43 +40,36 @@ export class RegPage extends Block {
     ])
 
     if (emailError !== '') {
-      // @ts-expect-error
       this.refs.emailInputRef.refs.inputErrorRef.setProps({ text: emailError })
       isFormValid = false
     }
 
     if (loginError !== '') {
-      // @ts-expect-error
       this.refs.loginInputRef.refs.inputErrorRef.setProps({ text: loginError })
       isFormValid = false
     }
 
     if (firstNameError !== '') {
-      // @ts-expect-error
       this.refs.firstNameInputRef.refs.inputErrorRef.setProps({ text: firstNameError })
       isFormValid = false
     }
 
     if (secondNameError !== '') {
-      // @ts-expect-error
       this.refs.secondNameInputRef.refs.inputErrorRef.setProps({ text: secondNameError })
       isFormValid = false
     }
 
     if (phoneError !== '') {
-      // @ts-expect-error
       this.refs.phoneInputRef.refs.inputErrorRef.setProps({ text: phoneError })
       isFormValid = false
     }
 
     if (passwordError !== '') {
-      // @ts-expect-error
       this.refs.passwordInputRef.refs.inputErrorRef.setProps({ text: passwordError })
       isFormValid = false
     }
 
     if (repasswordError !== '') {
-      // @ts-expect-error
       this.refs.repasswordInputRef.refs.inputErrorRef.setProps({ text: repasswordError })
       isFormValid = false
     }

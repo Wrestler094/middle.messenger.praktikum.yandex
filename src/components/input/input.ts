@@ -10,7 +10,6 @@ interface InputProps {
   id?: string
   placeholder?: string
   label?: string
-  value?: string
   error?: string
 }
 

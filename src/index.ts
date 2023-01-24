@@ -23,6 +23,9 @@ import InputLabel from './components/input/__label'
 import InputField from './components/input/__field'
 import InputError from './components/input/__error'
 import InlineInput from './components/inlineInput'
+import InlineInputLabel from './components/inlineInput/__label'
+import InlineInputField from './components/inlineInput/__field'
+import InlineInputError from './components/inlineInput/__error'
 
 /* Import modules */
 // ChatSidebar
@@ -46,6 +49,9 @@ registerComponent(InputLabel)
 registerComponent(InputField)
 registerComponent(InputError)
 registerComponent(InlineInput)
+registerComponent(InlineInputLabel)
+registerComponent(InlineInputField)
+registerComponent(InlineInputError)
 
 /* Register modules */
 // ChatSidebar

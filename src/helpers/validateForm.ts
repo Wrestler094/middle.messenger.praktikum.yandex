@@ -5,6 +5,8 @@ export enum ValidateRuleType {
   Login = 'login',
   Email = 'email',
   Password = 'password',
+  OldPassword = 'oldPassword',
+  NewPassword = 'newPassword',
   Repassword = 'repassword',
   Phone = 'phone',
   Message = 'message'
@@ -34,7 +36,7 @@ export function validateForm (rules: ValidateRule[]): string[] {
       } else {
         errorMessage[i] = ''
       }
-    } else if (type === ValidateRuleType.Password) {
+    } else if (type === ValidateRuleType.Password || type === ValidateRuleType.NewPassword) {
       if (value.length === 0) {
         errorMessage[i] = 'Поле обязательно для заполнения'
       } else if (value.length < 8 || value.length > 40) {
@@ -49,6 +51,12 @@ export function validateForm (rules: ValidateRule[]): string[] {
         errorMessage[i] = 'Поле обязательно для заполнения'
       } else if (value2 != null && value !== value2) {
         errorMessage[i] = 'Введенные пароли не совпадают'
+      } else {
+        errorMessage[i] = ''
+      }
+    } else if (type === ValidateRuleType.OldPassword) {
+      if (value.length === 0) {
+        errorMessage[i] = 'Поле обязательно для заполнения'
       } else {
         errorMessage[i] = ''
       }

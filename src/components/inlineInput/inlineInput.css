@@ -11,26 +11,8 @@
     list-style-type: none;
 }
 
-.profile-edit-input__error {
-    width: 100%;
-    margin-top: 3px;
-    margin-bottom: 2px;
-    text-align: right;
-    font-size: 8px;
-    color: var(--color-error);
-}
-
 .profile-edit-input:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
-}
-
-.profile-edit-input__field {
-    margin-left: auto;
-    text-align: right;
-}
-
-.profile-edit-input__field::placeholder {
-    color: var(--color-secondary);
 }
