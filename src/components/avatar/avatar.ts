@@ -3,7 +3,7 @@ import defaultAvatar from 'static/default-avatar.png'
 import './avatar.css'
 
 export class Avatar extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <div class="avatar-wrapper">

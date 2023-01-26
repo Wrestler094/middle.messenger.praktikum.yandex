@@ -3,12 +3,12 @@ import Block from 'core/Block'
 import './allPages.css'
 
 export class AllPagesPage extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
-    <main>
-        <h2>Project pages</h2>
-        <ul>
+    <main class="centered-wrapper all-pages">
+        <h2 class="all-pages__header">Project pages</h2>
+        <ul class="all-pages__list">
             <li>
                 <a href="./auth">Авторизация</a>
             </li>

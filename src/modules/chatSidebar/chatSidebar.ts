@@ -2,7 +2,7 @@ import Block from 'core/Block'
 import './chatSidebar.css'
 
 export class ChatSidebar extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <div class="chat-sidebar">

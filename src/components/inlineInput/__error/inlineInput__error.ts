@@ -9,7 +9,7 @@ export class InlineInputError extends Block<InlineInputErrorProps> {
   protected render (): string {
     // language=hbs
     return `
-      <div class="profile-edit-input__error">{{#if error}}{{error}}{{/if}}</div>
+      <div class="inline-input__error">{{#if error}}{{error}}{{/if}}</div>
     `
   }
 }

@@ -3,7 +3,7 @@ import settings from 'static/settings.png'
 import './chatSidebar__header.css'
 
 export class SidebarHeader extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <header class="chat-sidebar__header chats-header">

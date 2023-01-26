@@ -16,7 +16,7 @@ export class LinkBack extends Block {
     super({ ...props, events: { click: onClick } })
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <a class="link-back" href="{{to}}">

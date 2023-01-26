@@ -1,6 +1,5 @@
 import Block from 'core/Block'
 import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
-import './editProfile.css'
 
 export class EditProfilePage extends Block {
   constructor () {
@@ -80,7 +79,7 @@ export class EditProfilePage extends Block {
     }
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <main class="profile">

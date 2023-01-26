@@ -6,7 +6,7 @@ interface MessageBoxErrorProps {
 }
 
 export class MessageBoxError extends Block<MessageBoxErrorProps> {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <div class="message-box__error">{{#if error}}{{error}}{{/if}}</div>

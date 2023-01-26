@@ -2,19 +2,8 @@ import Block from 'core/Block'
 import avatar from 'static/avatar.png'
 import './chatSidebar__chat.css'
 
-interface SidebarChatProps {
-  active?: boolean
-  name?: string
-  time?: string
-  unreadMessages?: number
-}
-
 export class SidebarChat extends Block {
-  constructor (props: SidebarChatProps) {
-    super(props)
-  }
-
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <li class="chat {{#if active}}chat--active{{/if}}">

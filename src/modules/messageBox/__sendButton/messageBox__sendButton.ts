@@ -11,7 +11,7 @@ export class MessageBoxButton extends Block {
     super({ events: { click: onClick } })
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <img class="message-box__send-image" src="${send}" alt="Отправка сообщения">

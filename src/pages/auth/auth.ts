@@ -36,7 +36,7 @@ export class AuthPage extends Block {
     }
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <main class="centered-wrapper">

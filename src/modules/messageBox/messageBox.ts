@@ -38,7 +38,7 @@ export class MessageBox extends Block {
     }
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <div class="message-box">

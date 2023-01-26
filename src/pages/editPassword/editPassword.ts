@@ -1,5 +1,4 @@
 import Block from 'core/Block'
-import './editPassword.css'
 import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
 
 export class EditPasswordPage extends Block {
@@ -51,7 +50,7 @@ export class EditPasswordPage extends Block {
     }
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <main class="profile">

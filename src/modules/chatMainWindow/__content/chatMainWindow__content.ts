@@ -2,7 +2,7 @@ import Block from 'core/Block'
 import './chatMainWindow__content.css'
 
 export class MainWindowContent extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <div class="main-chat__content">

@@ -1,4 +1,4 @@
-.profile-edit-input {
+.inline-input {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -11,7 +11,7 @@
     list-style-type: none;
 }
 
-.profile-edit-input:last-child {
+.inline-input:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;

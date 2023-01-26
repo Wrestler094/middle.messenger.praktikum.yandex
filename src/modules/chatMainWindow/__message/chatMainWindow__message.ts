@@ -13,7 +13,7 @@ export class MainWindowMessage extends Block {
     super(props)
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       {{#if author}}

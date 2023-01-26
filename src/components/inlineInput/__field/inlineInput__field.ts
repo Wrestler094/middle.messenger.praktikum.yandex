@@ -28,7 +28,7 @@ export class InlineInputField extends Block {
     // language=hbs
     return `
       <input
-        class="profile-edit-input__field"
+        class="inline-input__field"
         type="{{type}}"
         placeholder="{{placeholder}}"
         name="{{id}}"

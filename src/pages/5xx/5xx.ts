@@ -1,7 +1,7 @@
 import Block from 'core/Block'
 
 export class ServerErrorPage extends Block {
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <main class="centered-wrapper">

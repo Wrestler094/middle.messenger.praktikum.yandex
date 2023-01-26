@@ -32,10 +32,10 @@ export class InlineInput extends Block {
     })
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
-      <li class="profile-edit-input">
+      <li class="inline-input">
         {{{InlineInputError 
           error=error
           ref='inlineInputErrorRef'

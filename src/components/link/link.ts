@@ -17,7 +17,7 @@ export class Link extends Block {
     super({ ...props, events: { click: onClick } })
   }
 
-  render (): string {
+  protected render (): string {
     // language=hbs
     return `
       <a class="link" href="{{to}}">{{text}}</a>
