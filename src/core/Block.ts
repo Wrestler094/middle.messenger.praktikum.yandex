@@ -1,10 +1,6 @@
 import EventBus from './EventBus'
 import { nanoid } from 'nanoid'
-import Handlebars from 'handlebars'
-
-interface BlockMeta<P = any> {
-  props: P
-}
+import * as Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
 
@@ -17,8 +13,6 @@ export default class Block<P = any> {
   } as const
 
   public id = nanoid(6)
-  private readonly _meta: BlockMeta
-
   protected _element: Nullable<HTMLElement> = null
   protected readonly props: P
   protected children: Record<string, Block> = {}
@@ -31,17 +25,11 @@ export default class Block<P = any> {
   public constructor (props?: P) {
     const eventBus = new EventBus<Events>()
 
-    this._meta = {
-      props
-    }
-
-    this.getStateFromProps(props)
-
+    // eslint-disable-next-line
     this.props = this._makePropsProxy(props || {} as P)
     this.state = this._makePropsProxy(this.state)
 
     this.eventBus = () => eventBus
-
     this._registerEvents(eventBus)
 
     eventBus.emit(Block.EVENTS.INIT, this.props)
@@ -58,23 +46,20 @@ export default class Block<P = any> {
     this._element = this._createDocumentElement('div')
   }
 
-  protected getStateFromProps (props: any): void {
-    this.state = {}
-  }
-
-  init () {
+  init (): void {
     this._createResources()
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER, this.props)
   }
 
   _componentDidMount (props: P): void {
+    // @ts-expect-error
     this.componentDidMount(props)
   }
 
-  componentDidMount (props: P): void {
-  }
+  componentDidMount (): void {}
 
-  _componentDidUpdate (oldProps: P, newProps: P) {
+  _componentDidUpdate (oldProps: P, newProps: P): void {
+    // @ts-expect-error
     const response = this.componentDidUpdate(oldProps, newProps)
     if (!response) {
       return
@@ -82,27 +67,24 @@ export default class Block<P = any> {
     this._render()
   }
 
-  componentDidUpdate (oldProps: P, newProps: P): boolean {
+  componentDidUpdate (): boolean {
     return true
   }
 
-  setProps = (nextProps: P) => {
-    if (!nextProps) {
-      return
+  setProps = (nextProps: P): void => {
+    if (typeof nextProps === 'object') {
+      // @ts-expect-error
+      Object.assign(this.props, nextProps)
     }
-
-    Object.assign(this.props, nextProps)
   }
 
-  setState = (nextState: any) => {
-    if (!nextState) {
-      return
+  setState = (nextState: any): void => {
+    if (typeof nextState === 'object') {
+      Object.assign(this.state, nextState)
     }
-
-    Object.assign(this.state, nextState)
   }
 
-  get element () {
+  get element (): Nullable<HTMLElement> {
     return this._element
   }
 
@@ -110,9 +92,11 @@ export default class Block<P = any> {
     const fragment = this._compile()
 
     this._removeEvents()
-    const newElement = fragment.firstElementChild!
+    const newElement = fragment.firstElementChild
 
-    this._element!.replaceWith(newElement)
+    if (newElement != null) {
+      this._element?.replaceWith(newElement)
+    }
 
     this._element = newElement as HTMLElement
     this._addEvents()
@@ -132,12 +116,14 @@ export default class Block<P = any> {
       }, 100)
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this.element!
   }
 
   _makePropsProxy (props: any): any {
     // Можно и так передать this
     // Такой способ больше не применяется с приходом ES6+
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this
 
     return new Proxy(props as unknown as object, {
@@ -163,73 +149,54 @@ export default class Block<P = any> {
     return document.createElement(tagName)
   }
 
-  _removeEvents () {
+  _removeEvents (): void {
     const events: Record<string, () => void> = (this.props as any).events
 
-    if (!events || (this._element == null)) {
-      return
+    if (Boolean(events) && (this._element != null)) {
+      Object.entries(events).forEach(([event, listener]) => {
+        this._element?.removeEventListener(event, listener)
+      })
     }
-
-    Object.entries(events).forEach(([event, listener]) => {
-      this._element!.removeEventListener(event, listener)
-    })
   }
 
-  _addEvents () {
+  _addEvents (): void {
     const events: Record<string, () => void> = (this.props as any).events
 
-    if (!events) {
-      return
+    if (typeof events === 'object') {
+      Object.entries(events).forEach(([event, listener]) => {
+        this._element?.addEventListener(event, listener)
+      })
     }
-
-    Object.entries(events).forEach(([event, listener]) => {
-      this._element!.addEventListener(event, listener)
-    })
   }
 
   _compile (): DocumentFragment {
     const fragment = document.createElement('template')
-
-    /**
-     * Рендерим шаблон
-     */
+    // Рендерим шаблон
     const template = Handlebars.compile(this.render())
     fragment.innerHTML = template({ ...this.state, ...this.props, children: this.children, refs: this.refs })
 
-    /**
-     * Заменяем заглушки на компоненты
-     */
+    // Заменяем заглушки на компоненты
     Object.entries(this.children).forEach(([id, component]) => {
-      /**
-       * Ищем заглушку по id
-       */
-      const stub = fragment.content.querySelector(`[data-id="${id}"]`)
+      // Ищем заглушку по id
+      const stub = fragment.content.querySelector(`[data-id="${String(id)}"]`)
 
       if (stub == null) {
         return
       }
 
-      const stubChilds = stub.childNodes.length ? stub.childNodes : []
-
-      /**
-       * Заменяем заглушку на component._element
-       */
+      const stubChilds = stub.childNodes?.length > 0 ? stub.childNodes : []
+      // Заменяем заглушку на component._element
       const content = component.getContent()
       stub.replaceWith(content)
 
-      /**
-        * Ищем элемент layout-а, куда вставлять детей
-        */
+      // Ищем элемент layout-а, куда вставлять детей
       const layoutContent = content.querySelector('[data-layout="1"]')
 
-      if (layoutContent && stubChilds.length) {
-        layoutContent.append(...stubChilds)
+      if ((Boolean(layoutContent)) && stubChilds.length > 0) {
+        layoutContent?.append(...stubChilds)
       }
     })
 
-    /**
-      * Возвращаем фрагмент
-      */
     return fragment.content
   }
 
