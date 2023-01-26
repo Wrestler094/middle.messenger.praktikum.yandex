@@ -22,13 +22,15 @@ export default class EventBus<E extends string = string, M extends { [K in E]: u
   }
 
   emit (event: E, ...args: M[E]): void {
-    if (this.listeners[event] == null) {
+    if (this.listeners[event] == null || this.listeners[event] === undefined) {
       return
       // throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event]!.forEach(function (listener) {
-      listener(...args)
-    })
+    if (Array.isArray(this.listeners[event])) {
+      this.listeners[event]?.forEach(function (listener) {
+        listener(...args)
+      })
+    }
   }
 }

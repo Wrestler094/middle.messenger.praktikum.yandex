@@ -5,9 +5,6 @@
     margin-bottom: 32px;
 }
 
-.companion-messages__avatar {
-}
-
 .companion-messages__message {
     grid-column: 2/3;
     width: max-content;
@@ -40,7 +37,7 @@
     margin-bottom: 10px;
     padding: 8px 16px;
     background-color: var(--color-accent);
-    color: #ffffff;
+    color: #fff;
     border-radius: 12px;
 }
 

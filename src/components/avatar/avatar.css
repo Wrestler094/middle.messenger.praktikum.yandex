@@ -2,10 +2,10 @@
     position: relative;
     height: 130px;
     width: 130px;
-    margin: 0 auto 21px auto;
+    margin: 0 auto 21px;
 }
 
-.avatar-wrapper:hover:after {
+.avatar-wrapper:hover::after {
     content: "Поменять аватар";
     position: absolute;
     top: 0;

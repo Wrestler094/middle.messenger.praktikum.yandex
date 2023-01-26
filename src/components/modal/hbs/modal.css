@@ -7,7 +7,7 @@
     justify-items: center;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0 0 0 / 40%);
 }
 
 .modal__title {
@@ -20,7 +20,7 @@
 .modal__attach {
     display: block;
     width: 120px;
-    margin: 0 auto 45px auto;
+    margin: 0 auto 45px;
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
@@ -42,6 +42,6 @@
     padding: 40px 30px;
     text-align: center;
     background: var(--color-white);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 0 6px rgba(0 0 0 / 14%);
     border-radius: 12px;
 }

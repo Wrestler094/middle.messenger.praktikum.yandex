@@ -1,5 +1,4 @@
 import Block from 'core/Block'
-import './inlineInput__label.css'
 
 interface InlineInputLabelProps {
   id?: string

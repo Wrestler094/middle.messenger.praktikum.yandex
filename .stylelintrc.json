@@ -5,7 +5,8 @@
   ],
   "rules": {
     "indentation": 4,
-    "string-quotes": "double"
+    "string-quotes": "double",
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]+$"
   },
   "ignoreFiles": [
     "dist/*",

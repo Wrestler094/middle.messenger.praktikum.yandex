@@ -8,8 +8,8 @@
     "start": "parcel build src/pages/*.hbs && node ./server.js",
     "eslint": "eslint ./src/ --ext .ts",
     "eslint-fix": "eslint --fix ./src/ --ext .ts",
-    "stylelint": "stylelint **/*.css",
-    "stylelint-fix": "stylelint --fix **/*.css"
+    "stylelint": "stylelint \"**/*.css\"",
+    "stylelint-fix": "stylelint --fix \"**/*.css\""
   },
   "alias": {
     "core": "./src/core",
