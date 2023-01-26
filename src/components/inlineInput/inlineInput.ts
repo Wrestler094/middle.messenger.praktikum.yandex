@@ -1,6 +1,6 @@
 import Block from 'core/Block'
+import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 import './inlineInput.css'
-import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
 
 interface InlineInputProps {
   onInput?: () => void

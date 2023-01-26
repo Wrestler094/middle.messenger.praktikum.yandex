@@ -1,5 +1,5 @@
 import Block from 'core/Block'
-import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
+import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 
 export class EditPasswordPage extends Block {
   constructor () {

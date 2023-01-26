@@ -1,6 +1,6 @@
 import Block from 'core/Block'
+import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 import attach from 'static/attach.png'
-import { validateForm, ValidateRuleType } from '../../helpers/validateForm'
 import './messageBox.css'
 
 interface MessageBoxProps {
