@@ -1,0 +1,10 @@
+.input__field {
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    border-bottom: 1px solid var(--color-accent);
+}

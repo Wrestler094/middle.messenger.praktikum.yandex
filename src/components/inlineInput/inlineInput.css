@@ -1,0 +1,18 @@
+.inline-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 3.5px;
+    padding-bottom: 9px;
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid #eaeaea;
+    list-style-type: none;
+}
+
+.inline-input:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}

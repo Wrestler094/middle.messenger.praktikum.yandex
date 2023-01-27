@@ -1,0 +1,8 @@
+.link-back {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbfbfb;
+    border-right: 1px solid #eaeaea;
+}

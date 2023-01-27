@@ -1,0 +1,6 @@
+.input__error {
+    height: 8px;
+    font-size: 8px;
+    line-height: 8px;
+    color: var(--color-error);
+}
