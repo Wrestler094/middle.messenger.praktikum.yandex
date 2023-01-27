@@ -87,6 +87,8 @@ export class RegPage extends Block {
     }
   }
 
+  static componentName = 'RegPage'
+
   protected render (): string {
     // language=hbs
     return `

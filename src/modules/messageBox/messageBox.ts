@@ -38,6 +38,8 @@ export class MessageBox extends Block {
     }
   }
 
+  static componentName = 'MessageBox'
+
   protected render (): string {
     // language=hbs
     return `

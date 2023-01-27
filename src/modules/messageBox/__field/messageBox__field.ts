@@ -15,6 +15,8 @@ export class MessageBoxField extends Block {
     })
   }
 
+  static componentName = 'MessageBoxField'
+
   protected render (): string {
     // language=hbs
     return `

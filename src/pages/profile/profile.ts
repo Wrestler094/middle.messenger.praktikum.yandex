@@ -15,6 +15,8 @@ export class ProfilePage extends Block {
     })
   }
 
+  static componentName = 'ProfilePage'
+
   protected render (): string {
     // language=hbs
     return `

@@ -15,6 +15,8 @@ export class SidebarSearch extends Block {
     })
   }
 
+  static componentName = 'SidebarSearch'
+
   protected render (): string {
     // language=hbs
     return `

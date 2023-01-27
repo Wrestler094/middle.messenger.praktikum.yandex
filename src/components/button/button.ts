@@ -11,6 +11,8 @@ export class Button extends Block {
     super({ text, events: { click: onClick } })
   }
 
+  static componentName = 'Button'
+
   protected render (): string {
     // language=hbs
     return `

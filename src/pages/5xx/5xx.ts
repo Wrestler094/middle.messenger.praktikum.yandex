@@ -1,6 +1,8 @@
 import Block from 'core/Block'
 
 export class ServerErrorPage extends Block {
+  static componentName = 'ServerErrorPage'
+
   protected render (): string {
     // language=hbs
     return `

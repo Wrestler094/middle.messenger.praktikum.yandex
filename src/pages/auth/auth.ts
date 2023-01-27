@@ -36,6 +36,8 @@ export class AuthPage extends Block {
     }
   }
 
+  static componentName = 'AuthPage'
+
   protected render (): string {
     // language=hbs
     return `

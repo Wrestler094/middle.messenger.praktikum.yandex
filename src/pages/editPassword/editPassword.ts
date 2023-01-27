@@ -50,6 +50,8 @@ export class EditPasswordPage extends Block {
     }
   }
 
+  static componentName = 'EditPasswordPage'
+
   protected render (): string {
     // language=hbs
     return `

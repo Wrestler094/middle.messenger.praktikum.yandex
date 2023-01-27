@@ -16,6 +16,8 @@ export class Link extends Block {
     super({ ...props, events: { click: onClick } })
   }
 
+  static componentName = 'Link'
+
   protected render (): string {
     // language=hbs
     return `

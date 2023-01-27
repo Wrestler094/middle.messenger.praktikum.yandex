@@ -2,6 +2,8 @@ import Block from 'core/Block'
 import './chatSidebar.css'
 
 export class ChatSidebar extends Block {
+  static componentName = 'ChatSidebar'
+
   protected render (): string {
     // language=hbs
     return `

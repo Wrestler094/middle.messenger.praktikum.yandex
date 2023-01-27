@@ -2,6 +2,8 @@ import Block from 'core/Block'
 import './chatMainWindow__content.css'
 
 export class MainWindowContent extends Block {
+  static componentName = 'MainWindowContent'
+
   protected render (): string {
     // language=hbs
     return `

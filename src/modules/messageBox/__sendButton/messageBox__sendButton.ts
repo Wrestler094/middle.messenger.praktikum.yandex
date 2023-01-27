@@ -11,6 +11,8 @@ export class MessageBoxButton extends Block {
     super({ events: { click: onClick } })
   }
 
+  static componentName = 'MessageBoxButton'
+
   protected render (): string {
     // language=hbs
     return `

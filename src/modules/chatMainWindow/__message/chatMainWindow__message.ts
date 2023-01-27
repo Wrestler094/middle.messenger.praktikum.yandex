@@ -13,6 +13,8 @@ export class MainWindowMessage extends Block {
     super(props)
   }
 
+  static componentName = 'MainWindowMessage'
+
   protected render (): string {
     // language=hbs
     return `

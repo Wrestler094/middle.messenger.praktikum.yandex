@@ -2,10 +2,18 @@ import Block from './Block'
 import * as Handlebars from 'handlebars'
 import { HelperOptions } from 'handlebars'
 
-type BlockConstructable<Props = any> = new(props: Props) => Block
+interface BlockConstructable<Props = any> {
+  new(props: Props): Block
+  componentName: string
+}
 
 export default function registerComponent<Props> (Component: BlockConstructable<Props>): void {
-  Handlebars.registerHelper(Component.name,
+  let newComponent = Component.componentName
+  if (String(Component.componentName) === '') {
+    newComponent = Component.name
+  }
+
+  Handlebars.registerHelper(newComponent,
     function (this: Props, { hash: { ref, ...hash }, data, fn }: HelperOptions) {
       if (typeof data.root.children !== 'object') {
         data.root.children = {}

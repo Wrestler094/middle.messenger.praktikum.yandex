@@ -3,6 +3,8 @@ import avatar from 'static/avatar.png'
 import './chatSidebar__chat.css'
 
 export class SidebarChat extends Block {
+  static componentName = 'SidebarChat'
+
   protected render (): string {
     // language=hbs
     return `

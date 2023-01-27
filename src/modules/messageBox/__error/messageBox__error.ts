@@ -6,6 +6,8 @@ interface MessageBoxErrorProps {
 }
 
 export class MessageBoxError extends Block<MessageBoxErrorProps> {
+  static componentName = 'MessageBoxError'
+
   protected render (): string {
     // language=hbs
     return `

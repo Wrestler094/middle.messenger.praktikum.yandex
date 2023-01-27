@@ -24,6 +24,8 @@ export class InputField extends Block {
     })
   }
 
+  static componentName = 'InputField'
+
   protected render (): string {
     // language=hbs
     return `

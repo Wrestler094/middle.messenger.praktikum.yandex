@@ -1,6 +1,8 @@
 import Block from 'core/Block'
 
 export class NotFoundPage extends Block {
+  static componentName = 'NotFoundPage'
+
   protected render (): string {
     // language=hbs
     return `

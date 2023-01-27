@@ -32,6 +32,8 @@ export class InlineInput extends Block {
     })
   }
 
+  static componentName = 'InlineInput'
+
   protected render (): string {
     // language=hbs
     return `

@@ -16,6 +16,8 @@ export class LinkBack extends Block {
     super({ ...props, events: { click: onClick } })
   }
 
+  static componentName = 'LinkBack'
+
   protected render (): string {
     // language=hbs
     return `

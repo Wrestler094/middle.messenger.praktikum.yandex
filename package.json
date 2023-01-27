@@ -4,8 +4,8 @@
   "description": "middle.messenger.praktikum.yandex",
   "scripts": {
     "dev": "parcel src/index.html --no-cache --open",
-    "build": "parcel build src/pages/*.hbs",
-    "start": "parcel build src/pages/*.hbs && node ./server.js",
+    "build": "parcel build src/index.html",
+    "start": "parcel build src/index.html && node ./server.js",
     "eslint": "eslint ./src/ --ext .ts",
     "eslint-fix": "eslint --fix ./src/ --ext .ts",
     "stylelint": "stylelint \"**/*.css\"",
@@ -50,7 +50,15 @@
     "express": "4.18.2",
     "nanoid": "4.0.0"
   },
+  "targets": {
+    "default": {
+      "sourceMap": false,
+      "engines": {
+        "browsers": ">= 50%"
+      }
+    }
+  },
   "engines": {
-    "node": ">=14.17.0"
+    "node": ">=14.0"
   }
 }

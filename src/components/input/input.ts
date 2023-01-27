@@ -49,6 +49,8 @@ export class Input extends Block<InputProps> {
     })
   }
 
+  static componentName = 'Input'
+
   protected render (): string {
     // language=hbs
     return `

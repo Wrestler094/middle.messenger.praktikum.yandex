@@ -7,6 +7,8 @@ interface InputLabelProps {
 }
 
 export class InputLabel extends Block<InputLabelProps> {
+  static componentName = 'InputLabel'
+
   protected render (): string {
     // language=hbs
     return `

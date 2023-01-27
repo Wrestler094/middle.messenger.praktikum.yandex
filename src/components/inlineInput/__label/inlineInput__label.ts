@@ -6,6 +6,8 @@ interface InlineInputLabelProps {
 }
 
 export class InlineInputLabel extends Block<InlineInputLabelProps> {
+  static componentName = 'InlineInputLabel'
+
   protected render (): string {
     // language=hbs
     return `

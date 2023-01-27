@@ -2,6 +2,8 @@ import Block from 'core/Block'
 import './allPages.css'
 
 export class AllPagesPage extends Block {
+  static componentName = 'AllPagesPage'
+
   protected render (): string {
     // language=hbs
     return `

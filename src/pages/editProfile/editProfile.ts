@@ -79,6 +79,8 @@ export class EditProfilePage extends Block {
     }
   }
 
+  static componentName = 'EditProfilePage'
+
   protected render (): string {
     // language=hbs
     return `

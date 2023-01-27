@@ -12,6 +12,8 @@ export default class Block<P = any> {
     FLOW_RENDER: 'flow:render'
   } as const
 
+  static componentName: string
+
   public id = nanoid(6)
   protected _element: Nullable<HTMLElement> = null
   protected readonly props: P

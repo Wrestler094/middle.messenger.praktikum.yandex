@@ -5,6 +5,8 @@ import options from 'static/options.png'
 import './chatMainWindow__header.css'
 
 export class MainWindowHeader extends Block {
+  static componentName = 'MainWindowHeader'
+
   protected render (): string {
     // language=hbs
     return `
