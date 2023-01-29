@@ -12,7 +12,7 @@ interface InlineInputProps {
   error?: string
 }
 
-export class InlineInput extends Block {
+export class InlineInput extends Block<InlineInputProps> {
   constructor (props: InlineInputProps) {
     super({
       ...props,

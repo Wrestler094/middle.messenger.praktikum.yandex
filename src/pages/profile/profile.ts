@@ -1,7 +1,16 @@
 import Block from 'core/Block'
 import './profile.css'
 
-export class ProfilePage extends Block {
+interface ProfilePageProps {
+  email?: string
+  login?: string
+  first_name?: string
+  second_name?: string
+  chat_name?: string
+  phone?: string
+}
+
+export class ProfilePage extends Block<ProfilePageProps> {
   constructor () {
     super()
 

@@ -2,7 +2,7 @@ import Block from 'core/Block'
 import settings from 'static/settings.png'
 import './chatSidebar__header.css'
 
-export class SidebarHeader extends Block {
+export class SidebarHeader extends Block<Record<string, never>> {
   static componentName = 'SidebarHeader'
 
   protected render (): string {

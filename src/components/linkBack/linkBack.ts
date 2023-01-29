@@ -6,10 +6,17 @@ interface LinkBackProps {
   to: string
 }
 
-export class LinkBack extends Block {
+interface LinkBackClassProps {
+  to: string
+  events: {
+    click: (evt: MouseEvent) => void
+  }
+}
+
+export class LinkBack extends Block<LinkBackClassProps> {
   constructor (props: LinkBackProps) {
-    const onClick = (e: MouseEvent): void => {
-      e.preventDefault()
+    const onClick = (evt: MouseEvent): void => {
+      evt.preventDefault()
       window.location.replace(this.props.to)
     }
 

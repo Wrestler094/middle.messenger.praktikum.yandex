@@ -1,7 +1,7 @@
 import Block from 'core/Block'
 import './chat.css'
 
-export class ChatPage extends Block {
+export class ChatPage extends Block<Record<string, never>> {
   static componentName = 'ChatPage'
 
   protected render (): string {

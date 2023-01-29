@@ -2,7 +2,11 @@ import Block from 'core/Block'
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 import './reg.css'
 
-export class RegPage extends Block {
+interface RegPageProps {
+  onSubmit: () => void
+}
+
+export class RegPage extends Block<RegPageProps> {
   constructor () {
     super()
 

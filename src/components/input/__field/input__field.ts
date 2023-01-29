@@ -2,16 +2,27 @@ import Block from 'core/Block'
 import './input__field.css'
 
 interface InputFieldProps {
-  onInput?: () => void
-  onFocus?: () => void
-  onBlur?: () => void
+  onInput: () => void
+  onFocus: () => void
+  onBlur: () => void
   type?: 'text' | 'password' | 'email'
   id?: string
   placeholder?: string
 }
 
-export class InputField extends Block {
-  constructor ({ onInput, onFocus, onBlur, type, id, placeholder }: InputFieldProps) {
+interface InputFieldClassProps {
+  type?: 'text' | 'password' | 'email'
+  id?: string
+  placeholder?: string
+  events: {
+    input: () => void
+    focus: () => void
+    blur: () => void
+  }
+}
+
+export class InputField extends Block<InputFieldClassProps> {
+  constructor ({ onInput, onFocus, onBlur, type = 'text', id, placeholder }: InputFieldProps) {
     super({
       type,
       id,

@@ -1,6 +1,6 @@
 import Block from 'core/Block'
 
-export class NotFoundPage extends Block {
+export class NotFoundPage extends Block<Record<string, never>> {
   static componentName = 'NotFoundPage'
 
   protected render (): string {

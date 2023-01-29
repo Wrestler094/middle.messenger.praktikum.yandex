@@ -2,7 +2,7 @@ import Block from 'core/Block'
 import defaultAvatar from 'static/default-avatar.png'
 import './avatar.css'
 
-export class Avatar extends Block {
+export class Avatar extends Block<Record<string, never>> {
   static componentName = 'Avatar'
 
   protected render (): string {

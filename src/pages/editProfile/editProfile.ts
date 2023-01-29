@@ -1,7 +1,11 @@
 import Block from 'core/Block'
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 
-export class EditProfilePage extends Block {
+interface EditProfilePageProps {
+  onSubmit: () => void
+}
+
+export class EditProfilePage extends Block<EditProfilePageProps> {
   constructor () {
     super()
 

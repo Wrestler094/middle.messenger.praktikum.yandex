@@ -2,7 +2,11 @@ import Block from 'core/Block'
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 import './auth.css'
 
-export class AuthPage extends Block {
+interface AuthPageProps {
+  onSubmit: () => void
+}
+
+export class AuthPage extends Block<AuthPageProps> {
   constructor () {
     super()
 

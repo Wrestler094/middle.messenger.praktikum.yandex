@@ -1,15 +1,23 @@
 import Block from 'core/Block'
 import './link.css'
 
+interface LinkClassProps {
+  text: string
+  to: string
+  events: {
+    click: (evt: MouseEvent) => void
+  }
+}
+
 interface LinkProps {
   text: string
   to: string
 }
 
-export class Link extends Block {
+export class Link extends Block<LinkClassProps> {
   constructor (props: LinkProps) {
-    const onClick = (e: MouseEvent): void => {
-      e.preventDefault()
+    const onClick = (evt: MouseEvent): void => {
+      evt.preventDefault()
       window.location.replace(this.props.to)
     }
 

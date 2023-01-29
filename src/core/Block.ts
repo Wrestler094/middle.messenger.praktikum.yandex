@@ -25,8 +25,6 @@ export default abstract class Block<P extends Record<string, any> = any> {
   public refs: Record<string, Block> = {}
 
   public constructor (props?: P) {
-    console.log(props)
-    console.log(this)
     const eventBus = new EventBus<Events>()
 
     // eslint-disable-next-line

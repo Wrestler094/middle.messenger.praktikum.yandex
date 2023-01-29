@@ -1,7 +1,13 @@
 import Block from 'core/Block'
 import './chatSidebar__search.css'
 
-export class SidebarSearch extends Block {
+interface SidebarSearchProps {
+  events: {
+    keypress: (evt: KeyboardEvent) => void
+  }
+}
+
+export class SidebarSearch extends Block<SidebarSearchProps> {
   constructor () {
     super({
       events: {

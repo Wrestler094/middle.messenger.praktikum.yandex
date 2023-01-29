@@ -4,7 +4,7 @@ import call from 'static/call.png'
 import options from 'static/options.png'
 import './chatMainWindow__header.css'
 
-export class MainWindowHeader extends Block {
+export class MainWindowHeader extends Block<Record<string, never>> {
   static componentName = 'MainWindowHeader'
 
   protected render (): string {

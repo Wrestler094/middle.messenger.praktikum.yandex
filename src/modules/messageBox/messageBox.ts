@@ -5,9 +5,18 @@ import './messageBox.css'
 
 interface MessageBoxProps {
   onInput?: () => void
+  onSubmit?: () => void
 }
 
-export class MessageBox extends Block {
+interface MessageBoxClassProps {
+  onInput?: () => void
+  onSubmit?: () => void
+  events?: {
+    onInput: () => void
+  }
+}
+
+export class MessageBox extends Block<MessageBoxClassProps> {
   constructor (props: MessageBoxProps) {
     super({
       ...props,

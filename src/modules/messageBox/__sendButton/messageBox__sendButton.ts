@@ -6,7 +6,13 @@ interface MessageBoxButtonProps {
   onClick?: () => void
 }
 
-export class MessageBoxButton extends Block {
+interface MessageBoxButtonClassProps {
+  events: {
+    click?: () => void
+  }
+}
+
+export class MessageBoxButton extends Block<MessageBoxButtonClassProps> {
   constructor ({ onClick }: MessageBoxButtonProps) {
     super({ events: { click: onClick } })
   }
