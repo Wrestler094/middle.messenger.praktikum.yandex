@@ -4,7 +4,7 @@ import * as Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
 
-export default class Block<P = any> {
+export default abstract class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -25,6 +25,8 @@ export default class Block<P = any> {
   public refs: Record<string, Block> = {}
 
   public constructor (props?: P) {
+    console.log(props)
+    console.log(this)
     const eventBus = new EventBus<Events>()
 
     // eslint-disable-next-line
@@ -75,7 +77,6 @@ export default class Block<P = any> {
 
   setProps = (nextProps: P): void => {
     if (typeof nextProps === 'object') {
-      // @ts-expect-error
       Object.assign(this.props, nextProps)
     }
   }
