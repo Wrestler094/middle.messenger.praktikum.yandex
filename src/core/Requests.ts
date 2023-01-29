@@ -13,32 +13,22 @@ interface Options {
 }
 
 type OptionsWithoutMethod = Omit<Options, 'method'>
-
-function queryStringify (data: {}): string {
-  if (typeof data !== 'object') {
-    throw new Error('Data must be object')
-  }
-
-  const keys = Object.entries(data)
-  return keys.reduce((acc: string, [key, value]: [string, unknown], index) => {
-    return `${acc}${key}=${String(value)}${index < keys.length - 1 ? '&' : ''}`
-  }, '?')
-}
+type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>
 
 export default class HTTPTransport {
-  public get = async (url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> => {
+  public get: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: METHODS.GET }, options.timeout)
   }
 
-  public post = async (url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> => {
+  public post: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: METHODS.POST }, options.timeout)
   }
 
-  public put = async (url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> => {
+  public put: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
   }
 
-  public delete = async (url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> => {
+  public delete: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
   }
 
@@ -77,4 +67,15 @@ export default class HTTPTransport {
       }
     })
   }
+}
+
+function queryStringify (data: {}): string {
+  if (typeof data !== 'object') {
+    throw new Error('Data must be object')
+  }
+
+  const keys = Object.entries(data)
+  return keys.reduce((acc: string, [key, value]: [string, unknown], index) => {
+    return `${acc}${key}=${String(value)}${index < keys.length - 1 ? '&' : ''}`
+  }, '?')
 }
