@@ -150,7 +150,7 @@ export class RegPage extends Block<RegPageProps> {
                 ref='repasswordInputRef'
               }}}
           </div>
-          {{{Button text="Зарегистрироваться" onClick=onSubmit}}}
+          {{{Button type="submit" text="Зарегистрироваться" onClick=onSubmit}}}
           {{{Link text="Войти" to="/auth"}}}
         </form>
       </main>

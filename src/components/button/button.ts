@@ -3,6 +3,7 @@ import './button.css'
 
 interface ButtonClassProps {
   text: string
+  type: string
   events: {
     click?: () => void
   }
@@ -10,12 +11,13 @@ interface ButtonClassProps {
 
 interface ButtonProps {
   text: string
+  type: string
   onClick?: () => void
 }
 
 export class Button extends Block<ButtonClassProps> {
-  constructor ({ text, onClick }: ButtonProps) {
-    super({ text, events: { click: onClick } })
+  constructor ({ text, type = 'button', onClick }: ButtonProps) {
+    super({ text, type, events: { click: onClick } })
   }
 
   static componentName = 'Button'
@@ -23,7 +25,7 @@ export class Button extends Block<ButtonClassProps> {
   protected render (): string {
     // language=hbs
     return `
-      <button class="button" type="button">{{text}}</button>
+      <button class="button" type="{{type}}">{{text}}</button>
     `
   }
 }

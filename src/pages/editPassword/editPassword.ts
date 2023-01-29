@@ -88,7 +88,7 @@ export class EditPasswordPage extends Block<EditPasswordPageProps> {
             }}}
           </ul>
           <div class="profile__button">
-            {{{Button text="Сохранить" onClick=onSubmit}}}
+            {{{Button type="submit" text="Сохранить" onClick=onSubmit}}}
           </div>
         </div>
       </main>
