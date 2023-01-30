@@ -2,8 +2,8 @@ import Block from 'core/Block'
 import './input__label.css'
 
 interface InputLabelProps {
-  id?: string
-  text?: string
+  id: string
+  text: string
 }
 
 export class InputLabel extends Block<InputLabelProps> {

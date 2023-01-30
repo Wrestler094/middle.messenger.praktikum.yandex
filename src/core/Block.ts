@@ -4,7 +4,7 @@ import * as Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
 
-export default class Block<P = any> {
+export default abstract class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -75,7 +75,6 @@ export default class Block<P = any> {
 
   setProps = (nextProps: P): void => {
     if (typeof nextProps === 'object') {
-      // @ts-expect-error
       Object.assign(this.props, nextProps)
     }
   }

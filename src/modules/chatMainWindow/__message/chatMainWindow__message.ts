@@ -7,7 +7,7 @@ interface MainWindowMessageProps {
   messages: string
 }
 
-export class MainWindowMessage extends Block {
+export class MainWindowMessage extends Block<MainWindowMessageProps> {
   constructor (props: MainWindowMessageProps) {
     props.messages = JSON.parse(props.messages)
     super(props)

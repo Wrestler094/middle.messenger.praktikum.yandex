@@ -1,39 +1,16 @@
 import Block from 'core/Block'
-import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import submitHandler from './utils/submitHandler'
 import './auth.css'
 
-export class AuthPage extends Block {
+interface AuthPageProps {
+  onSubmit: (evt: SubmitEvent) => void
+}
+
+export class AuthPage extends Block<AuthPageProps> {
   constructor () {
-    super()
-
-    this.setProps({
-      onSubmit: () => { this.onSubmit() }
+    super({
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) }
     })
-  }
-
-  onSubmit (): void {
-    const loginElement = this._element?.querySelector('input[name="login"]') as HTMLInputElement
-    const passwordElement = this._element?.querySelector('input[name="password"]') as HTMLInputElement
-
-    const [loginError, passwordError] = validateForm([
-      { type: ValidateRuleType.Login, value: loginElement.value },
-      { type: ValidateRuleType.Password, value: passwordElement.value }
-    ])
-
-    if (loginError !== '') {
-      this.refs.loginInputRef.refs.inputErrorRef.setProps({ text: loginError })
-    }
-
-    if (passwordError !== '') {
-      this.refs.passwordInputRef.refs.inputErrorRef.setProps({ text: passwordError })
-    }
-
-    if ((loginError === '') && (passwordError === '')) {
-      console.log({
-        login: loginElement.value,
-        password: passwordElement.value
-      })
-    }
   }
 
   static componentName = 'AuthPage'
@@ -60,7 +37,7 @@ export class AuthPage extends Block {
                 ref='passwordInputRef'
               }}}
             </div>
-            {{{Button text="Войти" onClick=onSubmit}}}
+            {{{Button type="submit" text="Войти" onClick=onSubmit}}}
             {{{Link text="Нет аккаунта?" to="/reg"}}}
         </form>
       </main>

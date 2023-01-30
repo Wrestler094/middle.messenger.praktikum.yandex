@@ -6,10 +6,16 @@ interface LinkProps {
   to: string
 }
 
-export class Link extends Block {
+interface LinkClassProps extends LinkProps {
+  events: {
+    click: (evt: MouseEvent) => void
+  }
+}
+
+export class Link extends Block<LinkClassProps> {
   constructor (props: LinkProps) {
-    const onClick = (e: MouseEvent): void => {
-      e.preventDefault()
+    const onClick = (evt: MouseEvent): void => {
+      evt.preventDefault()
       window.location.replace(this.props.to)
     }
 

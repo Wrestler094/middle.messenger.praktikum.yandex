@@ -1,8 +1,8 @@
 import Block from 'core/Block'
 
 interface InlineInputLabelProps {
-  id?: string
-  label?: string
+  id: string
+  label: string
 }
 
 export class InlineInputLabel extends Block<InlineInputLabelProps> {

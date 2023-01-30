@@ -1,7 +1,7 @@
 import Block from 'core/Block'
 import './chatMainWindow__content.css'
 
-export class MainWindowContent extends Block {
+export class MainWindowContent extends Block<Record<string, never>> {
   static componentName = 'MainWindowContent'
 
   protected render (): string {

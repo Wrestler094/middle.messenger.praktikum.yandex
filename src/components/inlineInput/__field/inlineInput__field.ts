@@ -2,16 +2,27 @@ import Block from 'core/Block'
 import './inlineInput__field.css'
 
 interface InlineInputFieldProps {
-  onInput?: () => void
-  onFocus?: () => void
-  onBlur?: () => void
+  onInput: () => void
+  onFocus: () => void
+  onBlur: () => void
   type?: 'text' | 'password' | 'email'
-  id?: string
-  placeholder?: string
+  id: string
+  placeholder: string
 }
 
-export class InlineInputField extends Block {
-  constructor ({ onInput, onFocus, onBlur, type, id, placeholder }: InlineInputFieldProps) {
+interface InlineInputFieldClassProps {
+  type: 'text' | 'password' | 'email'
+  id: string
+  placeholder: string
+  events: {
+    input: () => void
+    focus: () => void
+    blur: () => void
+  }
+}
+
+export class InlineInputField extends Block<InlineInputFieldClassProps> {
+  constructor ({ onInput, onFocus, onBlur, type = 'text', id, placeholder }: InlineInputFieldProps) {
     super({
       type,
       id,

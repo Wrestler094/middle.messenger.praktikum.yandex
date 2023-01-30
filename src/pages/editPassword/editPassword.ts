@@ -1,53 +1,15 @@
 import Block from 'core/Block'
-import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import submitHandler from './utils/submitHandler'
 
-export class EditPasswordPage extends Block {
+interface EditPasswordPageProps {
+  onSubmit: (evt: SubmitEvent) => void
+}
+
+export class EditPasswordPage extends Block<EditPasswordPageProps> {
   constructor () {
-    super()
-
-    this.setProps({
-      onSubmit: () => { this.onSubmit() }
+    super({
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) }
     })
-  }
-
-  onSubmit (): void {
-    const oldPasswordElement = this._element?.querySelector('input[name="oldPassword"]') as HTMLInputElement
-    const newPasswordElement = this._element?.querySelector('input[name="newPassword"]') as HTMLInputElement
-    const repasswordElement = this._element?.querySelector('input[name="repassword"]') as HTMLInputElement
-
-    let isFormValid = true
-    const [
-      oldPasswordError,
-      newPasswordError,
-      repasswordError
-    ] = validateForm([
-      { type: ValidateRuleType.OldPassword, value: oldPasswordElement.value },
-      { type: ValidateRuleType.NewPassword, value: newPasswordElement.value },
-      { type: ValidateRuleType.Repassword, value: repasswordElement.value, value2: newPasswordElement.value }
-    ])
-
-    if (oldPasswordError !== '') {
-      this.refs.oldPasswordInputRef.refs.inlineInputErrorRef.setProps({ error: oldPasswordError })
-      isFormValid = false
-    }
-
-    if (newPasswordError !== '') {
-      this.refs.newPasswordInputRef.refs.inlineInputErrorRef.setProps({ error: newPasswordError })
-      isFormValid = false
-    }
-
-    if (repasswordError !== '') {
-      this.refs.repasswordInputRef.refs.inlineInputErrorRef.setProps({ error: repasswordError })
-      isFormValid = false
-    }
-
-    if (isFormValid) {
-      console.log({
-        oldPassword: oldPasswordElement.value,
-        newPassword: newPasswordElement.value,
-        repassword: repasswordElement.value
-      })
-    }
   }
 
   static componentName = 'EditPasswordPage'
@@ -57,35 +19,37 @@ export class EditPasswordPage extends Block {
     return `
       <main class="profile">
         <h1 class="visually-hidden">Смена пароля</h1>
-        {{{LinkBack to="/chat"}}}
+        {{{LinkBack to="/profile"}}}
         <div class="profile__data">
           {{{Avatar}}}
-          <ul class="profile__edit-pass">
-            {{{InlineInput
-              label='Старый пароль'
-              placeholder='•••••••••'
-              type='password'
-              id='oldPassword'
-              ref='oldPasswordInputRef'
-            }}}
-            {{{InlineInput
-              label='Новый пароль'
-              placeholder='•••••••••'
-              type='password'
-              id='newPassword'
-              ref='newPasswordInputRef'
-            }}}
-            {{{InlineInput
-              label='Повторите новый пароль'
-              placeholder='•••••••••'
-              type='password'
-              id='repassword'
-              ref='repasswordInputRef'
-            }}}
-          </ul>
-          <div class="profile__button">
-            {{{Button text="Сохранить" onClick=onSubmit}}}
-          </div>
+          <form>
+            <ul class="profile__edit-pass">
+              {{{InlineInput
+                label='Старый пароль'
+                placeholder='•••••••••'
+                type='password'
+                id='oldPassword'
+                ref='oldPasswordInputRef'
+              }}}
+              {{{InlineInput
+                label='Новый пароль'
+                placeholder='•••••••••'
+                type='password'
+                id='newPassword'
+                ref='newPasswordInputRef'
+              }}}
+              {{{InlineInput
+                label='Повторите новый пароль'
+                placeholder='•••••••••'
+                type='password'
+                id='repassword'
+                ref='repasswordInputRef'
+              }}}
+            </ul>
+            <div class="profile__button">
+              {{{Button type="submit" text="Сохранить" onClick=onSubmit}}}
+            </div>
+          </form>
         </div>
       </main>
     `

@@ -2,11 +2,16 @@ import Block from 'core/Block'
 import './messageBox__field.css'
 
 interface MessageBoxFieldProps {
-  onInput?: () => void
-
+  onInput: () => void
 }
 
-export class MessageBoxField extends Block {
+interface MessageBoxFieldClassProps {
+  events: {
+    input: () => void
+  }
+}
+
+export class MessageBoxField extends Block<MessageBoxFieldClassProps> {
   constructor ({ onInput }: MessageBoxFieldProps) {
     super({
       events: {

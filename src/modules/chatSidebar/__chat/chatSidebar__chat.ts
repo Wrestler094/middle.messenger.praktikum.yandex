@@ -2,7 +2,14 @@ import Block from 'core/Block'
 import avatar from 'static/avatar.png'
 import './chatSidebar__chat.css'
 
-export class SidebarChat extends Block {
+interface SidebarChatProps {
+  name: string
+  time: string
+  active?: boolean
+  unreadMessages?: number
+}
+
+export class SidebarChat extends Block<SidebarChatProps> {
   static componentName = 'SidebarChat'
 
   protected render (): string {

@@ -1,11 +1,18 @@
 import Block from 'core/Block'
 import './profile.css'
 
-export class ProfilePage extends Block {
-  constructor () {
-    super()
+interface ProfilePageProps {
+  email: string
+  login: string
+  first_name: string
+  second_name: string
+  chat_name: string
+  phone: string
+}
 
-    this.setProps({
+export class ProfilePage extends Block<ProfilePageProps> {
+  constructor () {
+    super({
       email: 'pochta@yandex.ru',
       login: 'ivanivanov',
       first_name: 'Иван',

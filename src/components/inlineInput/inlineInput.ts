@@ -3,16 +3,19 @@ import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 import './inlineInput.css'
 
 interface InlineInputProps {
-  onInput?: () => void
-  onBlur?: (evt: FocusEvent) => void
   type?: 'text' | 'password' | 'email'
-  id?: string
-  placeholder?: string
-  label?: string
+  id: string
+  placeholder: string
+  label: string
+}
+
+interface InlineInputClassProps extends InlineInputProps {
+  onInput: () => void
+  onBlur: (evt: FocusEvent) => void
   error?: string
 }
 
-export class InlineInput extends Block {
+export class InlineInput extends Block<InlineInputClassProps> {
   constructor (props: InlineInputProps) {
     super({
       ...props,
