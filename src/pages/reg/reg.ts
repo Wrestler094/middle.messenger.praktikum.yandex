@@ -1,94 +1,16 @@
 import Block from 'core/Block'
-import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import submitHandler from './utils/submitHandler'
 import './reg.css'
 
 interface RegPageProps {
-  onSubmit: () => void
+  onSubmit: (evt: SubmitEvent) => void
 }
 
 export class RegPage extends Block<RegPageProps> {
   constructor () {
-    super()
-
-    this.setProps({
-      onSubmit: () => { this.onSubmit() }
+    super({
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) }
     })
-  }
-
-  onSubmit (): void {
-    const emailElement = this._element?.querySelector('input[name="email"]') as HTMLInputElement
-    const loginElement = this._element?.querySelector('input[name="login"]') as HTMLInputElement
-    const firstNameElement = this._element?.querySelector('input[name="first_name"]') as HTMLInputElement
-    const secondNameElement = this._element?.querySelector('input[name="second_name"]') as HTMLInputElement
-    const phoneElement = this._element?.querySelector('input[name="phone"]') as HTMLInputElement
-    const passwordElement = this._element?.querySelector('input[name="password"]') as HTMLInputElement
-    const repasswordElement = this._element?.querySelector('input[name="repassword"]') as HTMLInputElement
-
-    let isFormValid = true
-    const [
-      emailError,
-      loginError,
-      firstNameError,
-      secondNameError,
-      phoneError,
-      passwordError,
-      repasswordError
-    ] = validateForm([
-      { type: ValidateRuleType.Email, value: emailElement.value },
-      { type: ValidateRuleType.Login, value: loginElement.value },
-      { type: ValidateRuleType.FirstName, value: firstNameElement.value },
-      { type: ValidateRuleType.SecondName, value: secondNameElement.value },
-      { type: ValidateRuleType.Phone, value: phoneElement.value },
-      { type: ValidateRuleType.Password, value: passwordElement.value },
-      { type: ValidateRuleType.Repassword, value: repasswordElement.value, value2: passwordElement.value }
-    ])
-
-    if (emailError !== '') {
-      this.refs.emailInputRef.refs.inputErrorRef.setProps({ text: emailError })
-      isFormValid = false
-    }
-
-    if (loginError !== '') {
-      this.refs.loginInputRef.refs.inputErrorRef.setProps({ text: loginError })
-      isFormValid = false
-    }
-
-    if (firstNameError !== '') {
-      this.refs.firstNameInputRef.refs.inputErrorRef.setProps({ text: firstNameError })
-      isFormValid = false
-    }
-
-    if (secondNameError !== '') {
-      this.refs.secondNameInputRef.refs.inputErrorRef.setProps({ text: secondNameError })
-      isFormValid = false
-    }
-
-    if (phoneError !== '') {
-      this.refs.phoneInputRef.refs.inputErrorRef.setProps({ text: phoneError })
-      isFormValid = false
-    }
-
-    if (passwordError !== '') {
-      this.refs.passwordInputRef.refs.inputErrorRef.setProps({ text: passwordError })
-      isFormValid = false
-    }
-
-    if (repasswordError !== '') {
-      this.refs.repasswordInputRef.refs.inputErrorRef.setProps({ text: repasswordError })
-      isFormValid = false
-    }
-
-    if (isFormValid) {
-      console.log({
-        email: emailElement.value,
-        login: loginElement.value,
-        firstName: firstNameElement.value,
-        secondName: secondNameElement.value,
-        phone: phoneElement.value,
-        password: passwordElement.value,
-        repassword: repasswordElement.value
-      })
-    }
   }
 
   static componentName = 'RegPage'

@@ -1,50 +1,21 @@
 import Block from 'core/Block'
-import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import submitHandler from './utils/submitHandler'
 import attach from 'static/attach.png'
 import './messageBox.css'
 
 interface MessageBoxProps {
-  onInput?: () => void
-  onSubmit?: () => void
+  onInput: () => void
+  onSubmit: (evt: SubmitEvent) => void
 }
 
-interface MessageBoxClassProps {
-  onInput?: () => void
-  onSubmit?: () => void
-  events?: {
-    onInput: () => void
-  }
-}
-
-export class MessageBox extends Block<MessageBoxClassProps> {
-  constructor (props: MessageBoxProps) {
+export class MessageBox extends Block<MessageBoxProps> {
+  constructor () {
     super({
-      ...props,
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) },
       onInput: () => {
         this.refs.messageBoxErrorRef.setProps({ error: '' })
       }
     })
-
-    this.setProps({
-      onSubmit: () => { this.onSubmit() }
-    })
-  }
-
-  onSubmit (): void {
-    const messageElement = this._element?.querySelector('input[name="message"]') as HTMLInputElement
-    const [messageError] = validateForm([
-      { type: ValidateRuleType.Message, value: messageElement.value }
-    ])
-
-    if (messageError !== '') {
-      this.refs.messageBoxErrorRef.setProps({ error: messageError })
-    }
-
-    if (messageError === '') {
-      console.log({
-        message: messageElement.value
-      })
-    }
   }
 
   static componentName = 'MessageBox'
@@ -55,12 +26,12 @@ export class MessageBox extends Block<MessageBoxClassProps> {
       <div class="message-box">
         {{{MessageBoxError error=error ref='messageBoxErrorRef'}}}
         <img class="message-box__attach" src="${attach}" alt="Прикрепление файлов">
-        <div class="message-box__message-wrapper">
+        <form class="message-box__message-wrapper">
           <label class="message-box__field-label">
-            {{{MessageBoxField onInput=onInput}}}
+            {{{MessageBoxField onInput=onInput ref='messageBoxFieldRef'}}}
           </label>
           {{{MessageBoxButton onClick=onSubmit}}}
-        </div>
+        </form>
       </div>
     `
   }

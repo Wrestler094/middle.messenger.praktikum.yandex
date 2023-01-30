@@ -6,8 +6,7 @@ interface LinkBackProps {
   to: string
 }
 
-interface LinkBackClassProps {
-  to: string
+interface LinkBackClassProps extends LinkBackProps {
   events: {
     click: (evt: MouseEvent) => void
   }

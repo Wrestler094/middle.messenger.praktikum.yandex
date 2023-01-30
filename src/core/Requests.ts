@@ -69,13 +69,14 @@ export default class HTTPTransport {
   }
 }
 
-function queryStringify (data: {}): string {
+function queryStringify (data: Record<string, unknown>): string {
   if (typeof data !== 'object') {
     throw new Error('Data must be object')
   }
 
-  const keys = Object.entries(data)
-  return keys.reduce((acc: string, [key, value]: [string, unknown], index) => {
-    return `${acc}${key}=${String(value)}${index < keys.length - 1 ? '&' : ''}`
+  // Здесь достаточно и [object Object] для объекта
+  const keys = Object.keys(data)
+  return keys.reduce((result, key, index) => {
+    return `${result}${key}=${String(data[key])}${index < keys.length - 1 ? '&' : ''}`
   }, '?')
 }

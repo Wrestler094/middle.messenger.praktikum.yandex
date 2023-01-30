@@ -11,7 +11,7 @@ interface ButtonClassProps {
 
 interface ButtonProps {
   text: string
-  type: string
+  type?: string
   onClick?: () => void
 }
 

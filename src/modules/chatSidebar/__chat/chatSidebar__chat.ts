@@ -5,8 +5,8 @@ import './chatSidebar__chat.css'
 interface SidebarChatProps {
   name: string
   time: string
-  active: boolean
-  unreadMessages: number
+  active?: boolean
+  unreadMessages?: number
 }
 
 export class SidebarChat extends Block<SidebarChatProps> {

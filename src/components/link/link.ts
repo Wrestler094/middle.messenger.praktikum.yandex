@@ -1,17 +1,15 @@
 import Block from 'core/Block'
 import './link.css'
 
-interface LinkClassProps {
-  text: string
-  to: string
-  events: {
-    click: (evt: MouseEvent) => void
-  }
-}
-
 interface LinkProps {
   text: string
   to: string
+}
+
+interface LinkClassProps extends LinkProps {
+  events: {
+    click: (evt: MouseEvent) => void
+  }
 }
 
 export class Link extends Block<LinkClassProps> {

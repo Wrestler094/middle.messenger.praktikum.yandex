@@ -6,14 +6,14 @@ interface InlineInputFieldProps {
   onFocus: () => void
   onBlur: () => void
   type?: 'text' | 'password' | 'email'
-  id?: string
-  placeholder?: string
+  id: string
+  placeholder: string
 }
 
 interface InlineInputFieldClassProps {
-  type?: 'text' | 'password' | 'email'
-  id?: string
-  placeholder?: string
+  type: 'text' | 'password' | 'email'
+  id: string
+  placeholder: string
   events: {
     input: () => void
     focus: () => void
