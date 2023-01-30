@@ -1,0 +1,31 @@
+.message-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 24px;
+}
+
+.message-box__attach:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.message-box__attach:active {
+    opacity: 0.6;
+}
+
+.message-box__message-wrapper {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: calc(100% - 48px);
+    margin-left: 24px;
+    padding: 10px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.message-box__field-label {
+    width: 100%;
+    margin-right: 20px;
+}

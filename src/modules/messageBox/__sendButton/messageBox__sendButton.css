@@ -1,0 +1,16 @@
+.message-box__send-button {
+    line-height: 0;
+}
+
+.message-box__send-image {
+    margin-left: auto;
+}
+
+.message-box__send-image:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.message-box__send-image:active {
+    opacity: 0.6;
+}

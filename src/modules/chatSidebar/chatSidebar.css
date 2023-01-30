@@ -1,0 +1,12 @@
+.chat-sidebar {
+    border-right: 1px solid #f3f3f3;
+    overflow: auto;
+}
+
+.chat-sidebar__search {
+    margin: 12px 24px;
+}
+
+.chat-sidebar__chat-list {
+    margin: 0 16px;
+}

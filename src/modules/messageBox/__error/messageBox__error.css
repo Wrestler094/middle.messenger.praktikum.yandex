@@ -1,0 +1,8 @@
+.message-box__error {
+    height: 12px;
+    width: 100%;
+    margin: 0 0 5px 55px;
+    color: var(--color-error);
+    font-size: 12px;
+    line-height: 12px;
+}
