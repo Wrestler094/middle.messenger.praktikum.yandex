@@ -21,7 +21,7 @@ export class Input extends Block<InputClassProps> {
   constructor (props: InputProps) {
     super({
       ...props,
-      onFocus: (evt: FocusEvent) => { focusHandler(evt) },
+      onFocus: (evt: FocusEvent) => { focusHandler(evt, this) },
       onBlur: (evt: FocusEvent) => { blurHandler(evt, this) },
       onInput: () => {
         this.refs.inputErrorRef.setProps({ text: '' })
