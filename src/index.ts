@@ -1,7 +1,7 @@
-import { renderDOM, registerComponent } from './core'
+import { registerComponent } from './core'
+import Router from 'core/Router'
 
 /* Import pages */
-import AllPagesPage from './pages/allPages'
 import AuthPage from './pages/auth'
 import RegPage from './pages/reg'
 import ProfilePage from './pages/profile'
@@ -75,43 +75,26 @@ registerComponent(MessageBoxError)
 registerComponent(MessageBoxField)
 registerComponent(MessageBoxButton)
 
-document.addEventListener('DOMContentLoaded', () => {
-  switch (window.location.pathname) {
-    case '/': {
-      renderDOM(new AllPagesPage())
-      break
-    }
-    case '/auth': {
-      renderDOM(new AuthPage())
-      break
-    }
-    case '/reg': {
-      renderDOM(new RegPage())
-      break
-    }
-    case '/profile': {
-      renderDOM(new ProfilePage())
-      break
-    }
-    case '/edit-profile': {
-      renderDOM(new EditProfilePage())
-      break
-    }
-    case '/edit-password': {
-      renderDOM(new EditPasswordPage())
-      break
-    }
-    case '/chat': {
-      renderDOM(new ChatPage())
-      break
-    }
-    case '/5xx': {
-      renderDOM(new ServerErrorPage())
-      break
-    }
-    default: {
-      renderDOM(new NotFoundPage())
-      break
-    }
-  }
-})
+enum Routes {
+  MAIN = '/',
+  AUTH = '/auth',
+  REG = '/reg',
+  PROFILE = '/profile',
+  EDIT_PROFILE = '/edit-profile',
+  EDIT_PASSWORD = '/edit-password',
+  CHAT = '/chat',
+  SERVER_ERROR = '/5xx',
+  NOT_FOUND = '/404',
+}
+
+Router
+  .use(Routes.MAIN, AuthPage)
+  .use(Routes.AUTH, AuthPage)
+  .use(Routes.REG, RegPage)
+  .use(Routes.PROFILE, ProfilePage)
+  .use(Routes.EDIT_PROFILE, EditProfilePage)
+  .use(Routes.EDIT_PASSWORD, EditPasswordPage)
+  .use(Routes.CHAT, ChatPage)
+  .use(Routes.SERVER_ERROR, ServerErrorPage)
+  .use(Routes.NOT_FOUND, NotFoundPage)
+  .start()

@@ -1,7 +1,7 @@
 import Block from './Block'
 
-export default function renderDOM (block: Block): void {
-  const root = document.querySelector('#app')
+export default function renderDOM (rootQuery: string, block: Block<any>): void {
+  const root = document.querySelector(rootQuery)
 
   if (root != null) {
     root.innerHTML = ''
