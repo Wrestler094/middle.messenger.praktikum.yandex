@@ -77,7 +77,6 @@ registerComponent(MessageBoxButton)
 
 enum Routes {
   MAIN = '/',
-  AUTH = '/auth',
   REG = '/reg',
   PROFILE = '/profile',
   EDIT_PROFILE = '/edit-profile',
@@ -89,7 +88,6 @@ enum Routes {
 
 Router
   .use(Routes.MAIN, AuthPage)
-  .use(Routes.AUTH, AuthPage)
   .use(Routes.REG, RegPage)
   .use(Routes.PROFILE, ProfilePage)
   .use(Routes.EDIT_PROFILE, EditProfilePage)

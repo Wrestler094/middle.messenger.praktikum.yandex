@@ -6,7 +6,6 @@ enum METHODS {
 }
 
 interface Options {
-  headers?: Record<string, string>
   method: METHODS
   data?: any
   timeout?: number
@@ -15,7 +14,9 @@ interface Options {
 type OptionsWithoutMethod = Omit<Options, 'method'>
 type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>
 
-export default class HTTPTransport {
+class HTTPTransport {
+  static readonly BASE_URL: string = 'https://ya-praktikum.tech/api/v2/'
+
   public get: HTTPMethod = async (url, options = {}) => {
     return await this.request(url, { ...options, method: METHODS.GET }, options.timeout)
   }
@@ -33,7 +34,8 @@ export default class HTTPTransport {
   }
 
   protected request = async (url: string, options: Options, timeout = 5000): Promise<XMLHttpRequest> => {
-    const { headers = {}, method, data } = options
+    const { method, data } = options
+    const fullUrl = HTTPTransport.BASE_URL + url
 
     return await new Promise(function (resolve, reject) {
       const xhr = new XMLHttpRequest()
@@ -42,26 +44,43 @@ export default class HTTPTransport {
       xhr.open(
         method,
         isGet && (Boolean(data))
-          ? `${url}${queryStringify(data)}`
-          : url
+          ? `${fullUrl}${queryStringify(data)}`
+          : fullUrl
       )
 
-      Object.keys(headers).forEach(key => {
-        xhr.setRequestHeader(key, headers[key])
-      })
-
-      xhr.onload = function () {
-        resolve(xhr)
+      if (!(data instanceof FormData)) {
+        xhr.setRequestHeader('Content-Type', 'application/json')
       }
 
-      xhr.onabort = reject
-      xhr.onerror = reject
-
       xhr.timeout = timeout
-      xhr.ontimeout = reject
+
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          console.log(xhr)
+          resolve(xhr.response)
+        } else {
+          console.log(xhr)
+          reject(JSON.parse(xhr.response))
+        }
+      }
+
+      xhr.onabort = function () {
+        console.log(xhr)
+        reject(JSON.parse(xhr.response))
+      }
+
+      xhr.onerror = function () {
+        console.log(xhr)
+        reject(JSON.parse(xhr.response))
+      }
+
+      xhr.ontimeout = function () {
+        console.log(xhr)
+        reject(JSON.parse(xhr.response))
+      }
 
       if (!isGet && (Boolean(data))) {
-        xhr.send(data)
+        xhr.send(data instanceof FormData ? data : JSON.stringify(data))
       } else {
         xhr.send()
       }
@@ -80,3 +99,5 @@ function queryStringify (data: Record<string, unknown>): string {
     return `${result}${key}=${String(data[key])}${index < keys.length - 1 ? '&' : ''}`
   }, '?')
 }
+
+export default new HTTPTransport()

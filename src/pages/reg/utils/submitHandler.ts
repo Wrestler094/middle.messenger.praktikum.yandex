@@ -1,4 +1,6 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import HTTPTransport from 'core/HTTPTransport'
+import Router from 'core/Router'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -66,14 +68,22 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if (isFormValid) {
-    console.log({
-      email: emailElement.value,
-      login: loginElement.value,
-      firstName: firstNameElement.value,
-      secondName: secondNameElement.value,
-      phone: phoneElement.value,
-      password: passwordElement.value,
-      repassword: repasswordElement.value
+    HTTPTransport.post('auth/signup', {
+      data: {
+        email: emailElement.value,
+        login: loginElement.value,
+        first_name: firstNameElement.value,
+        second_name: secondNameElement.value,
+        phone: phoneElement.value,
+        password: passwordElement.value
+      }
     })
+      .then(res => {
+        console.log(res)
+        Router.go('/')
+      }).catch(err => {
+        console.log(err)
+        console.log(err.reason)
+      })
   }
 }
