@@ -36,7 +36,6 @@ export class InlineInputField extends Block<InlineInputFieldClassProps> {
         blur: onBlur
       }
     })
-    console.log(value)
   }
 
   static componentName = 'InlineInputField'
