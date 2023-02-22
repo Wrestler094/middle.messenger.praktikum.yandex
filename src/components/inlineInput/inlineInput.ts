@@ -7,6 +7,7 @@ interface InlineInputProps {
   id: string
   placeholder: string
   label: string
+  value?: string
 }
 
 interface InlineInputClassProps extends InlineInputProps {
@@ -53,6 +54,7 @@ export class InlineInput extends Block<InlineInputClassProps> {
         {{{InlineInputField
           type=type
           id=id
+          value=value
           placeholder=placeholder
           onInput=onInput
           onBlur=onBlur
