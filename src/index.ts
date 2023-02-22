@@ -1,7 +1,7 @@
-import { registerComponent } from './core'
-import Router from 'core/Router'
+import { registerComponent, renderDOM, Router, Store } from 'core'
+import { initAppService } from './services/initAppService'
 
-/* Import pages */
+// region Import pages
 import AuthPage from './pages/auth'
 import RegPage from './pages/reg'
 import ProfilePage from './pages/profile'
@@ -10,14 +10,17 @@ import EditPasswordPage from './pages/editPassword'
 import ChatPage from './pages/chat'
 import ServerErrorPage from './pages/5xx'
 import NotFoundPage from './pages/404'
+// endregion
 
 import './style.css'
 
-/* Import components */
+// region Import components
+import AppLoader from './components/AppLoader'
 import Avatar from './components/avatar'
 import Button from './components/button'
 import Link from './components/link'
 import LinkBack from './components/linkBack'
+import ControlLink from './components/controlLink'
 import Input from './components/input'
 import InputLabel from './components/input/__label'
 import InputField from './components/input/__field'
@@ -26,8 +29,9 @@ import InlineInput from './components/inlineInput'
 import InlineInputLabel from './components/inlineInput/__label'
 import InlineInputField from './components/inlineInput/__field'
 import InlineInputError from './components/inlineInput/__error'
+// endregion
 
-/* Import modules */
+// region Import modules
 // ChatSidebar
 import ChatSidebar from './modules/chatSidebar'
 import SidebarHeader from './modules/chatSidebar/__header'
@@ -43,12 +47,15 @@ import MessageBox from './modules/messageBox'
 import MessageBoxError from './modules/messageBox/__error'
 import MessageBoxField from './modules/messageBox/__field'
 import MessageBoxButton from './modules/messageBox/__sendButton'
+// endregion
 
-/* Register components */
+// region Register components
+registerComponent(AppLoader)
 registerComponent(Avatar)
 registerComponent(Button)
 registerComponent(Link)
 registerComponent(LinkBack)
+registerComponent(ControlLink)
 registerComponent(Input)
 registerComponent(InputLabel)
 registerComponent(InputField)
@@ -57,8 +64,9 @@ registerComponent(InlineInput)
 registerComponent(InlineInputLabel)
 registerComponent(InlineInputField)
 registerComponent(InlineInputError)
+// endregion
 
-/* Register modules */
+// region Register modules
 // ChatSidebar
 registerComponent(ChatSidebar)
 registerComponent(SidebarHeader)
@@ -74,25 +82,53 @@ registerComponent(MessageBox)
 registerComponent(MessageBoxError)
 registerComponent(MessageBoxField)
 registerComponent(MessageBoxButton)
+// endregion
 
-enum Routes {
-  MAIN = '/',
-  REG = '/reg',
-  PROFILE = '/profile',
-  EDIT_PROFILE = '/edit-profile',
-  EDIT_PASSWORD = '/edit-password',
-  CHAT = '/chat',
-  SERVER_ERROR = '/5xx',
-  NOT_FOUND = '/404',
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Router
+  enum Routes {
+    MAIN = '/',
+    REG = '/sign-up',
+    PROFILE = '/settings',
+    EDIT_PROFILE = '/edit-profile',
+    EDIT_PASSWORD = '/edit-password',
+    CHAT = '/messenger',
+    SERVER_ERROR = '/5xx',
+    NOT_FOUND = '/404',
+  }
 
-Router
-  .use(Routes.MAIN, AuthPage)
-  .use(Routes.REG, RegPage)
-  .use(Routes.PROFILE, ProfilePage)
-  .use(Routes.EDIT_PROFILE, EditProfilePage)
-  .use(Routes.EDIT_PASSWORD, EditPasswordPage)
-  .use(Routes.CHAT, ChatPage)
-  .use(Routes.SERVER_ERROR, ServerErrorPage)
-  .use(Routes.NOT_FOUND, NotFoundPage)
-  .start()
+  Router
+    .use(Routes.MAIN, AuthPage)
+    .use(Routes.REG, RegPage)
+    .use(Routes.PROFILE, ProfilePage, true)
+    .use(Routes.EDIT_PROFILE, EditProfilePage, true)
+    .use(Routes.EDIT_PASSWORD, EditPasswordPage, true)
+    .use(Routes.CHAT, ChatPage, true)
+    .use(Routes.SERVER_ERROR, ServerErrorPage)
+    .use(Routes.NOT_FOUND, NotFoundPage)
+
+  // Initialize Store
+  const defaultState: AppState = {
+    appIsInited: false,
+    isLoading: false,
+    loginFormError: null,
+    user: null
+  }
+
+  // Debug print
+  Store.on('changed', (prevState, nextState) => {
+    console.log(
+      '%cstore updated',
+      'background: #222; color: #bada55',
+      prevState, nextState
+    )
+  })
+
+  Store.dispatch(defaultState)
+
+  // Render Loader
+  renderDOM('#app', new AppLoader())
+
+  // Invoke InitApp service
+  void initAppService()
+})
