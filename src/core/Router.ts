@@ -1,5 +1,6 @@
 import Route from 'core/Route'
 import Block from 'core/Block'
+import { Store } from 'core'
 
 class Router {
   private static __instance: Router
@@ -16,8 +17,8 @@ class Router {
     Router.__instance = this
   }
 
-  use (pathname: string, block: Function & { prototype: Block }): Router {
-    const route = new Route(pathname, block, { rootQuery: this._rootQuery })
+  use (pathname: string, block: Function & { prototype: Block }, isProtect: boolean = false): Router {
+    const route = new Route(pathname, block, { rootQuery: this._rootQuery, isProtect })
 
     this.routes.push(route)
 
@@ -33,19 +34,28 @@ class Router {
     this._onRoute(window.location.pathname)
   }
 
+  _isUserAuthenticated (): boolean {
+    // @ts-expect-error
+    return !(Store.getState().user == null)
+  }
+
   _onRoute (pathname: string): void {
-    const route = this.getRoute(pathname)
+    let route = this.getRoute(pathname)
 
     if (route == null) {
-      return
+      route = this.getRoute('/404')
     }
 
-    if ((this._currentRoute != null) && this._currentRoute !== route) {
-      this._currentRoute.leave()
-    }
+    if (route?.isProtect() === true && !(this._isUserAuthenticated())) {
+      this.go('/')
+    } else {
+      if ((this._currentRoute != null) && this._currentRoute !== route) {
+        this._currentRoute.leave()
+      }
 
-    this._currentRoute = route
-    route.render()
+      this._currentRoute = route as Route
+      route?.render()
+    }
   }
 
   go (pathname: string): void {

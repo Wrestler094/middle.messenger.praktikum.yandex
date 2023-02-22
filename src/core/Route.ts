@@ -29,6 +29,10 @@ export default class Route {
     return pathname === this._pathname
   }
 
+  isProtect (): boolean {
+    return this._props.isProtect
+  }
+
   render (): void {
     if (this._block == null) {
       // @ts-expect-error
