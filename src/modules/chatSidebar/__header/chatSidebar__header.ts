@@ -1,8 +1,27 @@
 import Block from 'core/Block'
+import Router from 'core/Router'
 import settings from 'static/settings.png'
 import './chatSidebar__header.css'
 
-export class SidebarHeader extends Block<Record<string, never>> {
+interface SidebarHeaderProps {
+  events: {
+    click: (evt: MouseEvent) => void
+  }
+}
+
+export class SidebarHeader extends Block<SidebarHeaderProps> {
+  constructor () {
+    const onClick = (evt: MouseEvent): void => {
+      evt.preventDefault()
+
+      if (evt.target === document.getElementById('settings')) {
+        Router.go('/settings')
+      }
+    }
+
+    super({ events: { click: onClick } })
+  }
+
   static componentName = 'SidebarHeader'
 
   protected render (): string {
@@ -10,8 +29,8 @@ export class SidebarHeader extends Block<Record<string, never>> {
     return `
       <header class="chat-sidebar__header chats-header">
         <h2 class="chat-header__title">Чаты</h2>
-        <a class="chat-header__link" href="/profile">
-          <img class="chats-header__settings" src="${settings}" alt="Настройки">
+        <a class="chat-header__link" href="/settings">
+          <img id="settings" class="chats-header__settings" src="${settings}" alt="Настройки">
         </a>
       </header>
     `
