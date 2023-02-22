@@ -1,6 +1,5 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
-import HTTPTransport from 'core/HTTPTransport'
-import Router from 'core/Router'
+import { authService } from 'services/authService'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -22,18 +21,9 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if ((loginError === '') && (passwordError === '')) {
-    HTTPTransport.post('auth/signin', {
-      data: {
-        login: loginElement.value,
-        password: passwordElement.value
-      }
+    void authService.login({
+      login: loginElement.value,
+      password: passwordElement.value
     })
-      .then(res => {
-        console.log(res)
-        Router.go('/chat')
-      }).catch(err => {
-        console.log(err)
-        console.log(err.reason)
-      })
   }
 }

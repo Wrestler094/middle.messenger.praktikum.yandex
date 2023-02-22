@@ -19,7 +19,7 @@ export class EditPasswordPage extends Block<EditPasswordPageProps> {
     return `
       <main class="profile">
         <h1 class="visually-hidden">Смена пароля</h1>
-        {{{LinkBack to="/profile"}}}
+        {{{LinkBack to="/settings"}}}
         <div class="profile__data">
           {{{Avatar}}}
           <form>

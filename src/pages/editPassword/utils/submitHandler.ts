@@ -1,4 +1,5 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import { userService } from 'services/userService'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -34,7 +35,7 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if (isFormValid) {
-    console.log({
+    void userService.editPassword({
       oldPassword: oldPasswordElement.value,
       newPassword: newPasswordElement.value,
       repassword: repasswordElement.value

@@ -38,7 +38,7 @@ export class AuthPage extends Block<AuthPageProps> {
               }}}
             </div>
             {{{Button type="submit" text="Войти" onClick=onSubmit}}}
-            {{{Link text="Нет аккаунта?" to="/reg"}}}
+            {{{Link text="Нет аккаунта?" to="/sign-up"}}}
         </form>
       </main>
     `

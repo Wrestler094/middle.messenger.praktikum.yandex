@@ -1,4 +1,5 @@
 import Block from 'core/Block'
+import { Store } from 'core'
 import './profile.css'
 
 interface ProfilePageProps {
@@ -6,19 +7,24 @@ interface ProfilePageProps {
   login: string
   first_name: string
   second_name: string
+  display_name: string
   chat_name: string
   phone: string
 }
 
 export class ProfilePage extends Block<ProfilePageProps> {
   constructor () {
+    // @ts-expect-error
+    const user = Store.getState().user as User
+
     super({
-      email: 'pochta@yandex.ru',
-      login: 'ivanivanov',
-      first_name: 'Иван',
-      second_name: 'Иванов',
-      chat_name: 'Иван',
-      phone: '+7 (909) 967 30 30'
+      email: user.email,
+      login: user.login,
+      first_name: user.first_name,
+      second_name: user.second_name,
+      display_name: user.display_name != null ? user.display_name : user.first_name,
+      chat_name: user.display_name,
+      phone: user.phone
     })
   }
 
@@ -29,10 +35,10 @@ export class ProfilePage extends Block<ProfilePageProps> {
     return `
       <main class="profile">
         <h1 class="visually-hidden">Страница профиля</h1>
-        {{{LinkBack to="/chat"}}}
+        {{{LinkBack to="/messenger"}}}
         <div class="profile__data">
           {{{Avatar}}}
-          <h2 class="profile-name">Иван</h2>
+          <h2 class="profile-name">{{{display_name}}}</h2>
           <ul class="user-info">
             <li class="user-info__item">
               <p>Почта</p>
@@ -61,13 +67,13 @@ export class ProfilePage extends Block<ProfilePageProps> {
           </ul>
           <ul class="control">
             <li class="control__item">
-              <a class="control__link" href="/edit-profile">Изменить данные</a>
+                {{{ControlLink classes='control__link' to='/edit-profile' text='Изменить данные'}}}
             </li>
             <li class="control__item">
-              <a class="control__link" href="/edit-password">Изменить пароль</a>
+                {{{ControlLink classes='control__link' to='/edit-password' text='Изменить пароль'}}}
             </li>
             <li class="control__item">
-              <a class="control__link control__link--error" href="/auth">Выйти</a>
+              {{{ControlLink classes='control__link control__link--error' to='/' text='Выйти'}}}
             </li>
           </ul>
         </div>
