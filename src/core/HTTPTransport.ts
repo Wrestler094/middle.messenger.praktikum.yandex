@@ -5,36 +5,33 @@ enum METHODS {
   DELETE = 'DELETE'
 }
 
-interface Options {
-  method: METHODS
-  data?: any
-  timeout?: number
-}
-
-type OptionsWithoutMethod = Omit<Options, 'method'>
-type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>
+type HTTPMethod = (url: string, data?: Record<string, any>) => Promise<unknown>
 
 class HTTPTransport {
   static readonly BASE_URL: string = 'https://ya-praktikum.tech/api/v2/'
 
-  public get: HTTPMethod = async (url, options = {}) => {
-    return await this.request(url, { ...options, method: METHODS.GET }, options.timeout)
+  public get: HTTPMethod = async (url, data = {}) => {
+    return await this.request(url, data, METHODS.GET)
   }
 
-  public post: HTTPMethod = async (url, options = {}) => {
-    return await this.request(url, { ...options, method: METHODS.POST }, options.timeout)
+  public post: HTTPMethod = async (url, data = {}) => {
+    return await this.request(url, data, METHODS.POST)
   }
 
-  public put: HTTPMethod = async (url, options = {}) => {
-    return await this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
+  public put: HTTPMethod = async (url, data = {}) => {
+    return await this.request(url, data, METHODS.PUT)
   }
 
-  public delete: HTTPMethod = async (url, options = {}) => {
-    return await this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
+  public delete: HTTPMethod = async (url, data = {}) => {
+    return await this.request(url, data, METHODS.DELETE)
   }
 
-  protected request = async (url: string, options: Options, timeout = 5000): Promise<XMLHttpRequest> => {
-    const { method, data } = options
+  protected request = async (
+    url: string,
+    data: Record<string, any>,
+    method: string,
+    timeout = 5000
+  ): Promise<unknown> => {
     const fullUrl = HTTPTransport.BASE_URL + url
 
     return await new Promise(function (resolve, reject) {
@@ -53,29 +50,32 @@ class HTTPTransport {
       }
 
       xhr.timeout = timeout
+      xhr.withCredentials = true
 
       xhr.onload = function () {
+        let responseData
+        try {
+          responseData = JSON.parse(xhr.response)
+        } catch (err) {
+          responseData = xhr.response
+        }
+
         if (xhr.status >= 200 && xhr.status < 300) {
-          console.log(xhr)
-          resolve(xhr.response)
+          resolve(responseData)
         } else {
-          console.log(xhr)
-          reject(JSON.parse(xhr.response))
+          reject(responseData)
         }
       }
 
       xhr.onabort = function () {
-        console.log(xhr)
         reject(JSON.parse(xhr.response))
       }
 
       xhr.onerror = function () {
-        console.log(xhr)
         reject(JSON.parse(xhr.response))
       }
 
       xhr.ontimeout = function () {
-        console.log(xhr)
         reject(JSON.parse(xhr.response))
       }
 
