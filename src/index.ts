@@ -17,6 +17,8 @@ import './style.css'
 // region Import components
 import AppLoader from './components/AppLoader'
 import Avatar from './components/avatar'
+import AvatarModal from './components/avatar/__modal'
+import Modal from './components/modal'
 import Button from './components/button'
 import Link from './components/link'
 import LinkBack from './components/linkBack'
@@ -52,6 +54,8 @@ import MessageBoxButton from './modules/messageBox/__sendButton'
 // region Register components
 registerComponent(AppLoader)
 registerComponent(Avatar)
+registerComponent(AvatarModal)
+registerComponent(Modal)
 registerComponent(Button)
 registerComponent(Link)
 registerComponent(LinkBack)
