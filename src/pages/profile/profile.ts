@@ -10,6 +10,7 @@ interface ProfilePageProps {
   display_name: string
   chat_name: string
   phone: string
+  onClick: (evt: MouseEvent) => void
 }
 
 export class ProfilePage extends Block<ProfilePageProps> {
@@ -24,8 +25,13 @@ export class ProfilePage extends Block<ProfilePageProps> {
       second_name: user.second_name,
       display_name: user.display_name != null ? user.display_name : user.first_name,
       chat_name: user.display_name,
-      phone: user.phone
+      phone: user.phone,
+      onClick: (evt: MouseEvent) => { clickHandler(evt, this) }
     })
+
+    function clickHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
+      ctx.refs.avatarModal.show()
+    }
   }
 
   static componentName = 'ProfilePage'
@@ -37,7 +43,8 @@ export class ProfilePage extends Block<ProfilePageProps> {
         <h1 class="visually-hidden">Страница профиля</h1>
         {{{LinkBack to="/messenger"}}}
         <div class="profile__data">
-          {{{Avatar}}}
+          {{{Avatar onClick=onClick}}}
+          {{{AvatarModal ref='avatarModal'}}}
           <h2 class="profile-name">{{{display_name}}}</h2>
           <ul class="user-info">
             <li class="user-info__item">

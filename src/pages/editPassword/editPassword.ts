@@ -3,13 +3,19 @@ import submitHandler from './utils/submitHandler'
 
 interface EditPasswordPageProps {
   onSubmit: (evt: SubmitEvent) => void
+  onClick: (evt: MouseEvent) => void
 }
 
 export class EditPasswordPage extends Block<EditPasswordPageProps> {
   constructor () {
     super({
-      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) }
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) },
+      onClick: (evt: MouseEvent) => { clickHandler(evt, this) }
     })
+
+    function clickHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
+      ctx.refs.avatarModal.show()
+    }
   }
 
   static componentName = 'EditPasswordPage'
@@ -21,7 +27,8 @@ export class EditPasswordPage extends Block<EditPasswordPageProps> {
         <h1 class="visually-hidden">Смена пароля</h1>
         {{{LinkBack to="/settings"}}}
         <div class="profile__data">
-          {{{Avatar}}}
+          {{{Avatar onClick=onClick}}}
+          {{{AvatarModal ref='avatarModal'}}}
           <form>
             <ul class="profile__edit-pass">
               {{{InlineInput

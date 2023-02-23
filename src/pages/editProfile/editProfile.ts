@@ -1,16 +1,22 @@
 import Block from 'core/Block'
+import { Store } from 'core'
 import submitHandler from './utils/submitHandler'
-import { Store } from '../../core'
 
 interface EditProfilePageProps {
   onSubmit: (evt: SubmitEvent) => void
+  onClick: (evt: MouseEvent) => void
 }
 
 export class EditProfilePage extends Block<EditProfilePageProps> {
   constructor () {
     super({
-      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) }
+      onSubmit: (evt: SubmitEvent) => { submitHandler(evt, this) },
+      onClick: (evt: MouseEvent) => { clickHandler(evt, this) }
     })
+
+    function clickHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
+      ctx.refs.avatarModal.show()
+    }
   }
 
   static componentName = 'EditProfilePage'
@@ -31,7 +37,8 @@ export class EditProfilePage extends Block<EditProfilePageProps> {
         <h1 class="visually-hidden">Настройки профиля</h1>
         {{{LinkBack to="/settings"}}}
         <div class="profile__data">
-          {{{Avatar}}}
+          {{{Avatar onClick=onClick}}}
+          {{{AvatarModal ref='avatarModal'}}}
           <form>
             <ul class="profile__edit-data">
               {{{InlineInput
