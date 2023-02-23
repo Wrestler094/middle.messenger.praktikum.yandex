@@ -11,15 +11,15 @@ interface SidebarHeaderProps {
 
 export class SidebarHeader extends Block<SidebarHeaderProps> {
   constructor () {
-    const onClick = (evt: MouseEvent): void => {
+    super({ events: { click: onClick } })
+
+    function onClick (evt: MouseEvent): void {
       evt.preventDefault()
 
       if (evt.target === document.getElementById('settings')) {
         Router.go('/settings')
       }
     }
-
-    super({ events: { click: onClick } })
   }
 
   static componentName = 'SidebarHeader'
