@@ -9,7 +9,7 @@ export const userApi = {
     return await HTTPTransport.put('user/password', data)
   },
 
-  changeAvatar: async function (data: Record<string, any>): Promise<any> {
+  changeAvatar: async function (data: FormData): Promise<any> {
     return await HTTPTransport.put('user/profile/avatar', data)
   },
 

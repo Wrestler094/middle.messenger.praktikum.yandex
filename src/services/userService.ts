@@ -29,10 +29,12 @@ export const userService = {
     }
   },
 
-  changeAvatar: async function (data: Record<string, any>) {
+  changeAvatar: async function (data: FormData, ctx: Record<string, any>) {
     try {
       // Show Loader
-      console.log(data)
+      const user = await userApi.changeAvatar(data)
+      Store.dispatch({ user })
+      ctx.hide()
     } catch (err) {
       // Show Error
       console.log(err)
