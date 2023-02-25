@@ -3,6 +3,21 @@ import { withStore } from 'helpers/withStore'
 import { chatService } from 'services/chatService'
 import './chatSidebar.css'
 
+// TODO: ~ Вынести интерфейс в глобалльный
+interface Chat {
+  active: boolean
+  avatar: string | null
+  id: number
+  title: string
+  last_message: {
+    id: number
+    time: string
+    content: string
+  }
+  created_by: number
+  unread_count: number
+}
+
 class ChatSidebar extends Block<Record<string, never>> {
   constructor (props: {}) {
     super(props)
@@ -41,16 +56,10 @@ class ChatSidebar extends Block<Record<string, never>> {
     const chats = this.props.store.chats
 
     if (chats?.length > 0) {
-      // TODO: Дописать и вынести типизацию чата
-      chats.forEach((chat: {
-        last_message: {
-          time: string
-          content: string
-        }
-      }) => {
-        // TODO: Check for active
-        // console.log(Store.getState().activeChat)
-        // chat.active = true
+      chats.forEach((chat: Chat) => {
+        console.log(chat)
+        // @ts-expect-error
+        chat.active = chat.id === Store.getState().activeChatId
 
         if (chat.last_message != null) {
           chat.last_message.time = this._getChatTime(chat.last_message.time)
