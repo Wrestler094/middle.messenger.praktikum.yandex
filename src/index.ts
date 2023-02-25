@@ -72,6 +72,7 @@ registerComponent(InlineInputError)
 
 // region Register modules
 // ChatSidebar
+// @ts-expect-error
 registerComponent(ChatSidebar)
 registerComponent(SidebarHeader)
 registerComponent(SidebarSearch)
@@ -116,7 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
     appIsInited: false,
     isLoading: false,
     loginFormError: null,
-    user: null
+    user: null,
+    chats: null,
+    activeChat: null,
+    messages: null
   }
 
   // Debug print

@@ -6,12 +6,16 @@ declare global {
 
   // TODO: chats
   // TODO: active chat
-  // TODO: messages
+  // TODO: contacts[]
+  // TODO: messages[]
   export interface AppState {
     appIsInited: boolean
     isLoading: boolean
     loginFormError: string | null
     user: User | null
+    chats: [] | null
+    activeChat: any
+    messages: [] | null
   }
 
   export interface User {
