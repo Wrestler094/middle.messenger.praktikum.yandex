@@ -1,15 +1,15 @@
 import { Block, Store } from 'core'
+import { withStore } from 'helpers/withStore'
 import './chatMainWindow.css'
 
-export class ChatMainWindow extends Block<Record<string, never>> {
+class ChatMainWindow extends Block<Record<string, never>> {
   static componentName = 'ChatMainWindow'
 
   protected render (): string {
     // @ts-expect-error
-    const activeChat = Store.getState().activeChat
-    console.log(activeChat)
+    const activeChatId = Store.getState().activeChatId
 
-    if (activeChat != null) {
+    if (activeChatId != null) {
       // language=hbs
       return `
         <div class="main-chat">
@@ -28,3 +28,7 @@ export class ChatMainWindow extends Block<Record<string, never>> {
     }
   }
 }
+
+// @ts-expect-error
+const WrappedChatMainWindow = withStore(ChatMainWindow)
+export { WrappedChatMainWindow as ChatMainWindow }

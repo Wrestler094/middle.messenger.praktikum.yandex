@@ -72,6 +72,7 @@ class ChatSidebar extends Block<Record<string, never>> {
           {{#each store.chats}}
             {{#if this.last_message}}
               {{{SidebarChat
+                id=id
                 title=title
                 avatar=avatar
                 active=active
@@ -81,6 +82,7 @@ class ChatSidebar extends Block<Record<string, never>> {
               }}}
             {{else}}
               {{{SidebarChat
+                id=id
                 title=title
                 active=active
                 avatar=avatar

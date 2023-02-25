@@ -1,8 +1,8 @@
-import Block from 'core/Block'
+import { Block, Store } from 'core'
 import defaultAvatar from 'static/avatar.png'
 import './chatSidebar__chat.css'
 
-interface SidebarChatProps {
+interface SidebarChatClassProps {
   title: string
   avatar: string
   lastMessage: string
@@ -11,15 +11,25 @@ interface SidebarChatProps {
   unreadMessages?: number
 }
 
+interface SidebarChatProps extends SidebarChatClassProps {
+  events: {
+    click: () => void
+  }
+}
+
 export class SidebarChat extends Block<SidebarChatProps> {
-  constructor (props: SidebarChatProps) {
+  constructor (props: SidebarChatClassProps) {
     if (props.avatar == null) {
       props.avatar = defaultAvatar
     } else {
       props.avatar = 'https://ya-praktikum.tech/api/v2/resources' + String(props.avatar)
     }
 
-    super(props)
+    super({ ...props, events: { click: () => { onClick(this) } } })
+
+    function onClick (ctx: Record<string, any>): void {
+      Store.dispatch({ activeChatId: ctx.props.id })
+    }
   }
 
   static componentName = 'SidebarChat'

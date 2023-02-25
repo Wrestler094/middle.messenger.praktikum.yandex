@@ -78,6 +78,7 @@ registerComponent(SidebarHeader)
 registerComponent(SidebarSearch)
 registerComponent(SidebarChat)
 // ChatMainWindow
+// @ts-expect-error
 registerComponent(ChatMainWindow)
 registerComponent(MainWindowHeader)
 registerComponent(MainWindowContent)
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isLoading: false,
     user: null,
     chats: null,
-    activeChat: null,
+    activeChatId: null,
     messages: null
   }
 

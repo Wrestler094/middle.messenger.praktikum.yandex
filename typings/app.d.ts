@@ -10,7 +10,7 @@ declare global {
     isLoading: boolean
     user: User | null
     chats: [] | null
-    activeChat: any
+    activeChatId: number | null
     messages: [] | null
   }
 
