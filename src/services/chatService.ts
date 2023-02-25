@@ -50,5 +50,4 @@ export const chatService = {
       // Hide Loader
     }
   }
-
 }

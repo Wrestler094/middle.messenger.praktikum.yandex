@@ -6,6 +6,7 @@
 }
 
 .chat-header__user {
+    height: 43px;
     display: grid;
     grid-template-columns: 40px 1fr;
     grid-column-gap: 16px;
@@ -46,6 +47,7 @@
 }
 
 .chat-header__call {
+    height: 43px;
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -74,15 +76,43 @@
     color: var(--color-accent);
 }
 
-.chat-header__options {
+.options {
+    height: 43px;
+    position: relative;
+    display: inline-block;
     margin-left: 15px;
 }
 
-.chat-header__options:hover {
-    opacity: 0.8;
+.options:hover {
     cursor: pointer;
 }
 
-.chat-header__options:active {
-    opacity: 0.6;
+.options:hover .options__button {
+    opacity: 0.8;
+}
+
+.options__container {
+    display: none;
+    position: absolute;
+    top: 43px;
+    right: 0;
+    padding-top: 15px;
+    background-color: transparent;
+}
+
+.options:hover .options__container {
+    display: block;
+}
+
+.options__content {
+    min-width: 210px;
+    padding: 15px;
+    background-color: #fff;
+
+    box-shadow: 0 0 6px rgb(0 0 0 / 14%);
+    border-radius: 12px;
+}
+
+.options__content li {
+    list-style-type: none;
 }

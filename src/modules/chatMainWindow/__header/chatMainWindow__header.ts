@@ -39,7 +39,17 @@ export class MainWindowHeader extends Block<MainWindowHeaderProps> {
           <img class="chat-header__call-image" src="${call}" alt="Позвонить">
           <p class="chat-header__call-text">Позвонить</p>
         </div>
-        <img class="chat-header__options" src="${options}" alt="avatar">
+        <div class="options">
+          <img class="options__button" src="${options}" alt="avatar">
+          <div class="options__container">
+            <ul class="options__content">
+              <li><a href="#">Добавить пользователя</a></li>
+              <li><a href="#">Удалить пользователя</a></li>
+              <li><a href="#">Изменить изображение чата</a></li>
+              <li><a href="#">Удалить чат</a></li>
+            </ul>
+          </div>
+        </div>
       </header>
     `
   }
