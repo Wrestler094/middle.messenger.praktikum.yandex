@@ -57,7 +57,6 @@ class ChatSidebar extends Block<Record<string, never>> {
 
     if (chats?.length > 0) {
       chats.forEach((chat: Chat) => {
-        console.log(chat)
         // @ts-expect-error
         chat.active = chat.id === Store.getState().activeChatId
 
