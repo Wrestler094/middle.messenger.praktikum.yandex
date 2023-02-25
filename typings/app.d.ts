@@ -4,14 +4,10 @@ declare global {
   export type Keys<T extends Record<string, unknown>> = keyof T
   export type Values<T extends Record<string, unknown>> = T[Keys<T>]
 
-  // TODO: chats
-  // TODO: active chat
   // TODO: contacts[]
   // TODO: messages[]
   export interface AppState {
-    appIsInited: boolean
     isLoading: boolean
-    loginFormError: string | null
     user: User | null
     chats: [] | null
     activeChat: any

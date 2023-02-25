@@ -114,9 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Store
   const defaultState: AppState = {
-    appIsInited: false,
     isLoading: false,
-    loginFormError: null,
     user: null,
     chats: null,
     activeChat: null,
