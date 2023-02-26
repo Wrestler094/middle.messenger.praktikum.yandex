@@ -46,15 +46,15 @@ export const chatApi = {
   },
 
   addChatUsers: async function (data: Record<string, any>): Promise<any> {
-    return await HTTPTransport.put('chats', data)
+    return await HTTPTransport.put('chats/users', data)
   },
 
   deleteChatUsers: async function (data: Record<string, any>): Promise<any> {
-    return await HTTPTransport.delete('chats', data)
+    return await HTTPTransport.delete('chats/users', data)
   },
 
   // Request token to connect to messages server
-  getChatToken: async function (data: Record<string, any>): Promise<any> {
-    return await HTTPTransport.post('chats', data)
+  getChatToken: async function (id: number, data: Record<string, any>): Promise<any> {
+    return await HTTPTransport.post(`chats/token/${id}`, data)
   }
 }
