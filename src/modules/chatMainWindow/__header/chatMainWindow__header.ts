@@ -30,18 +30,14 @@ export class MainWindowHeader extends Block<MainWindowHeaderProps> {
     })
 
     function onClick (evt: MouseEvent, ctx: Record<string, any>): void {
-      console.log(ctx)
       if (evt.target instanceof HTMLButtonElement) {
-        if (evt.target.id === 'add-user') {
-          console.log(1)
-          console.log(ctx.refs)
-          ctx.refs.mainWindowModal.show()
-        } else if (evt.target.id === 'remove-user') {
-          console.log(2)
-          ctx.refs.avatarModal.show()
-        } else if (evt.target.id === 'add-chat-image') {
+        if (evt.target.id === 'add-user-button') {
+          ctx.refs.addUserModal.show()
+        } else if (evt.target.id === 'remove-user-button') {
+          ctx.refs.removeUserModal.show()
+        } else if (evt.target.id === 'add-chat-image-button') {
           // Change chat image service
-        } else if (evt.target.id === 'remove-chat') {
+        } else if (evt.target.id === 'remove-chat-button') {
           // Delete chat service
         }
       }
@@ -68,30 +64,30 @@ export class MainWindowHeader extends Block<MainWindowHeaderProps> {
           <div class="options__container">
             <ul class="options__content">
               <li>
-                <button id="add-user" type="button">
+                <button id="add-user-button" type="button">
                   Добавить пользователя
                 </button>
               </li>
               <li>
-                <button id="remove-user" type="button">
+                <button id="remove-user-button" type="button">
                   Удалить пользователя
                 </button>
               </li>
               <li>
-                <button id="add-chat-image" type="button">
+                <button id="add-chat-image-button" type="button">
                   Изменить изображение чата
                 </button>
               </li>
               <li>
-                <button id="remove-chat" type="button">
+                <button id="remove-chat-button" type="button">
                   Удалить чат
                 </button>
               </li>
             </ul>
           </div>
         </div>
-          {{{AvatarModal ref='avatarModal'}}}
-          {{{MainWindowModal ref='mainWindowModal'}}}
+        {{{AddUserModal ref='addUserModal'}}}
+        {{{RemoveUserModal ref='removeUserModal'}}}
       </header>
     `
   }

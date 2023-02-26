@@ -27,10 +27,17 @@ export const chatService = {
     }
   },
 
-  addChatUsers: async function (data: Record<string, any>) {
+  addChatUsers: async function (
+    data: Record<string, any>,
+    ctx: Record<string, any>,
+    userInput: HTMLInputElement
+  ) {
     try {
       // Show Loader
-      console.log(data)
+      await chatApi.addChatUsers(data)
+      // ~ Что-то делать со стором
+      ctx.hide()
+      userInput.value = ''
     } catch (err) {
       // Show Error
       console.log(err)
@@ -39,10 +46,17 @@ export const chatService = {
     }
   },
 
-  deleteChatUsers: async function (data: Record<string, any>) {
+  deleteChatUsers: async function (
+    data: Record<string, any>,
+    ctx: Record<string, any>,
+    userInput: HTMLInputElement
+  ) {
     try {
       // Show Loader
-      console.log(data)
+      await chatApi.deleteChatUsers(data)
+      // ~ Что-то делать со стором
+      ctx.hide()
+      userInput.value = ''
     } catch (err) {
       // Show Error
       console.log(err)

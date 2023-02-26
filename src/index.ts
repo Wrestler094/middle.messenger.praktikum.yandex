@@ -44,6 +44,8 @@ import ChatMainWindow from './modules/chatMainWindow'
 import MainWindowHeader from './modules/chatMainWindow/__header'
 import MainWindowContent from './modules/chatMainWindow/__content'
 import MainWindowMessage from './modules/chatMainWindow/__message'
+import RemoveUserModal from './modules/chatMainWindow/__modal/--removeUser'
+import AddUserModal from './modules/chatMainWindow/__modal/--addUser'
 // MessageBox
 import MessageBox from './modules/messageBox'
 import MessageBoxError from './modules/messageBox/__error'
@@ -83,6 +85,8 @@ registerComponent(ChatMainWindow)
 registerComponent(MainWindowHeader)
 registerComponent(MainWindowContent)
 registerComponent(MainWindowMessage)
+registerComponent(RemoveUserModal)
+registerComponent(AddUserModal)
 // MessageBox
 registerComponent(MessageBox)
 registerComponent(MessageBoxError)
