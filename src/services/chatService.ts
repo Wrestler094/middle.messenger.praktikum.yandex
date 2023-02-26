@@ -15,10 +15,16 @@ export const chatService = {
     }
   },
 
-  createChat: async function (data: Record<string, any>) {
+  createChat: async function (
+    data: Record<string, any>,
+    ctx: Record<string, any>,
+    userInput: HTMLInputElement
+  ) {
     try {
       // Show Loader
-      console.log(data)
+      await chatApi.createChat(data)
+      ctx.hide()
+      userInput.value = ''
     } catch (err) {
       // Show Error
       console.log(err)

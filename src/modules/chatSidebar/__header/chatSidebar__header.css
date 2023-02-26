@@ -9,21 +9,26 @@
     font-weight: 600;
 }
 
-.chat-header__link {
+.chats-header__add-chat {
+    height: 24px;
     margin-left: auto;
-    line-height: 0;
 }
 
 .chats-header__settings {
+    margin-left: 15px;
+    line-height: 0;
+}
+
+.chats-header__image {
     height: 24px;
     width: 24px;
 }
 
-.chats-header__settings:hover {
+.chats-header__image:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
-.chats-header__settings:active {
+.chats-header__image:active {
     opacity: 0.6;
 }

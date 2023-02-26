@@ -39,6 +39,7 @@ import ChatSidebar from './modules/chatSidebar'
 import SidebarHeader from './modules/chatSidebar/__header'
 import SidebarSearch from './modules/chatSidebar/__search'
 import SidebarChat from './modules/chatSidebar/__chat'
+import ChatSidebarModal from './modules/chatSidebar/__modal'
 // ChatMainWindow
 import ChatMainWindow from './modules/chatMainWindow'
 import MainWindowHeader from './modules/chatMainWindow/__header'
@@ -79,6 +80,7 @@ registerComponent(ChatSidebar)
 registerComponent(SidebarHeader)
 registerComponent(SidebarSearch)
 registerComponent(SidebarChat)
+registerComponent(ChatSidebarModal)
 // ChatMainWindow
 // @ts-expect-error
 registerComponent(ChatMainWindow)
