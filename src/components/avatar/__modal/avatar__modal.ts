@@ -9,10 +9,10 @@ interface AvatarModalProps {
 export class AvatarModal extends Block<AvatarModalProps> {
   constructor () {
     super({
-      onClick: (evt: MouseEvent) => { clicskHandler(evt, this) }
+      onClick: (evt: MouseEvent) => { clicksHandler(evt, this) }
     })
 
-    function clicskHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
+    function clicksHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
       const input = document.getElementById('avatar') as HTMLInputElement
       const inputFiles = input.files as FileList
 
