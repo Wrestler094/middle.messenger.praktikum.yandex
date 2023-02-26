@@ -105,14 +105,18 @@
 }
 
 .options__content {
-    min-width: 210px;
+    min-width: 240px;
     padding: 15px;
     background-color: #fff;
-
     box-shadow: 0 0 6px rgb(0 0 0 / 14%);
     border-radius: 12px;
 }
 
 .options__content li {
+    margin-bottom: 5px;
     list-style-type: none;
+}
+
+.options__content li:last-child {
+    margin-bottom: 0;
 }
