@@ -1,7 +1,8 @@
 import { Block, Store } from 'core'
+import { chatService } from 'services/chatService'
 import defaultAvatar from 'static/avatar.png'
-import call from 'static/call.png'
 import options from 'static/options.png'
+import call from 'static/call.png'
 import './chatMainWindow__header.css'
 
 interface MainWindowHeaderProps {
@@ -38,7 +39,12 @@ export class MainWindowHeader extends Block<MainWindowHeaderProps> {
         } else if (evt.target.id === 'add-chat-image-button') {
           // Change chat image service
         } else if (evt.target.id === 'remove-chat-button') {
-          // Delete chat service
+          // @ts-expect-error
+          const deleteChatId = Store.getState().activeChatId
+
+          void chatService.deleteChat({
+            chatId: deleteChatId
+          })
         }
       }
     }

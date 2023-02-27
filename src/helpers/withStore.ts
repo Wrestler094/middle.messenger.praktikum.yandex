@@ -12,23 +12,25 @@ export function withStore<P extends WithStateProps> (WrappedBlock: Block<P>): Bl
       super({ ...props, store: Store })
     }
 
-    __onChangeStoreCallback = (): void => {
-      /**
-        * TODO: проверить что стор реально обновлен
-        * и прокидывать не целый стор, а необходимые поля
-        * с помощью метода mapStateToProps
-        */
-      // @ts-expect-error this is not typed
-      this.setProps({ ...this.props, store: Store.getState() })
-    }
+    // __onChangeStoreCallback = (): void => {
+    //   /**
+    //     * TODO: проверить что стор реально обновлен
+    //     * и прокидывать не целый стор, а необходимые поля
+    //     * с помощью метода mapStateToProps
+    //     */
+    //   // @ts-expect-error this is not typed
+    //   this.setProps({ ...this.props, store: Store.getState() })
+    // }
 
     componentDidMount (props: P): void {
       super.componentDidMount(props)
+      // @ts-expect-error
       Store.on('changed', this.__onChangeStoreCallback)
     }
 
     componentWillUnmount (): void {
       super.componentWillUnmount()
+      // @ts-expect-error
       Store.off('changed', this.__onChangeStoreCallback)
     }
   } as Block<Omit<P, 'store'>>

@@ -3,7 +3,7 @@ import { withStore } from 'helpers/withStore'
 import { chatService } from 'services/chatService'
 import './chatSidebar.css'
 
-// TODO: ~ Вынести интерфейс в глобалльный
+// TODO: ~ Вынести интерфейс в глобальный
 interface Chat {
   active: boolean
   avatar: string | null
@@ -32,6 +32,11 @@ class ChatSidebar extends Block<Record<string, never>> {
   }
 
   static componentName = 'ChatSidebar'
+
+  __onChangeStoreCallback = (): void => {
+    // @ts-expect-error this is not typed
+    this.setProps({ ...this.props, store: Store.getState() })
+  }
 
   _getChatTime (message: string): string {
     if (isNaN(Date.parse(message))) {

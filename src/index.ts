@@ -85,6 +85,7 @@ registerComponent(ChatSidebarModal)
 // @ts-expect-error
 registerComponent(ChatMainWindow)
 registerComponent(MainWindowHeader)
+// @ts-expect-error
 registerComponent(MainWindowContent)
 registerComponent(MainWindowMessage)
 registerComponent(RemoveUserModal)

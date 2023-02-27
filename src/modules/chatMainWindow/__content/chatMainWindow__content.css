@@ -1,3 +1,17 @@
 .main-chat__content {
+    height: calc(100vh - 193px);
+    display: flex;
+    flex-direction: column-reverse;
     padding: 24px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #00000014;
+}
+
+.main-chat__content div:first-child {
+    margin-bottom: 0;
+}
+
+.main-chat__content--empty {
+    display: grid;
+    place-items: center;
 }

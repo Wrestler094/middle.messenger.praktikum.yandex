@@ -25,6 +25,28 @@ export const chatService = {
       await chatApi.createChat(data)
       ctx.hide()
       userInput.value = ''
+      await this.getChats()
+    } catch (err) {
+      // Show Error
+      console.log(err)
+    } finally {
+      // Hide Loader
+    }
+  },
+
+  deleteChat: async function (data: Record<string, any>) {
+    try {
+      // Show Loader
+      const response = await chatApi.deleteChat(data)
+      // @ts-expect-error
+      const chats = Store.getState().chats.filter((chat) => {
+        return chat.id !== response.result.id
+      })
+
+      Store.dispatch({
+        chats,
+        activeChatId: null
+      })
     } catch (err) {
       // Show Error
       console.log(err)
@@ -41,7 +63,6 @@ export const chatService = {
     try {
       // Show Loader
       await chatApi.addChatUsers(data)
-      // ~ Что-то делать со стором
       ctx.hide()
       userInput.value = ''
     } catch (err) {
@@ -60,9 +81,20 @@ export const chatService = {
     try {
       // Show Loader
       await chatApi.deleteChatUsers(data)
-      // ~ Что-то делать со стором
       ctx.hide()
       userInput.value = ''
+    } catch (err) {
+      // Show Error
+      console.log(err)
+    } finally {
+      // Hide Loader
+    }
+  },
+
+  getChatToken: async function (id: number, data: Record<string, never>) {
+    try {
+      // Show Loader
+      return await chatApi.getChatToken(id, data)
     } catch (err) {
       // Show Error
       console.log(err)

@@ -61,21 +61,26 @@ class HTTPTransport {
         }
 
         if (xhr.status >= 200 && xhr.status < 300) {
+          console.log('%cdata recieved', 'background: #222; color: #55dac6', responseData)
           resolve(responseData)
         } else {
+          console.error(responseData, xhr.status)
           reject(responseData)
         }
       }
 
       xhr.onabort = function () {
+        console.error(xhr)
         reject(JSON.parse(xhr.response))
       }
 
       xhr.onerror = function () {
+        console.error(xhr)
         reject(JSON.parse(xhr.response))
       }
 
       xhr.ontimeout = function () {
+        console.error(xhr)
         reject(JSON.parse(xhr.response))
       }
 
