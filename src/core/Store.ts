@@ -1,4 +1,4 @@
-import EventBus from 'core/EventBus'
+import { EventBus } from 'core'
 
 export type Dispatch<State> = (
   nextStateOrAction: Partial<State> | Action<State>,

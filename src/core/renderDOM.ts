@@ -1,4 +1,4 @@
-import Block from './Block'
+import { Block } from 'core'
 
 export default function renderDOM (rootQuery: string, block: Block<any>): void {
   const root = document.querySelector(rootQuery)

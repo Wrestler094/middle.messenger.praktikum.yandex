@@ -1,4 +1,4 @@
-import EventBus from './EventBus'
+import { EventBus } from 'core'
 import { nanoid } from 'nanoid'
 import * as Handlebars from 'handlebars'
 

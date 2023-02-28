@@ -1,5 +1,4 @@
-import renderDOM from 'core/renderDOM'
-import Block from 'core/Block'
+import { Block, renderDOM } from 'core'
 
 export default class Route {
   private _pathname: string

@@ -1,6 +1,4 @@
-import Route from 'core/Route'
-import Block from 'core/Block'
-import { Store } from 'core'
+import { Route, Store, Block } from 'core'
 
 class Router {
   private static __instance: Router
