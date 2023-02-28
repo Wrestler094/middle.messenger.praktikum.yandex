@@ -1,4 +1,5 @@
 import { Block, Store } from 'core'
+import { withStore } from 'helpers/withStore'
 import defaultAvatar from 'static/default-avatar.png'
 import './avatar.css'
 
@@ -11,15 +12,14 @@ interface AvatarClassProps {
 }
 
 interface AvatarProps {
-  user: User
-  avatar: string
+  store: AppState
   onClick: (evt: MouseEvent) => void
 }
 
-export class Avatar extends Block<AvatarClassProps> {
-  constructor ({ onClick }: AvatarProps) {
+class Avatar extends Block<AvatarClassProps> {
+  constructor ({ store, onClick }: AvatarProps) {
     // @ts-expect-error
-    const user = Store.getState()?.user
+    const user = store.getState()?.user
     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
     const avatar = user?.avatar != null ? 'https://ya-praktikum.tech/api/v2/resources' + user?.avatar : defaultAvatar
     super({ user, avatar, events: { click: onClick } })
@@ -35,16 +35,6 @@ export class Avatar extends Block<AvatarClassProps> {
     this.setProps({ ...this.props })
   }
 
-  componentDidMount (): void {
-    super.componentDidMount()
-    Store.on('changed', this.__onChangeStoreCallback)
-  }
-
-  componentWillUnmount (): void {
-    super.componentWillUnmount()
-    Store.off('changed', this.__onChangeStoreCallback)
-  }
-
   protected render (): string {
     // language=hbs
     return `
@@ -54,3 +44,7 @@ export class Avatar extends Block<AvatarClassProps> {
     `
   }
 }
+
+// @ts-expect-error
+const ComposedAvatar = withStore(Avatar)
+export { ComposedAvatar as Avatar }

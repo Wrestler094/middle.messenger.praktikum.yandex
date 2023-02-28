@@ -56,6 +56,7 @@ import MessageBoxButton from './modules/messageBox/__sendButton'
 
 // region Register components
 registerComponent(AppLoader)
+// @ts-expect-error
 registerComponent(Avatar)
 registerComponent(AvatarModal)
 registerComponent(Modal)
