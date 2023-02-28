@@ -3,21 +3,6 @@ import { withStore } from 'helpers/withStore'
 import { chatService } from 'services/chatService'
 import './chatSidebar.css'
 
-// TODO: ~ Вынести интерфейс в глобальный
-interface Chat {
-  active: boolean
-  avatar: string | null
-  id: number
-  title: string
-  last_message: {
-    id: number
-    time: string
-    content: string
-  }
-  created_by: number
-  unread_count: number
-}
-
 class ChatSidebar extends Block<Record<string, never>> {
   constructor (props: {}) {
     super(props)
