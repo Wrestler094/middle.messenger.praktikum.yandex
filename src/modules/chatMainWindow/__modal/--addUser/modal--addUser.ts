@@ -32,8 +32,11 @@ export class AddUserModal extends Block<AddUserModalProps> {
     // language=hbs
     return `
       {{#Modal}}
-        <h3 class="">Добавить пользователя</h3>
-        <input id="add-user" type="number" placeholder="Введите id" />
+        <h3 class="modal__title">Добавить пользователя</h3>
+        <label class="modal__label" for="add-user">
+          Id пользователя
+          <input class="modal__input" id="add-user" type="number" placeholder="Введите id пользователя" />
+        </label>
         {{{Button text='Добавить' onClick=onClick}}}
       {{/Modal}}
     `

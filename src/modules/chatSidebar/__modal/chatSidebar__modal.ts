@@ -29,8 +29,11 @@ export class ChatSidebarModal extends Block<ChatSidebarModalProps> {
     // language=hbs
     return `
       {{#Modal}}
-        <h3 class="">Добавить чат</h3>
-        <input id="add-chat" type="text" placeholder="Введите название чата" />
+        <h3 class="modal__title">Добавить чат</h3>
+        <label class="modal__label" for="">
+          Название чата
+          <input class="modal__input" id="add-chat" type="text" placeholder="Введите название чата" />
+        </label>
         {{{Button text='Добавить' onClick=onClick}}}
       {{/Modal}}
     `

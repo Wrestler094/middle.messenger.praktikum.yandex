@@ -32,8 +32,11 @@ export class RemoveUserModal extends Block<RemoveUserModalProps> {
     // language=hbs
     return `
       {{#Modal}}
-        <h3 class="">Удалить пользователя</h3>
-        <input id="remove-user" type="text" placeholder="Введите id" />
+        <h3 class="modal__title">Удалить пользователя</h3>
+        <label class="modal__label" for="remove-user">
+          Id пользователя
+          <input class="modal__input" id="remove-user" type="number" placeholder="Введите id пользователя" />
+        </label>
         {{{Button text='Удалить' onClick=onClick}}}
       {{/Modal}}
     `
