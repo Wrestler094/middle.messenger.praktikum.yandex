@@ -1,5 +1,4 @@
-import Block from 'core/Block'
-import Router from 'core/Router'
+import { Block, Router } from 'core'
 import './link.css'
 
 interface LinkProps {

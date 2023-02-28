@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import { userService } from 'services/userService'
 import './avatar__modal.css'
 

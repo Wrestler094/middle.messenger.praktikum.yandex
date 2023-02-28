@@ -1,6 +1,5 @@
-import Block from 'core/Block'
-import Router from 'core/Router'
-import { authService } from '../../services/authService'
+import { Block, Router } from 'core'
+import { authService } from 'services/authService'
 
 interface ControlLinkProps {
   classes?: string
