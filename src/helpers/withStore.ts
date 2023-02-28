@@ -13,11 +13,6 @@ export function withStore<P extends WithStateProps> (WrappedBlock: Block<P>): Bl
     }
 
     // __onChangeStoreCallback = (): void => {
-    //   /**
-    //     * TODO: проверить что стор реально обновлен
-    //     * и прокидывать не целый стор, а необходимые поля
-    //     * с помощью метода mapStateToProps
-    //     */
     //   // @ts-expect-error this is not typed
     //   this.setProps({ ...this.props, store: Store.getState() })
     // }
