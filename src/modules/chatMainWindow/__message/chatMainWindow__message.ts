@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import avatar from 'static/avatar.png'
 import './chatMainWindow__message.css'
 

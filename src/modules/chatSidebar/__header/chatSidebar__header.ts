@@ -1,5 +1,4 @@
-import Block from 'core/Block'
-import Router from 'core/Router'
+import { Block, Router } from 'core'
 import settings from 'static/settings.png'
 import plus from 'static/plus.png'
 import './chatSidebar__header.css'

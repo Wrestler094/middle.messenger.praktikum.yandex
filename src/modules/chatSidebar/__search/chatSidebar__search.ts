@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import './chatSidebar__search.css'
 
 interface SidebarSearchProps {
