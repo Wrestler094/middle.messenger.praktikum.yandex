@@ -1,5 +1,5 @@
 import { Router } from 'core'
-import { authService } from './authService'
+import { authService } from 'services/authService'
 
 export async function initAppService (): Promise<void> {
   const currentRoute = Router.getRoute(window.location.pathname)
