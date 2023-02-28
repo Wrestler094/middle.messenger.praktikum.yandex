@@ -10,6 +10,7 @@
 Макет в Figma - https://www.figma.com/file/2fwunQb3Khf3hbBlqAZlyp/Messenger
 
 Задеплоенная версия мессенджера - https://deploy--venerable-horse-769dcb.netlify.app/
+
 В проекте реализуются стандартные функции чата:
 - регистрация,
 - авторизация,
