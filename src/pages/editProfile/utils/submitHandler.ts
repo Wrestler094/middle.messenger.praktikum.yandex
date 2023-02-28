@@ -1,4 +1,5 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import { userService } from 'services/userService'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -58,12 +59,12 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if (isFormValid) {
-    console.log({
+    void userService.editProfile({
       email: emailElement.value,
       login: loginElement.value,
-      firstName: firstNameElement.value,
-      secondName: secondNameElement.value,
-      displayName: displayNameElement.value,
+      first_name: firstNameElement.value,
+      second_name: secondNameElement.value,
+      display_name: displayNameElement.value,
       phone: phoneElement.value
     })
   }

@@ -1,29 +1,47 @@
-import Block from 'core/Block'
+import { Block, Store } from 'core'
+import { withStore } from 'helpers/withStore'
 import './chatMainWindow__content.css'
 
-export class MainWindowContent extends Block<Record<string, never>> {
+class MainWindowContent extends Block<Record<string, never>> {
   static componentName = 'MainWindowContent'
 
+  __onChangeStoreCallback = (): void => {
+    // @ts-expect-error this is not typed
+    this.setProps({ ...this.props, store: Store.getState() })
+  }
+
   protected render (): string {
-    // language=hbs
-    return `
-      <div class="main-chat__content">
-        {{{MainWindowMessage 
-          author=false 
-          messages='["omg, this is amazing", "perfect! ✅", "Wow, this is really epic"]'}}}
-        {{{MainWindowMessage 
-          author=true 
-          messages='["How are you?"]'}}}
-        {{{MainWindowMessage 
-          author=false 
-          messages='["just ideas for next time", "I\\'ll be there in 2 mins ⏰"]'}}}
-        {{{MainWindowMessage 
-          author=true 
-          messages='["woohoooo", "Haha oh man", "Haha that\\'s terrifying 😂"]'}}}
-        {{{MainWindowMessage 
-          author=false 
-          messages='["aww", "omg, this is amazing", "woohoooo 🔥"]'}}}
-      </div>
-    `
+    // @ts-expect-error
+    const messages = this.props.store.messages
+
+    if (messages?.length > 0) {
+      messages.forEach((message: any) => {
+        // @ts-expect-error
+        message.author = message.user_id === this.props.store.user.id
+      })
+
+      // language=hbs
+      return `
+        <div class="main-chat__content">
+          {{#each store.messages}}
+              {{{MainWindowMessage
+                author=author 
+                messages=this.content
+              }}}
+          {{/each}}
+        </div>
+      `
+    } else {
+      // language=hbs
+      return `
+        <div class="main-chat__content--empty">
+          В чате нет ни одного сообщения
+        </div>
+      `
+    }
   }
 }
+
+// @ts-expect-error
+const ComposedMainWindowContent = withStore(MainWindowContent)
+export { ComposedMainWindowContent as MainWindowContent }

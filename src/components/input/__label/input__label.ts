@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import './input__label.css'
 
 interface InputLabelProps {

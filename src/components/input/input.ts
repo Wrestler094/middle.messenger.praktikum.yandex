@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import focusHandler from './utils/focusHandler'
 import blurHandler from './utils/blurHandler'
 import './input.css'

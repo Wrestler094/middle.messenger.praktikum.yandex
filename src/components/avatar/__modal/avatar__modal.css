@@ -1,0 +1,26 @@
+.avatar-modal__title {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 43px;
+}
+
+.avatar-modal__attach {
+    display: block;
+    width: 120px;
+    margin: 0 auto 45px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-decoration-line: underline;
+    color: var(--color-accent);
+}
+
+.avatar-modal__attach:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.avatar-modal__attach:active {
+    opacity: 0.6;
+}

@@ -1,4 +1,5 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import { authService } from 'services/authService'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -20,7 +21,7 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if ((loginError === '') && (passwordError === '')) {
-    console.log({
+    void authService.login({
       login: loginElement.value,
       password: passwordElement.value
     })

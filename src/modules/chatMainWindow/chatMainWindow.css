@@ -2,3 +2,8 @@
     display: grid;
     grid-template-rows: 80px 1fr 113px;
 }
+
+.main-chat--empty {
+    display: grid;
+    place-items: center;
+}
