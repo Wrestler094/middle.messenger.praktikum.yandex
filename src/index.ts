@@ -15,7 +15,7 @@ import NotFoundPage from './pages/404'
 import './style.css'
 
 // region Import components
-import AppLoader from './components/AppLoader'
+import AppLoader from './components/appLoader'
 import Avatar from './components/avatar'
 import AvatarModal from './components/avatar/__modal'
 import Modal from './components/modal'
