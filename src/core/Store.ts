@@ -11,7 +11,7 @@ export type Action<State> = (
   payload: any,
 ) => void
 
-export class Store<State extends Record<string, any>> extends EventBus {
+export class Store<State extends AppState> extends EventBus {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   private state: State = {} as State
 
@@ -43,4 +43,10 @@ export class Store<State extends Record<string, any>> extends EventBus {
   }
 }
 
-export const store = new Store({})
+export const store = new Store({
+  isLoading: false,
+  user: null,
+  chats: null,
+  activeChatId: null,
+  messages: null
+})

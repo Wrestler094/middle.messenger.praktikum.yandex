@@ -39,7 +39,6 @@ export class MainWindowHeader extends Block<MainWindowHeaderProps> {
         } else if (evt.target.id === 'add-chat-image-button') {
           // Change chat image service
         } else if (evt.target.id === 'remove-chat-button') {
-          // @ts-expect-error
           const deleteChatId = Store.getState().activeChatId
 
           void chatService.deleteChat({

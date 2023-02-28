@@ -12,7 +12,6 @@ export class RemoveUserModal extends Block<RemoveUserModalProps> {
     })
 
     function clicksHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
-      // @ts-expect-error
       const chatId = Store.getState().activeChatId
       const removeUserInput = document.getElementById('remove-user') as HTMLInputElement
       const newUserId = parseInt(removeUserInput.value)

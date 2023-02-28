@@ -36,12 +36,11 @@ class Socket extends EventBus {
       console.log('%cdata recieved', 'background: #222; color: #55dac6', data)
 
       if (Array.isArray(data)) {
-        Store.dispatch({
-          messages: data
-        })
-      } else if (data.type === 'message' && data.content != null) {
         // @ts-expect-error
+        Store.dispatch({ messages: data })
+      } else if (data.type === 'message' && data.content != null) {
         const messages = Store.getState().messages
+        // @ts-expect-error
         messages.unshift(data)
 
         Store.dispatch({

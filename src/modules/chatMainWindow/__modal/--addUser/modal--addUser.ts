@@ -12,7 +12,6 @@ export class AddUserModal extends Block<AddUserModalProps> {
     })
 
     function clicksHandler (_evt: MouseEvent, ctx: Record<string, any>): void {
-      // @ts-expect-error
       const chatId = Store.getState().activeChatId
       const addUserInput = document.getElementById('add-user') as HTMLInputElement
       const newUserId = parseInt(addUserInput.value)

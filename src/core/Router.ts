@@ -33,7 +33,6 @@ class Router {
   }
 
   _isUserAuthenticated (): boolean {
-    // @ts-expect-error
     return !(Store.getState().user == null)
   }
 

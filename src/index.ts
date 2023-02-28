@@ -121,15 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .use(Routes.SERVER_ERROR, ServerErrorPage)
     .use(Routes.NOT_FOUND, NotFoundPage)
 
-  // Initialize Store
-  const defaultState: AppState = {
-    isLoading: false,
-    user: null,
-    chats: null,
-    activeChatId: null,
-    messages: null
-  }
-
   // Debug print
   Store.on('changed', (prevState, nextState) => {
     console.log(
@@ -138,8 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
       prevState, nextState
     )
   })
-
-  Store.dispatch(defaultState)
 
   // Render Loader
   renderDOM('#app', new AppLoader())

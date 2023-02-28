@@ -3,15 +3,17 @@ import { withStore } from 'helpers/withStore'
 import { chatService } from 'services/chatService'
 import './chatSidebar.css'
 
-class ChatSidebar extends Block<Record<string, never>> {
-  constructor (props: {}) {
+interface ChatSidebarProps {
+  store: AppState
+}
+
+class ChatSidebar extends Block<ChatSidebarProps> {
+  constructor (props: ChatSidebarProps) {
     super(props)
 
-    // @ts-expect-error
     if (Store.getState().chats == null) {
       void chatService.getChats()
     } else {
-      // @ts-expect-error
       this.setProps({ ...this.props, store: Store.getState() })
     }
   }
@@ -19,7 +21,6 @@ class ChatSidebar extends Block<Record<string, never>> {
   static componentName = 'ChatSidebar'
 
   __onChangeStoreCallback = (): void => {
-    // @ts-expect-error this is not typed
     this.setProps({ ...this.props, store: Store.getState() })
   }
 
@@ -42,12 +43,10 @@ class ChatSidebar extends Block<Record<string, never>> {
   }
 
   protected render (): string {
-    // @ts-expect-error
     const chats = this.props.store.chats
 
-    if (chats?.length > 0) {
+    if ((chats != null) && chats.length > 0) {
       chats.forEach((chat: Chat) => {
-        // @ts-expect-error
         chat.active = chat.id === Store.getState().activeChatId
 
         if (chat.last_message != null) {

@@ -15,20 +15,21 @@ class ChatMainWindow extends Block<Record<string, never>> {
   }
 
   protected render (): string {
-    // @ts-expect-error
     const activeChatId = Store.getState().activeChatId
 
     if (activeChatId != null) {
-      // @ts-expect-error
       const chatId = Store.getState().activeChatId
-      // @ts-expect-error
-      const userId = Store.getState().user.id
-      void chatService.getChatToken(chatId, {})
-        .then(res => {
-          if (res != null) {
-            void Socket.connect(userId, chatId, res.token)
-          }
-        })
+      if (chatId != null) {
+        const storeUser = Store.getState().user as unknown as User
+        const userId = storeUser.id
+
+        void chatService.getChatToken(chatId, {})
+          .then(res => {
+            if (res != null) {
+              void Socket.connect(userId, chatId, res.token)
+            }
+          })
+      }
 
       // language=hbs
       return `
