@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 
 export class NotFoundPage extends Block<Record<string, never>> {
   static componentName = 'NotFoundPage'

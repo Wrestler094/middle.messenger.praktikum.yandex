@@ -1,5 +1,4 @@
-import Block from 'core/Block'
-import { Store } from 'core'
+import { Block, Store } from 'core'
 import submitHandler from './utils/submitHandler'
 
 interface EditProfilePageProps {
