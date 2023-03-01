@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import './chat.css'
 
 export class ChatPage extends Block<Record<string, never>> {

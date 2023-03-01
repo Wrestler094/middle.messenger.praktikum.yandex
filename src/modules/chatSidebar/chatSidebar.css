@@ -1,6 +1,6 @@
 .chat-sidebar {
+    height: 100vh;
     border-right: 1px solid #f3f3f3;
-    overflow: auto;
 }
 
 .chat-sidebar__search {
@@ -8,5 +8,8 @@
 }
 
 .chat-sidebar__chat-list {
-    margin: 0 16px;
+    height: calc(100vh - 145px);
+    padding: 12px 16px;
+    overflow: auto;
+    border-top: 1px solid #00000014;
 }

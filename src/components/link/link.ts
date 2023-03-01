@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block, Router } from 'core'
 import './link.css'
 
 interface LinkProps {
@@ -16,7 +16,7 @@ export class Link extends Block<LinkClassProps> {
   constructor (props: LinkProps) {
     const onClick = (evt: MouseEvent): void => {
       evt.preventDefault()
-      window.location.replace(this.props.to)
+      Router.go(this.props.to)
     }
 
     super({ ...props, events: { click: onClick } })

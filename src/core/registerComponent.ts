@@ -1,4 +1,4 @@
-import Block from './Block'
+import { Block } from 'core'
 import * as Handlebars from 'handlebars'
 import { HelperOptions } from 'handlebars'
 

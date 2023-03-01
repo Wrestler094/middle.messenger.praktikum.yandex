@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import './messageBox__field.css'
 
 interface MessageBoxFieldProps {

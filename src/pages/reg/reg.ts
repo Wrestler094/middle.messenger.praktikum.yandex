@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import submitHandler from './utils/submitHandler'
 import './reg.css'
 
@@ -73,7 +73,7 @@ export class RegPage extends Block<RegPageProps> {
               }}}
           </div>
           {{{Button type="submit" text="Зарегистрироваться" onClick=onSubmit}}}
-          {{{Link text="Войти" to="/auth"}}}
+          {{{Link text="Войти" to="/"}}}
         </form>
       </main>
     `

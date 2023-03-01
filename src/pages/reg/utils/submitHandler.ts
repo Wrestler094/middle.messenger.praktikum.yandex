@@ -1,4 +1,5 @@
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import { authService } from 'services/authService'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
   evt.preventDefault()
@@ -66,14 +67,13 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if (isFormValid) {
-    console.log({
+    void authService.register({
       email: emailElement.value,
       login: loginElement.value,
-      firstName: firstNameElement.value,
-      secondName: secondNameElement.value,
+      first_name: firstNameElement.value,
+      second_name: secondNameElement.value,
       phone: phoneElement.value,
-      password: passwordElement.value,
-      repassword: repasswordElement.value
+      password: passwordElement.value
     })
   }
 }

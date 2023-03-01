@@ -1,4 +1,4 @@
-import EventBus from './EventBus'
+import { EventBus } from 'core'
 import { nanoid } from 'nanoid'
 import * as Handlebars from 'handlebars'
 
@@ -9,6 +9,7 @@ export default abstract class Block<P extends Record<string, any> = any> {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-did-update',
+    FLOW_CWU: 'flow:component-will-unmount',
     FLOW_RENDER: 'flow:render'
   } as const
 
@@ -41,6 +42,7 @@ export default abstract class Block<P extends Record<string, any> = any> {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this))
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this))
+    eventBus.on(Block.EVENTS.FLOW_CWU, this._componentWillUnmount.bind(this))
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this))
   }
 
@@ -72,6 +74,13 @@ export default abstract class Block<P extends Record<string, any> = any> {
   componentDidUpdate (): boolean {
     return true
   }
+
+  _componentWillUnmount (): void {
+    // this.eventBus().destroy()
+    this.componentWillUnmount()
+  }
+
+  componentWillUnmount (): void {}
 
   setProps = (nextProps: P): void => {
     if (typeof nextProps === 'object') {

@@ -1,3 +1,4 @@
+import { Socket } from 'core'
 import { validateForm, ValidateRuleType } from 'helpers/validateForm'
 
 export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any>): void {
@@ -13,9 +14,7 @@ export default function submitHandler (evt: SubmitEvent, ctx: Record<string, any
   }
 
   if (messageError === '') {
-    console.log({
-      message: messageElement.value
-    })
+    Socket.sendMessage(messageElement.value)
 
     ctx.refs.messageBoxFieldRef.setProps({
       onInput: ctx.refs.messageBoxFieldRef.props.events.input

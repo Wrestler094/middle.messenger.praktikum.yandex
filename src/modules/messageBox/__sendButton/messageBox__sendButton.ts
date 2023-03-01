@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block } from 'core'
 import send from 'static/send.png'
 import './messageBox__sendButton.css'
 

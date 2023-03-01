@@ -1,4 +1,4 @@
-import Block from 'core/Block'
+import { Block, Router } from 'core'
 import backArrow from 'static/back-arrow.png'
 import './linkBack.css'
 
@@ -16,7 +16,7 @@ export class LinkBack extends Block<LinkBackClassProps> {
   constructor (props: LinkBackProps) {
     const onClick = (evt: MouseEvent): void => {
       evt.preventDefault()
-      window.location.replace(this.props.to)
+      Router.go(this.props.to)
     }
 
     super({ ...props, events: { click: onClick } })
