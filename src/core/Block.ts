@@ -203,6 +203,7 @@ export default abstract class Block<P extends Record<string, any> = any> {
       const layoutContent = content.querySelector('[data-layout="1"]')
 
       if ((Boolean(layoutContent)) && stubChilds.length > 0) {
+        // @ts-expect-error
         layoutContent?.append(...stubChilds)
       }
     })

@@ -2,7 +2,7 @@ import { EventBus, Store } from 'core'
 
 class Socket extends EventBus {
   socket: WebSocket | null = null
-  interval: number | null
+  interval: NodeJS.Timer | null
 
   public async connect (userId: number, chatId: number, token: string): Promise<void> {
     if (this.socket != null) {
