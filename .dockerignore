@@ -1,0 +1,13 @@
+.git
+.gitignore
+.github
+.cache
+dist
+node_modules
+README.md
+netlify.toml
+package-lock.json
+Dockerfile
+.dockerignore
+.npmrc
+.nvmrc

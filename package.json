@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
   },
-  "keywords": [],
+  "keywords": ["webpack", "docker", "websocket", "typescript"],
   "author": "Mikhail Kovalev",
   "license": "ISC",
   "bugs": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "express": "4.18.2",
     "nanoid": "4.0.0",
-    "handlebars": "^4.7.7"
+    "handlebars": "4.7.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.48.1",
@@ -38,20 +38,19 @@
     "eslint-plugin-import": "2.27.4",
     "eslint-plugin-n": "15.6.1",
     "eslint-plugin-promise": "6.1.1",
-    "@webpack-cli/generators": "^3.0.1",
-    "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.2",
+    "css-loader": "6.7.3",
+    "html-webpack-plugin": "5.5.0",
+    "mini-css-extract-plugin": "2.7.2",
     "prettier": "2.8.2",
     "prettier-stylelint": "0.4.2",
     "stylelint": "14.16.1",
     "stylelint-config-standard": "29.0.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "style-loader": "3.3.1",
+    "ts-loader": "9.4.2",
+    "typescript": "4.9.5",
+    "webpack": "5.75.0",
+    "webpack-cli": "5.0.1",
+    "webpack-dev-server": "4.11.1"
   },
   "targets": {
     "default": {
