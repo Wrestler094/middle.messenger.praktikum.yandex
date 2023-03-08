@@ -3,10 +3,18 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: 'standard-with-typescript',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: 'tsconfig.json'
-  }
+  extends: '',
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'standard-with-typescript'
+      ],
+      parserOptions: {
+        project: ['./tsconfig.json']
+      }
+    }
+  ]
 }
