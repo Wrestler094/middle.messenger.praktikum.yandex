@@ -5,6 +5,13 @@ describe('queryStringify tests', () => {
     const data = { test: 'test' }
     expect(queryStringify(data)).toBe('?test=test')
   })
+})
+
+describe('queryStringify tests', () => {
+  test('queryStringify string', () => {
+    const data = { test: 'test' }
+    expect(queryStringify(data)).toBe('?test=test')
+  })
 
   test('queryStringify number', () => {
     const data = { test: 1234 }
