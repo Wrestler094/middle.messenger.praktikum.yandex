@@ -1,5 +1,5 @@
 import { EventBus } from 'core'
-import { nanoid } from 'nanoid'
+import { v4 as makeUUID } from 'uuid'
 import * as Handlebars from 'handlebars'
 
 type Events = Values<typeof Block.EVENTS>
@@ -15,7 +15,7 @@ export default abstract class Block<P extends Record<string, any> = any> {
 
   static componentName: string
 
-  public id = nanoid(6)
+  public id = makeUUID()
   protected _element: Nullable<HTMLElement> = null
   protected readonly props: P
   protected children: Record<string, Block> = {}
