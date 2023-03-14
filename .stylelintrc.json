@@ -1,11 +1,8 @@
 {
   "extends": [
-    "stylelint-config-standard",
-    "./node_modules/prettier-stylelint/config.js"
+    "stylelint-config-standard"
   ],
   "rules": {
-    "indentation": 4,
-    "string-quotes": "double",
     "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]+$"
   },
   "ignoreFiles": [
