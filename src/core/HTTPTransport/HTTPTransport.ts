@@ -93,8 +93,8 @@ class HTTPTransport {
   }
 }
 
-function queryStringify (data: Record<string, unknown>): string {
-  if (typeof data !== 'object') {
+export function queryStringify (data: Record<string, unknown>): string {
+  if (typeof data !== 'object' || data === null) {
     throw new Error('Data must be object')
   }
 

@@ -7,8 +7,7 @@ class ChatMainWindow extends Block<Record<string, never>> {
   static componentName = 'ChatMainWindow'
 
   __onChangeStoreCallback = (): void => {
-    // @ts-expect-error
-    if (this.props.store.activeChatId !== Store.getState().activeChatId) {
+    if ((this.props.store as AppState).activeChatId !== Store.getState().activeChatId) {
       // @ts-expect-error this is not typed
       this.setProps({ ...this.props, store: Store.getState() })
     }
@@ -50,6 +49,6 @@ class ChatMainWindow extends Block<Record<string, never>> {
   }
 }
 
-// @ts-expect-error
+// @ts-expect-error Block<WithStateProps>
 const WrappedChatMainWindow = withStore(ChatMainWindow)
 export { WrappedChatMainWindow as ChatMainWindow }

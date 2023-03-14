@@ -1,9 +1,8 @@
-import { Block } from 'core'
 import * as Handlebars from 'handlebars'
-import { HelperOptions } from 'handlebars'
+import { type HelperOptions } from 'handlebars'
 
-interface BlockConstructable<Props = any> {
-  new(props: Props): Block
+export interface BlockConstructable<Props = any> {
+  new(props: Props): any
   componentName: string
 }
 
@@ -45,6 +44,6 @@ export default function registerComponent<Props> (Component: BlockConstructable<
 
       const contents = typeof fn === 'function' ? fn(this) : ''
 
-      return `<div data-id="${component.id}">${contents}</div>`
+      return `<div data-id="${String(component.id)}">${contents}</div>`
     })
 }

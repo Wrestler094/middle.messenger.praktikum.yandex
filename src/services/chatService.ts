@@ -38,7 +38,7 @@ export const chatService = {
     try {
       // Show Loader
       const response = await chatApi.deleteChat(data)
-      // @ts-expect-error
+      // @ts-expect-error TS2339
       const chats = Store.getState().chats.filter((chat) => {
         return chat.id !== response.result.id
       })

@@ -1,16 +1,33 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "target": "es2018",
-    "declaration": false,
-    "module": "commonjs",
-    "rootDir": "./src",
-    "baseUrl": "./src",
-    "typeRoots": ["node_modules/@types", "typings/app.d.ts", "typings/images.d.ts"],
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "api/*": ["./src/api/*"],
+      "core": ["./src/core/"],
+      "components/*": ["./src/components/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "pages/*": ["./src/pages/*"],
+      "services/*": ["./src/services/*"],
+      "static/*": ["./static/*"]
+    },
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
-  }
+    "noUnusedParameters": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+  ],
+  "files": [
+    "src/index.ts",
+    "typings/app.d.ts",
+    "typings/images.d.ts"
+  ]
 }

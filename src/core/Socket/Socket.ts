@@ -2,7 +2,7 @@ import { EventBus, Store } from 'core'
 
 class Socket extends EventBus {
   socket: WebSocket | null = null
-  interval: number | null
+  interval: NodeJS.Timer | null
 
   public async connect (userId: number, chatId: number, token: string): Promise<void> {
     if (this.socket != null) {
@@ -36,11 +36,11 @@ class Socket extends EventBus {
       console.log('%cdata recieved', 'background: #222; color: #55dac6', data)
 
       if (Array.isArray(data)) {
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         Store.dispatch({ messages: data })
       } else if (data.type === 'message' && data.content != null) {
         const messages = Store.getState().messages
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         messages.unshift(data)
 
         Store.dispatch({
@@ -50,7 +50,7 @@ class Socket extends EventBus {
     })
 
     socket.addEventListener('error', event => {
-      // @ts-expect-error
+      // @ts-expect-error TS2339: Property 'message' does not exist on type 'Event'.
       console.log('Ошибка', event.message)
       this._removeInterval()
     })

@@ -21,11 +21,10 @@ export class EditProfilePage extends Block<EditProfilePageProps> {
   static componentName = 'EditProfilePage'
 
   protected render (): string {
-    // @ts-expect-error
-    const user = Store.getState().user as User
+    const user = Store.getState().user as unknown as User
     Object.entries(user).forEach(([key, value]) => {
       if (value == null) {
-        // @ts-expect-error
+        // @ts-expect-error TS7053
         user[key] = ''
       }
     })

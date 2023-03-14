@@ -1,5 +1,5 @@
 import { registerComponent, renderDOM, Router, Store } from 'core'
-import { initAppService } from './services/initAppService'
+import { initAppService } from 'services/initAppService'
 
 // region Import pages
 import AuthPage from './pages/auth'
@@ -52,12 +52,12 @@ import MessageBox from './modules/messageBox'
 import MessageBoxError from './modules/messageBox/__error'
 import MessageBoxField from './modules/messageBox/__field'
 import MessageBoxButton from './modules/messageBox/__sendButton'
+import { type BlockConstructable } from './core/registerComponent'
 // endregion
 
 // region Register components
 registerComponent(AppLoader)
-// @ts-expect-error
-registerComponent(Avatar)
+registerComponent(Avatar as unknown as BlockConstructable<unknown>)
 registerComponent(AvatarModal)
 registerComponent(Modal)
 registerComponent(Button)
@@ -76,18 +76,15 @@ registerComponent(InlineInputError)
 
 // region Register modules
 // ChatSidebar
-// @ts-expect-error
-registerComponent(ChatSidebar)
+registerComponent(ChatSidebar as unknown as BlockConstructable<unknown>)
 registerComponent(SidebarHeader)
 registerComponent(SidebarSearch)
 registerComponent(SidebarChat)
 registerComponent(ChatSidebarModal)
 // ChatMainWindow
-// @ts-expect-error
-registerComponent(ChatMainWindow)
+registerComponent(ChatMainWindow as unknown as BlockConstructable<unknown>)
 registerComponent(MainWindowHeader)
-// @ts-expect-error
-registerComponent(MainWindowContent)
+registerComponent(MainWindowContent as unknown as BlockConstructable<unknown>)
 registerComponent(MainWindowMessage)
 registerComponent(RemoveUserModal)
 registerComponent(AddUserModal)
