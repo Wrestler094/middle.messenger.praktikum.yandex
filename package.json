@@ -31,8 +31,7 @@
     "fix:ts": "eslint --fix ./src/ --ext .ts",
     "fix:css": "stylelint --fix \"**/*.css\"",
     "prepare": "husky install",
-    "precommit": "npm run lint && npm run test",
-    "prepush": "npm run lint && npm run test"
+    "precommit": "npm run lint && npm run test"
   },
   "dependencies": {
     "express": "4.18.2",
