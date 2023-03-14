@@ -3,21 +3,8 @@
   "version": "1.0.0",
   "license": "ISC",
   "author": "Mikhail Kovalev",
-  "description": "middle.messenger.praktikum.yandex",
-  "keywords": [
-    "webpack",
-    "docker",
-    "websocket",
-    "typescript"
-  ],
-  "homepage": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex/issues"
-  },
+  "description": "Учебный проект курса «Мидл фронтенд-разработчик» от Яндекс Практикума",
+  "keywords": ["webpack", "docker", "websocket", "typescript"],
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
