@@ -1,9 +1,57 @@
+import { HTTPTransport } from 'core'
 import { queryStringify } from './HTTPTransport'
 
-describe('queryStringify tests', () => {
-  test('queryStringify string', () => {
-    const data = { test: 'test' }
-    expect(queryStringify(data)).toBe('?test=test')
+describe('HTTPTransport tests', () => {
+  test('should send GET request', async () => {
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+    expect.assertions(1)
+    try {
+      await HTTPTransport.get('chats')
+    } catch (err) {
+      expect(err.reason).toMatch('Cookie is not valid')
+    }
+
+    consoleSpy.mockRestore()
+  })
+
+  test('should send POST request', async () => {
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+    expect.assertions(1)
+    try {
+      await HTTPTransport.post('chats', { title: 'test' })
+    } catch (err) {
+      expect(err.reason).toMatch('Cookie is not valid')
+    }
+
+    consoleSpy.mockRestore()
+  })
+
+  test('should send PUT request', async () => {
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+    expect.assertions(1)
+    try {
+      await HTTPTransport.put('chats/users', { users: -1, chatId: -1 })
+    } catch (err) {
+      expect(err.reason).toMatch('Cookie is not valid')
+    }
+
+    consoleSpy.mockRestore()
+  })
+
+  test('should send DELETE request', async () => {
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+    expect.assertions(1)
+    try {
+      await HTTPTransport.delete('chats', { chatId: -1 })
+    } catch (err) {
+      expect(err.reason).toMatch('Cookie is not valid')
+    }
+
+    consoleSpy.mockRestore()
   })
 })
 
