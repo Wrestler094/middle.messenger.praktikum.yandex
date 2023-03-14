@@ -56,14 +56,13 @@ export default abstract class Block<P extends Record<string, any> = any> {
   }
 
   _componentDidMount (props: P): void {
-    // @ts-expect-error
+    // @ts-expect-error TS2554: Expected 0 arguments, but got 1.
     this.componentDidMount(props)
   }
 
   componentDidMount (): void {}
 
   _componentDidUpdate (oldProps: P, newProps: P): void {
-    // @ts-expect-error
     const response = this.componentDidUpdate(oldProps, newProps)
     if (!response) {
       return
@@ -71,8 +70,8 @@ export default abstract class Block<P extends Record<string, any> = any> {
     this._render()
   }
 
-  componentDidUpdate (): boolean {
-    return true
+  componentDidUpdate (oldProps: P, newProps: P): boolean {
+    return oldProps !== newProps
   }
 
   _componentWillUnmount (): void {
@@ -203,7 +202,7 @@ export default abstract class Block<P extends Record<string, any> = any> {
       const layoutContent = content.querySelector('[data-layout="1"]')
 
       if ((Boolean(layoutContent)) && stubChilds.length > 0) {
-        // @ts-expect-error
+        // @ts-expect-error TS2461: Type 'NodeListOf  | never[]' is not an array type.
         layoutContent?.append(...stubChilds)
       }
     })

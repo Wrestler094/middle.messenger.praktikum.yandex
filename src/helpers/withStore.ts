@@ -1,11 +1,11 @@
-import { Block, Store } from 'core'
+import { type Block, Store } from 'core'
 
 interface WithStateProps { store: AppState }
 
 export function withStore<P extends WithStateProps> (WrappedBlock: Block<P>): Block<Omit<P, 'store'>> {
   // @ts-expect-error No base constructor has the specified
   return class extends WrappedBlock<P> {
-    // @ts-expect-error
+    // @ts-expect-error TS2576
     public static componentName = WrappedBlock.componentName
 
     constructor (props: P) {
@@ -19,13 +19,13 @@ export function withStore<P extends WithStateProps> (WrappedBlock: Block<P>): Bl
 
     componentDidMount (props: P): void {
       super.componentDidMount(props)
-      // @ts-expect-error
+      // @ts-expect-error TS2339
       Store.on('changed', this.__onChangeStoreCallback)
     }
 
     componentWillUnmount (): void {
       super.componentWillUnmount()
-      // @ts-expect-error
+      // @ts-expect-error TS2339
       Store.off('changed', this.__onChangeStoreCallback)
     }
   } as Block<Omit<P, 'store'>>

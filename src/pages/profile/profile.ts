@@ -14,8 +14,7 @@ interface ProfilePageProps {
 
 export class ProfilePage extends Block<ProfilePageProps> {
   constructor () {
-    // @ts-expect-error
-    const user = Store.getState().user as User
+    const user = Store.getState().user as unknown as User
 
     super({
       email: user.email,

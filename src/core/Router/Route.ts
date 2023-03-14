@@ -1,12 +1,12 @@
-import { Block, renderDOM } from 'core'
+import { type Block, renderDOM } from 'core'
 
 export default class Route {
   private _pathname: string
-  private readonly _blockClass: Function & { prototype: Block }
+  private readonly _blockClass: { prototype: Block }
   private readonly _props: Record<string, any>
   private _block: any
 
-  constructor (pathname: string, view: Function & { prototype: Block }, props: Record<string, any>) {
+  constructor (pathname: string, view: { prototype: Block }, props: Record<string, any>) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
@@ -34,7 +34,7 @@ export default class Route {
 
   render (): void {
     if (this._block == null) {
-      // @ts-expect-error
+      // @ts-expect-error TS2351: This expression is not constructable.
       this._block = new this._blockClass()
       renderDOM(this._props.rootQuery, this._block)
     }

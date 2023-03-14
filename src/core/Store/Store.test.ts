@@ -12,7 +12,7 @@ describe('Store tests', () => {
   })
 
   it('Store set state', () => {
-    // @ts-expect-error
+    // @ts-expect-error TS2322
     Store.set({ activeChatId: 123 })
 
     expect(Store.getState()).toEqual({
@@ -25,7 +25,7 @@ describe('Store tests', () => {
   })
 
   it('Store dispatch state', () => {
-    // @ts-expect-error
+    // @ts-expect-error TS2322
     Store.dispatch({ activeChatId: 123 })
 
     expect(Store.getState()).toEqual({
@@ -43,7 +43,7 @@ describe('Store tests', () => {
 
     store.on('changed', mock)
 
-    // @ts-expect-error
+    // @ts-expect-error TS2322
     store.set({ activeChatId: 123 })
 
     expect(mock).toHaveBeenCalled()

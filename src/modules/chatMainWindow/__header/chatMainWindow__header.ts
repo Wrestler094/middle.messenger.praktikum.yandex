@@ -16,8 +16,8 @@ interface MainWindowHeaderProps {
 export class MainWindowHeader extends Block<MainWindowHeaderProps> {
   constructor () {
     const store = Store.getState()
-    // @ts-expect-error
-    const currentChat = store.chats.find((chat) => chat.id === store.activeChatId)
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const currentChat = (store.chats as unknown as Chat[]).find((chat) => chat.id === store.activeChatId)!
     const avatar = currentChat.avatar != null
       ? 'https://ya-praktikum.tech/api/v2/resources' + String(currentChat.avatar)
       : defaultAvatar
