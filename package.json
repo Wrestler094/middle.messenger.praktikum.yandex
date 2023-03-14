@@ -50,7 +50,6 @@
     "jest": "27.5.1",
     "jest-environment-jsdom": "27.5.1",
     "mini-css-extract-plugin": "2.7.3",
-    "prettier": "2.8.4",
     "style-loader": "3.3.2",
     "stylelint": "15.2.0",
     "stylelint-config-standard": "30.0.1",
