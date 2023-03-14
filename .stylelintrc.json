@@ -12,6 +12,7 @@
     "dist/*",
     "node_modules/*",
     ".parcel-cache/*",
-    ".github/*"
+    ".github/*",
+    "coverage/*"
   ]
 }
