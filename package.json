@@ -15,6 +15,12 @@
     "fix:ts": "eslint --fix ./src/ --ext .ts",
     "fix:css": "stylelint --fix \"**/*.css\""
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
@@ -52,6 +58,7 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-webpack-plugin": "4.0.0",
     "html-webpack-plugin": "5.5.0",
+    "husky": "8.0.3",
     "jest": "27.5.1",
     "jest-environment-jsdom": "27.5.1",
     "mini-css-extract-plugin": "2.7.2",
