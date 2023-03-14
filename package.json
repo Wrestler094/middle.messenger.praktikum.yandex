@@ -1,7 +1,23 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
+  "license": "ISC",
+  "author": "Mikhail Kovalev",
   "description": "middle.messenger.praktikum.yandex",
+  "keywords": [
+    "webpack",
+    "docker",
+    "websocket",
+    "typescript"
+  ],
+  "homepage": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex/issues"
+  },
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -14,31 +30,10 @@
     "fix": "npm run fix:ts && npm run fix:css",
     "fix:ts": "eslint --fix ./src/ --ext .ts",
     "fix:css": "stylelint --fix \"**/*.css\"",
+    "prepare": "husky install",
     "precommit": "npm run lint && npm run test",
     "prepush": "npm run lint && npm run test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit",
-      "pre-push": "npm run prepush"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Wrestler094/middle.messenger.praktikum.yandex.git"
-  },
-  "keywords": [
-    "webpack",
-    "docker",
-    "websocket",
-    "typescript"
-  ],
-  "author": "Mikhail Kovalev",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex/issues"
-  },
-  "homepage": "https://github.com/Wrestler094/middle.messenger.praktikum.yandex#readme",
   "dependencies": {
     "express": "4.18.2",
     "handlebars": "4.7.7",
