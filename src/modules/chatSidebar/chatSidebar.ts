@@ -93,6 +93,6 @@ class ChatSidebar extends Block<ChatSidebarProps> {
   }
 }
 
-// @ts-expect-error
+// @ts-expect-error Block<WithStateProps>
 const ComposedChatSidebar = withStore(ChatSidebar)
 export { ComposedChatSidebar as ChatSidebar }

@@ -1,4 +1,4 @@
-import { validateForm, ValidateRuleType } from 'helpers/validateForm'
+import { validateForm, type ValidateRuleType } from 'helpers/validateForm'
 
 export default function blurHandler (evt: FocusEvent, ctx: Record<string, any>): void {
   const evtTarget = evt.target as HTMLInputElement

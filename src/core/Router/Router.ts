@@ -1,4 +1,4 @@
-import { Route, Store, Block } from 'core'
+import { Route, Store, type Block } from 'core'
 
 class Router {
   private static __instance: Router
@@ -15,7 +15,7 @@ class Router {
     Router.__instance = this
   }
 
-  use (pathname: string, block: Function & { prototype: Block }, isProtect: boolean = false): Router {
+  use (pathname: string, block: { prototype: Block }, isProtect: boolean = false): Router {
     const route = new Route(pathname, block, { rootQuery: this._rootQuery, isProtect })
 
     this.routes.push(route)

@@ -52,7 +52,7 @@ import MessageBox from './modules/messageBox'
 import MessageBoxError from './modules/messageBox/__error'
 import MessageBoxField from './modules/messageBox/__field'
 import MessageBoxButton from './modules/messageBox/__sendButton'
-import { BlockConstructable } from './core/registerComponent'
+import { type BlockConstructable } from './core/registerComponent'
 // endregion
 
 // region Register components

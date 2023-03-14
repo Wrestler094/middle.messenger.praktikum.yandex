@@ -1,5 +1,5 @@
 import * as Handlebars from 'handlebars'
-import { HelperOptions } from 'handlebars'
+import { type HelperOptions } from 'handlebars'
 
 export interface BlockConstructable<Props = any> {
   new(props: Props): any

@@ -12,25 +12,22 @@ interface AvatarClassProps {
 }
 
 interface AvatarProps {
-  store: AppState
+  store: typeof Store
   onClick: (evt: MouseEvent) => void
 }
 
 class Avatar extends Block<AvatarClassProps> {
   constructor ({ store, onClick }: AvatarProps) {
-    // @ts-expect-error
-    const user = store.getState()?.user
-    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+    const user = (store.getState() as AppState)?.user as User
     const avatar = user?.avatar != null ? 'https://ya-praktikum.tech/api/v2/resources' + user?.avatar : defaultAvatar
+
     super({ user, avatar, events: { click: onClick } })
   }
 
   static componentName = 'Avatar'
 
   __onChangeStoreCallback = (): void => {
-    // @ts-expect-error
-    const avatar = Store.getState()?.user?.avatar
-    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+    const avatar = (Store.getState()?.user as unknown as User)?.avatar
     this.props.avatar = avatar != null ? 'https://ya-praktikum.tech/api/v2/resources' + avatar : defaultAvatar
     this.setProps({ ...this.props })
   }
@@ -45,6 +42,6 @@ class Avatar extends Block<AvatarClassProps> {
   }
 }
 
-// @ts-expect-error
+// @ts-expect-error Block<WithStateProps>
 const ComposedAvatar = withStore(Avatar)
 export { ComposedAvatar as Avatar }

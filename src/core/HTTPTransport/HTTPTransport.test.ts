@@ -98,25 +98,25 @@ describe('queryStringify tests', () => {
 
   test('queryStringify wrong input - string', () => {
     const data = 'wrongInput'
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow(Error)
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow('Data must be object')
   })
 
   test('queryStringify wrong input - null', () => {
     const data = null
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow(Error)
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow('Data must be object')
   })
 
   test('queryStringify wrong input - undefined', () => {
     const data = undefined
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow(Error)
-    // @ts-expect-error
+    // @ts-expect-error TS2345 / Test wrong input
     expect(() => { queryStringify(data) }).toThrow('Data must be object')
   })
 })

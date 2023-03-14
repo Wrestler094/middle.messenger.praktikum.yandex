@@ -11,13 +11,12 @@ class MainWindowContent extends Block<Record<string, never>> {
   }
 
   protected render (): string {
-    // @ts-expect-error
-    const messages = this.props.store.messages
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const messages = (this.props.store as AppState).messages!
 
     if (messages?.length > 0) {
       messages.forEach((message: any) => {
-        // @ts-expect-error
-        message.author = message.user_id === this.props.store.user.id
+        message.author = message.user_id === (this.props.store as AppState).user?.id
       })
 
       // language=hbs
@@ -42,6 +41,6 @@ class MainWindowContent extends Block<Record<string, never>> {
   }
 }
 
-// @ts-expect-error
+// @ts-expect-error Block<WithStateProps>
 const ComposedMainWindowContent = withStore(MainWindowContent)
 export { ComposedMainWindowContent as MainWindowContent }

@@ -25,7 +25,7 @@ describe('Block tests', () => {
 
   test('should set new props', () => {
     testPage.setProps({ test: 'test' })
-    // @ts-expect-error
+    // @ts-expect-error TS2445: Property 'props' is protected
     expect(testPage.props.test).toEqual('test')
   })
 
