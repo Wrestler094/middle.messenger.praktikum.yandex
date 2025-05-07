@@ -55,5 +55,5 @@
 
 ## Контактная инфомрация
 
-- Telegram: @wrestler7z
+- Telegram: @wrestler094
 - E-mail: kovalev094@gmail.com
